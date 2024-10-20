@@ -1,0 +1,191 @@
+formats:
+  R:
+    rd: [7, 11]
+    rs1: [15, 19]
+    rs2: [20, 24]
+    # f7: [25, 31]
+
+  I:
+    rd: [7, 11]
+    rs1: [15, 19]
+    imm: [20, 31] 
+
+  U:
+    rd: [7, 11]
+    imm: [12, 31]
+
+  S: 
+    imm: [7, 11, 25, 31]
+    rs1: [15, 19]
+    rs2: [20, 24]
+
+  # B: 
+  #   args: rs1, rs2, imm
+  #   f3: "{f3}"
+
+  # J:
+  #   args: imm
+  #   dest: rd
+
+instructions:
+  LUI:
+    format: U
+    opcode: 55
+    log: load upper immediate
+
+  AUIPC:
+    format: U
+    opcode: 23
+    log: add upper immediate to pc
+
+  ADDI:
+    format: I
+    opcode: 19
+    f3: 0
+    operator: '+'
+    log: add immediate
+
+  ORI:
+    format: I
+    opcode: 19
+    f3: 6
+    operator: '|'
+  
+  SLTI:
+    format: I
+    opcode: 19
+    f3: 2
+    operator: '<s'
+    log: set less than immediate
+
+  ANDI:
+    format: I
+    opcode: 19
+    f3: 7
+    operator: '&'
+
+  XORI:
+    format: I
+    opcode: 19
+    f3: 4
+    operator: '^'
+
+  SLLI:
+    format: I
+    opcode: 19
+    f3: 1
+    operator: '<<'
+
+  SRLI:
+    format: I
+    opcode: 19
+    f3: 5
+    operator: '>>'
+
+  SRAI:
+    format:
+    opcode: 
+    f3:
+    operator:
+
+  LB:
+    format: I
+    opcode: 3
+    f3: 0
+    operator: 
+
+  LH:
+    format: I
+    opcode: 3
+    f3: 1
+    operator:
+
+  LW:
+    format: I
+    opcode: 3
+    f3: 2
+    operator:
+
+  LBU:
+    format: I
+    opcode: 3
+    f3: 4
+    operator:
+
+  LHU:
+    format: I
+    opcode: 3
+    f3: 5
+    operator:
+
+  ADD:
+    format: R
+    opcode: 51
+    f3: 0
+    f7: 0
+    operator: '+'
+
+  SUB:
+    format: R
+    opcode: 51
+    f3: 0
+    f7: 32
+    operator: '-'
+
+  SLL:
+    format: R
+    opcode: 51
+    f3: 1
+    f7: 0
+    operator: '<<' 
+
+  SLT:
+    format: R
+    opcode: 51
+    f3: 2
+    f7: 0
+    operator: '<s'
+
+  SLTU:
+    format: R
+    opcode: 51
+    f3: 3
+    f7: 0
+    operator: '<u'
+
+  XOR:
+    format: R
+    opcode: 51
+    f3: 4
+    f7: 0
+    operator: '<'
+
+  SRL:
+    format: R
+    opcode: 51
+    f3: 5
+    f7: 0
+    operator: '>>u'
+
+  SRA:
+    format: R
+    opcode: 51
+    f3: 5
+    f7: 32
+    operator: '>>s'
+
+  OR:
+    format: R
+    opcode: 51
+    f3: 6
+    f7: 0
+    operator: '|'
+
+  AND:
+    format: R
+    opcode: 51
+    f3: 7
+    f7: 0
+    operator: '&'
+
+  
