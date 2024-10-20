@@ -1,0 +1,27 @@
+#include <cstdint>
+<% instruction_set = InstructionSet.new('riscv_instructions.yaml')%>
+<% format_args = instruction_set.get_args('I')%>
+<% instruction_set.find_by_format('I').each do |instruction_name, details| %>
+void <%= instruction_name %> (int32_t instruction_code)
+{ 
+    uint32_t rd, rs1, imm;
+    rd = (instruction_code & <%= format_args['rd'][1] %>) >> <%= format_args['rd'][0] %>;
+    rs1 = (instruction_code & <%= format_args['rs1'][1] %>) >> <%= format_args['rs1'][0] %>;
+    imm = (instruction_code & <%= format_args['imm'][1] %>) >> <%= format_args['imm'][0] %>;
+
+    set_reg(get_reg(rs1) <%= details['operator'] %> imm); 
+}
+<% end %>
+
+<% format_args = instruction_set.get_args('R')%>  
+<% instruction_set.find_by_format('R').each do |instruction_name, details| %>
+void <%= instruction_name %> (int64_t instruction_code)
+{
+  uint64_t rd, rs1, rs2;
+  rd = (instruction_code & <%= format_args['rd'][1] %>) >> <%= format_args['rd'][0] %>;
+  rs1 = (instruction_code & <%= format_args['rs1'][1] %>) >> <%= format_args['rs1'][0] %>;
+  rs2 = (instruction_code & <%= format_args['rs2'][1] %>) >> <%= format_args['rs2'][0] %>;
+
+  set_reg(get_reg(rs1) <%= details['operator'] %> get_reg(rs2)); 
+}
+<%end%>
