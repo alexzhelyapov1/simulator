@@ -20,5 +20,5 @@ add_subdirectory(${LOADER_ROOT_DIR})
 
 add_custom_target(clang-force-format
     COMMAND find "${INSTRUCTIONS_MAP_ROOT_DIR}" "${MACHINE_ROOT_DIR}" "${LOADER_ROOT_DIR}"
-                -name "*.cpp" -exec clang-format -i {} +
+                -name "*.cpp" -exec clang-format -style='{ColumnLimit: 120}' -i {} +
 )
