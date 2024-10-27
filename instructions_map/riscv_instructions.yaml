@@ -3,39 +3,53 @@ formats:
     rd: [7, 11]
     rs1: [15, 19]
     rs2: [20, 24]
-    # f7: [25, 31]
+    opcode: [0, 6]
+    f3: [12, 14] 
+    f7: [25, 31]
 
   I:
     rd: [7, 11]
     rs1: [15, 19]
-    imm: [20, 31] 
-
-  U:
-    rd: [7, 11]
-    imm: [12, 31]
+    imm: [20, 31]
+    opcode: [0, 6]
+    f3: [12, 14]
+    shamt: [26, 31]
 
   S: 
     imm: [7, 11, 25, 31]
     rs1: [15, 19]
     rs2: [20, 24]
+    opcode: [0, 6]
+    f3: [12, 14]
 
-  # B: 
-  #   args: rs1, rs2, imm
-  #   f3: "{f3}"
+  U:
+    rd: [7, 11]
+    imm: [12, 31]
+    opcode: [0, 6]
 
-  # J:
-  #   args: imm
-  #   dest: rd
+  B: 
+    rs1: [15, 19]
+    rs2: [20, 24]
+    imm: [7, 8, 11, 25, 30, 31]
+    opcode: [0, 6]
+    f3: [12, 14]
+
+  J:
+    rd: [7, 11]
+    imm: [12, 19, 20, 21, 30, 31]
+    opcode: [0, 6]
 
 instructions:
   LUI:
     format: U
     opcode: 55
+    preop:
     log: load upper immediate
 
   AUIPC:
     format: U
     opcode: 23
+    preop: "get_pc() + "
     log: add upper immediate to pc
 
   ADDI:
@@ -45,24 +59,21 @@ instructions:
     operator: '+'
     log: add immediate
 
-  ORI:
-    format: I
-    opcode: 19
-    f3: 6
-    operator: '|'
-  
   SLTI:
     format: I
     opcode: 19
     f3: 2
-    operator: '<s'
+    operator: '<'
+    afterop: '? 1 : 0'
     log: set less than immediate
 
-  ANDI:
+  SLTIU:
     format: I
     opcode: 19
-    f3: 7
-    operator: '&'
+    f3: 3
+    operator: '<'
+    afterop: '? 1 : 0'
+    type: uint64_t
 
   XORI:
     format: I
@@ -70,23 +81,40 @@ instructions:
     f3: 4
     operator: '^'
 
+  ORI:
+    format: I
+    opcode: 19
+    f3: 6
+    operator: '|'
+  
+  ANDI:
+    format: I
+    opcode: 19
+    f3: 7
+    operator: '&'
+ 
   SLLI:
     format: I
     opcode: 19
     f3: 1
     operator: '<<'
+    type: uint64_t
+    shamt: 0
 
   SRLI:
     format: I
     opcode: 19
     f3: 5
     operator: '>>'
+    type: uint64_t
+    shamt: 0
 
   SRAI:
-    format:
-    opcode: 
-    f3:
-    operator:
+    format: I
+    opcode: 19 
+    f3: 5
+    operator: '>>'
+    shamt: 16
 
   LB:
     format: I

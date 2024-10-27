@@ -1,27 +1,47 @@
 #include <cstdint>
+#include <map>
+#include <functional>
+//get_reg, set_reg - по умолчанию возвращают int64_t
+//логический сдвиг в с++ - для беззнаковых, арифметический - для знаковых
+using InstructionHandler = std::function<void(uint64_t)>;
 <% instruction_set = InstructionSet.new('riscv_instructions.yaml')%>
+std::map<uint32_t, InstructionHandler> instruction_map = {
+<%= instruction_set.generate_map %>
+};
 <% format_args = instruction_set.get_args('I')%>
 <% instruction_set.find_by_format('I').each do |instruction_name, details| %>
-void <%= instruction_name %> (int32_t instruction_code)
-{ 
-    uint32_t rd, rs1, imm;
-    rd = (instruction_code & <%= format_args['rd'][1] %>) >> <%= format_args['rd'][0] %>;
-    rs1 = (instruction_code & <%= format_args['rs1'][1] %>) >> <%= format_args['rs1'][0] %>;
-    imm = (instruction_code & <%= format_args['imm'][1] %>) >> <%= format_args['imm'][0] %>;
-
-    set_reg(get_reg(rs1) <%= details['operator'] %> imm); 
+void <%= instruction_name %> (uint64_t instruction_code) { 
+  <%=details.key?('type') ? details['type'] : 'int64_t'%> imm;
+  int rd, rs1;
+  rd = (instruction_code & <%= format_args['rd'][:mask] %>) >> <%= format_args['rd'][:start_bit] %>;
+  rs1 = (instruction_code & <%= format_args['rs1'][:mask] %>) >> <%= format_args['rs1'][:start_bit] %>;
+  imm = (instruction_code & <%= format_args['imm'][:mask] %>) >> <%= format_args['imm'][:start_bit] %>;
+  
+  set_reg(rd, <%=details.key?('type') ? '(int64_t)' : ''%>(<%=details.key?('type') ? '(uint64_t)' : ''%>(get_reg(rs1)) <%= details['operator'] %> <%= details.key?('shamt') ? '(imm & 0x3F)' : 'imm' %> <%= details['afterop']%>)); 
 }
 <% end %>
 
 <% format_args = instruction_set.get_args('R')%>  
 <% instruction_set.find_by_format('R').each do |instruction_name, details| %>
-void <%= instruction_name %> (int64_t instruction_code)
-{
-  uint64_t rd, rs1, rs2;
-  rd = (instruction_code & <%= format_args['rd'][1] %>) >> <%= format_args['rd'][0] %>;
-  rs1 = (instruction_code & <%= format_args['rs1'][1] %>) >> <%= format_args['rs1'][0] %>;
-  rs2 = (instruction_code & <%= format_args['rs2'][1] %>) >> <%= format_args['rs2'][0] %>;
+void <%= instruction_name %> (uint64_t instruction_code) {
+  int64_t rd, rs1, rs2;
+  rd = (instruction_code & <%= format_args['rd'][:mask] %>) >> <%= format_args['rd'][:start_bit] %>;
+  rs1 = (instruction_code & <%= format_args['rs1'][:mask] %>) >> <%= format_args['rs1'][:start_bit] %>;
+  rs2 = (instruction_code & <%= format_args['rs2'][:mask] %>) >> <%= format_args['rs2'][:start_bit] %>;
 
-  set_reg(get_reg(rs1) <%= details['operator'] %> get_reg(rs2)); 
+  set_reg(rd, get_reg(rs1) <%= details['operator'] %> get_reg(rs2)); 
 }
 <%end%>
+
+<% format_args = instruction_set.get_args('U')%>  
+<% instruction_set.find_by_format('U').each do |instruction_name, details| %>
+void <%= instruction_name %> (uint64_t instruction_code) {
+  int64_t rd, imm;
+  rd = (instruction_code & <%= format_args['rd'][:mask] %>) >> <%= format_args['rd'][:start_bit] %>;
+  imm = (instruction_code & <%= format_args['imm'][:mask] %>) >> <%= format_args['imm'][:start_bit] %>;
+
+  set_reg(rd, <%= details['preop'] %> imm << 12);
+}
+<%end%>
+
+
