@@ -16,8 +16,29 @@ void <%= instruction_name %> (uint64_t instruction_code) {
   rd = (instruction_code & <%= format_args['rd'][:mask] %>) >> <%= format_args['rd'][:start_bit] %>;
   rs1 = (instruction_code & <%= format_args['rs1'][:mask] %>) >> <%= format_args['rs1'][:start_bit] %>;
   imm = (instruction_code & <%= format_args['imm'][:mask] %>) >> <%= format_args['imm'][:start_bit] %>;
-  
-  set_reg(rd, <%=details.key?('type') ? '(int64_t)' : ''%>(<%=details.key?('type') ? '(uint64_t)' : ''%>(get_reg(rs1)) <%= details['operator'] %> <%= details.key?('shamt') ? '(imm & 0x3F)' : 'imm' %> <%= details['afterop']%>)); 
+  <%
+  type_cast = details.key?('type') ? '(int64_t)' : ''
+  uint_cast = details.key?('type') ? '(uint64_t)' : ''
+  shamt_expr = details.key?('shamt') ? '(imm & 0x3F)' : 'imm'
+  if details.key?('load')
+    parts = ["set_reg(rd, (int64_t)load_mem((get_reg(rs1) + imm), ", details['load'], "));"]
+  else
+    parts = [
+      "set_reg(rd, ",
+      type_cast,
+      "(",
+      uint_cast,
+      "(get_reg(rs1)) ",
+      details['operator'],
+      " ",
+      shamt_expr,
+      " ",
+      details['afterop'],
+      "));"
+    ]
+  end
+  %>
+  <%= parts.join('') %>
 }
 <% end %>
 

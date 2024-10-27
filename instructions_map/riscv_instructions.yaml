@@ -109,7 +109,7 @@ instructions:
     type: uint64_t
     shamt: 0
 
-  SRAI:
+  SRAI: 
     format: I
     opcode: 19 
     f3: 5
@@ -120,31 +120,36 @@ instructions:
     format: I
     opcode: 3
     f3: 0
-    operator: 
+    operator: '+'
+    load: 8
 
   LH:
     format: I
     opcode: 3
     f3: 1
-    operator:
+    operator: '+'
+    load: 16
 
   LW:
     format: I
     opcode: 3
     f3: 2
-    operator:
+    operator: '+'
+    load: 32
 
   LBU:
     format: I
     opcode: 3
     f3: 4
-    operator:
+    operator: '+'
+    load: 8
 
   LHU:
     format: I
     opcode: 3
     f3: 5
-    operator:
+    operator: '+'
+    load: 16
 
   ADD:
     format: R
