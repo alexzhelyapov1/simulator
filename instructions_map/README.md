@@ -1,1 +1,31 @@
 ## TODO (instructions map generation):
+We use RV32I + RV64I + RV64M (to be able to use multiplication and division)
+
+Instructions that have not yet been implemented:
+JAL JALR
+BEQ BNE BLT BGE BLTU BGEU
+FENCE FENCE.I
+CSRRW CSRRS CSRRC CSRRWI CSRRSI CSRRCI 
+ECALL EBREAK
+URET SRET MRET
+WFI SFENCE.VMA
+
+64I:
+ADDIW
+SLLIW SRLIW SRAIW
+ADDW SUBW
+SLLW SRLW SRAW
+LWU LD
+SD
+
+32-64 M:
+MUL MULH MULHSU 
+DIV DIVU
+REM REMU
+
+MULW 
+DIVW DIVUW 
+REMW REMUW
+
+
+

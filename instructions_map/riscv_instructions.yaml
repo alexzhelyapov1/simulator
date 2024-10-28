@@ -16,7 +16,8 @@ formats:
     shamt: [26, 31]
 
   S: 
-    imm: [7, 11, 25, 31]
+    imm_1: [7, 11]
+    imm_2: [25, 31]
     rs1: [15, 19]
     rs2: [20, 24]
     opcode: [0, 6]
@@ -30,13 +31,13 @@ formats:
   B: 
     rs1: [15, 19]
     rs2: [20, 24]
-    imm: [7, 8, 11, 25, 30, 31]
+    imm: [7, 31]
     opcode: [0, 6]
     f3: [12, 14]
 
   J:
     rd: [7, 11]
-    imm: [12, 19, 20, 21, 30, 31]
+    imm: [12, 31]
     opcode: [0, 6]
 
 instructions:
@@ -171,41 +172,46 @@ instructions:
     f3: 1
     f7: 0
     operator: '<<' 
+    type: uint64_t
 
   SLT:
     format: R
     opcode: 51
     f3: 2
     f7: 0
-    operator: '<s'
+    operator: '<'
+    afterop: '? 1 : 0'
 
   SLTU:
     format: R
     opcode: 51
     f3: 3
     f7: 0
-    operator: '<u'
+    operator: '<'
+    afterop: '? 1 : 0'
+    type: uint64_t
 
   XOR:
     format: R
     opcode: 51
     f3: 4
     f7: 0
-    operator: '<'
+    operator: '^'
 
   SRL:
     format: R
     opcode: 51
     f3: 5
     f7: 0
-    operator: '>>u'
+    operator: '>>'
+    type: uint64_t
 
   SRA:
     format: R
     opcode: 51
     f3: 5
     f7: 32
-    operator: '>>s'
+    operator: '>>'
 
   OR:
     format: R
@@ -221,4 +227,169 @@ instructions:
     f7: 0
     operator: '&'
 
-  
+  SB:
+    format: S
+    opcode: 35
+    f3: 0
+    store: 8
+
+  SH:
+    format: S
+    opcode: 35
+    f3: 1
+    store: 16
+
+  SW:
+    format: S
+    opcode: 35
+    f3: 2
+    store: 32
+
+  JAL:
+    format: J
+    opcode: 111
+
+  JALR:
+    format: J
+    opcode: 103
+
+  # BEQ:
+  #   format: B
+  #   opcode:
+
+  # BNE:
+  #   format: B
+  #   opcode:
+
+  # BLT:
+  #   format: B
+  #   opcode:
+
+  # BGE:
+  #   format: B
+  #   opcode:
+
+  # BLTU:
+  #   format: B
+  #   opcode:
+
+  # BGEU:
+  #   format: B
+  #   opcode:
+
+  # FENCE:
+  #   format:
+
+  # FENCE.I:
+  #   format:
+
+  # CSRRW:
+  #   format:
+
+  # CSRRS:
+  #   format:
+
+  # CSRRC:
+  #   format:
+
+  # CSRRWI:
+  #   format:
+
+  # CSRRSI:
+  #   format:
+
+  # CSRRCI:
+  #   format:
+
+  # ECALL:
+  #   format:
+
+  # EBREAK:
+  #   format:
+
+  # URET:
+  #   format:
+
+  # SRET:
+  #   format:
+
+  # MRET:
+  #   format:
+
+  # WFI:
+  #   format:
+
+  # SFENCE.VMA:
+  #   format:
+
+  # ADDIW:
+  #   format:
+
+  # SLLIW: 
+  #   format:
+
+  # SRLIW: 
+  #   format:
+
+  # SRAIW:
+  #   format:
+
+  # ADDW: 
+  #   format:
+
+  # SUBW:
+  #   format:
+
+  # SLLW: 
+  #   format:
+
+  # SRLW: 
+  #   format:
+
+  # SRAW:
+  #   format:
+
+  # LWU: 
+  #   format:
+
+  # LD:
+  #   format:
+
+  # SD:
+  #   format:
+
+  # MUL:
+  #   format:
+
+  # MULH: 
+  #   format:
+
+  # MULHSU:
+  #   format:
+
+  # DIV: 
+  #   format:
+
+  # DIVU:
+  #   format:
+
+  # REM: 
+  #   format:
+
+  # REMU:
+  #   format:
+
+  # MULW:
+  #   format:
+
+  # DIVW: 
+  #   format:
+
+  # DIVUW:
+  #   format:
+
+  # REMW: 
+  #   format:
+
+  # REMUW:
+  #   format:
