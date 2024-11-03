@@ -143,5 +143,18 @@ void <%=insts_name%> (uint64_t instruction_code) {
   <%= parts.join('') %>
 }
 <%end%>
+//B-type
+<% format_args = instruction_set.get_args('B')
+instruction_set.find_by_format('B').each do |insts_name, details| %>
+void <%=insts_name%> (uint64_t instruction_code) {
+  uint64_t rs1, rs2;
+  rs1 = (instruction_code & <%= format_args['rs1'][:mask] %>) >> <%= format_args['rs1'][:start_bit] %>;
+  rs2 = (instruction_code & <%= format_args['rs2'][:mask] %>) >> <%= format_args['rs2'][:start_bit] %>;
 
+  // как собрать offset?
+  // imm собрано + либо знаковое либо не знаково расширено
+  
+  if (get_reg(rs1) <%details['operator']%> get_reg(rs2)) set_pc(get_pc() + imm);
+}
+<%end%>
 

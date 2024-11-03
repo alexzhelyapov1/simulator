@@ -257,32 +257,48 @@ instructions:
     format: J
     opcode: 103
     f3: 0
-    
+  
+  BEQ:
+    format: B
+    opcode: 99
+    f3: 0
+    type: signed
+    operator: '=='
 
+  BNE:
+    format: B
+    opcode: 99
+    f3: 1
+    type: signed
+    operator: '!='
 
-  # BEQ:
-  #   format: B
-  #   opcode:
+  BLT:
+    format: B
+    opcode: 99
+    f3: 4
+    type: signed
+    operator: '<s'
 
-  # BNE:
-  #   format: B
-  #   opcode:
+  BGE:
+    format: B
+    opcode: 99
+    f3: 5
+    type: signed
+    operator: '>='
 
-  # BLT:
-  #   format: B
-  #   opcode:
+  BLTU:
+    format: B
+    opcode: 99
+    f3: 6
+    type: unsigned
+    operator: '<u'
 
-  # BGE:
-  #   format: B
-  #   opcode:
-
-  # BLTU:
-  #   format: B
-  #   opcode:
-
-  # BGEU:
-  #   format: B
-  #   opcode:
+  BGEU:
+    format: B
+    opcode: 99
+    f3: 7
+    type: unsigned
+    operator: '>=u'
 
   # FENCE:
   #   format:
@@ -329,41 +345,89 @@ instructions:
   # SFENCE.VMA:
   #   format:
 
-  # ADDIW:
-  #   format:
+  ADDIW:
+    format: I
+    opcode: 27
+    f3: 0
+    operator: '+'
 
-  # SLLIW: 
-  #   format:
+  SLLIW: 
+    format: I
+    opcode: 27
+    f3: 1
+    operator: '<<'
+    shamt: 0
 
-  # SRLIW: 
-  #   format:
+  SRLIW: 
+    format: I
+    opcode: 27
+    operator: '>>'
+    f3: 5
+    shamt: 0
+    type: uint64_t
 
-  # SRAIW:
-  #   format:
+  SRAIW:
+    format: I 
+    opcode: 27
+    operator: '>>'
+    f3: 5
+    shamt: 32
 
-  # ADDW: 
-  #   format:
+  ADDW: 
+    format: R
+    opcode: 59
+    operator: '+'
+    f3: 0
+    f7: 0
 
-  # SUBW:
-  #   format:
+  SUBW:
+    format: R
+    opcode: 59
+    operator: '-'
+    f3: 0
+    f7: 32
 
-  # SLLW: 
-  #   format:
+  SLLW: 
+    format: R
+    opcode: 59
+    operator: '<<'
+    f3: 1
+    f7: 0
 
-  # SRLW: 
-  #   format:
+  SRLW: 
+    format: R
+    opcode: 59
+    operator: '>>'
+    f3: 5
+    f7: 0
+    type: uint64_t
 
-  # SRAW:
-  #   format:
+  SRAW:
+    format: R
+    opcode: 59
+    operator: '>>'
+    f3: 5
+    f7: 32
 
-  # LWU: 
-  #   format:
+  LWU: 
+    format: I
+    opcode: 3
+    operator: '+'
+    f3: 6
+    load: 32
 
-  # LD:
-  #   format:
+  LD:
+    format: I
+    opcode: 3
+    operator: '+'
+    f3: 3
+    load: 64
 
-  # SD:
-  #   format:
+  SD:
+    format: S
+    opcode: 35
+    f3: 3
+    store: 64
 
   # MUL:
   #   format:
