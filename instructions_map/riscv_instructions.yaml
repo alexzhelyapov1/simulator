@@ -491,17 +491,21 @@ instructions:
     rs2: uint64_t
     operator: ' / '
 
-  # REM: 
-  #   format: M
-  #   opcode: 51
-  #   f3: 6
-  #   f7: 1
+  REM: 
+    format: M
+    opcode: 51
+    f3: 6
+    f7: 1
+    operator: ' % '
 
-  # REMU:
-  #   format: M
-  #   opcode: 51
-  #   f3: 7
-  #   f7: 1
+  REMU:
+    format: M
+    opcode: 51
+    f3: 7
+    f7: 1
+    operator: ' % '
+    rs1: uint64_t
+    rs2: uint64_t
 
   MULW:
     format: M
@@ -531,14 +535,22 @@ instructions:
     rs1: uint64_t
     rs2: uint64_t
 
-  # REMW: 
-  #   format: 64M 
-  #   opcode: 59
-  #   f3: 6
-  #   f7: 1
+  REMW: 
+    format: M 
+    opcode: 59
+    f3: 6
+    f7: 1
+    operator: ' % '
+    size1: [32, 0]
+    size2: [32, 0]
 
-  # REMUW:
-  #   format: 64M
-  #   opcode: 59
-  #   f3: 7
-  #   f7: 1
+  REMUW:
+    format: M
+    opcode: 59
+    f3: 7
+    f7: 1
+    operator: ' % '
+    size1: [32, 0]
+    size2: [32, 0]
+    rs1: uint64_t
+    rs2: uint64_t
