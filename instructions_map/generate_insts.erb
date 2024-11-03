@@ -110,8 +110,37 @@ void <%=insts_name%> (uint64_t instruction_code) {
 <% format_args = instruction_set.get_args('J')
 instruction_set.find_by_format('J').each do |insts_name, details| %>
 void <%=insts_name%> (uint64_t instruction_code) {
-
+  int64_t imm, rd;
+  rd = (instruction_code & <%= format_args['rd'][:mask] %>) >> <%= format_args['rd'][:start_bit] %>;
+  <% 
+    jtype = details.key?('f3') ? 'offset' : 'imm'
+  %>
+  imm = (instruction_code & <%= format_args[jtype][:mask] %>) >> <%= format_args[jtype][:start_bit] %>;
+  <% 
+    if details.key?('f3') 
+      parts = [
+        'int64_t rs1 = (instruction_code & ',
+        format_args['rs1'][:mask],
+        ') >> ',
+        format_args['rs1'][:start_bit],
+        ';'
+      ]
+    else parts = []
+    end
+  %>
+  <%= parts.join('') %>
   set_reg(rd, get_pc() + 4);
+  <% 
+    if details.key?('f3') 
+      parts = [
+        'set_pc(get_reg(rs1) + imm) & ~1;'
+      ]
+      else parts = [
+        'set_pc(get_pc() + imm);'
+      ]
+    end
+  %>
+  <%= parts.join('') %>
 }
 <%end%>
 

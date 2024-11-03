@@ -38,7 +38,10 @@ formats:
   J:
     rd: [7, 11]
     imm: [12, 31]
+    offset: [20, 31]
     opcode: [0, 6]
+    f3: [12, 14]
+    rs1: [15, 19]
 
 instructions:
   LUI:
@@ -248,10 +251,14 @@ instructions:
   JAL:
     format: J
     opcode: 111
+    log: jump and link
 
   JALR:
     format: J
     opcode: 103
+    f3: 0
+    
+
 
   # BEQ:
   #   format: B
