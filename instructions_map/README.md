@@ -5,8 +5,9 @@ We use RV32I + RV64I + RV64M (to be able to use multiplication and division)
 ruby process_instrs.rb
 
 #### Functions in the decoder that must be implemented and used in instruction map
-get_reg
-set_reg
+get_reg - по умолчанию возвращают int64_t
+set_reg 
+
 store_mem
 load_mem
 get_pc()
@@ -21,14 +22,11 @@ URET SRET MRET
 WFI SFENCE.VMA
 
 ###### 32M:
-MUL MULH MULHSU 
-DIV DIVU
 REM REMU
 
 ###### 64M:
-MULW 
-DIVW DIVUW 
 REMW REMUW
 
-
+#### Need to be implemented:
+arr[opcode]= mask
 

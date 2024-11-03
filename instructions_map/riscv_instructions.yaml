@@ -43,6 +43,17 @@ formats:
     f3: [12, 14]
     rs1: [15, 19]
 
+  M:
+    opcode: [0, 6]
+    rd: [7, 11]
+    f3: [12, 14]
+    rs1: [15, 19]
+    rs2: [20, 24]
+    f7: [25, 31]
+
+  D:
+
+
 instructions:
   LUI:
     format: U
@@ -429,38 +440,105 @@ instructions:
     f3: 3
     store: 64
 
-  # MUL:
-  #   format:
+  MUL:
+    format: M
+    opcode: 51
+    f3: 0
+    f7: 1
+    lower: 64
+    operator: ' * '
 
-  # MULH: 
-  #   format:
+  MULH: 
+    format: M
+    opcode: 51
+    f3: 1
+    f7: 1
+    upper: 64
+    operator: ' * '
 
-  # MULHSU:
-  #   format:
+  MULHSU:
+    format: M
+    opcode: 51
+    f3: 2
+    f7: 1
+    upper: 64
+    rs2: uint64_t
+    operator: ' * '
 
-  # DIV: 
-  #   format:
+  MULHU:
+    format: M
+    opcode: 51
+    f3: 3
+    f7: 1
+    upper: 64
+    rs1: uint64_t
+    rs2: uint64_t
+    operator: ' * '
 
-  # DIVU:
-  #   format:
+  DIV: 
+    format: M
+    opcode: 51
+    f3: 4
+    f7: 1
+    operator: ' / '
+
+  DIVU:
+    format: M
+    opcode: 51
+    f3: 5
+    f7: 1
+    rs1: uint64_t
+    rs2: uint64_t
+    operator: ' / '
 
   # REM: 
-  #   format:
+  #   format: M
+  #   opcode: 51
+  #   f3: 6
+  #   f7: 1
 
   # REMU:
-  #   format:
+  #   format: M
+  #   opcode: 51
+  #   f3: 7
+  #   f7: 1
 
-  # MULW:
-  #   format:
+  MULW:
+    format: M
+    opcode: 59
+    f3: 0
+    f7: 1
+    lower: 32
+    operator: ' * '
 
-  # DIVW: 
-  #   format:
+  DIVW: 
+    format: M
+    opcode: 59
+    f3: 4
+    f7: 1
+    operator: ' / '
+    size1: [32, 0]
+    size2: [32, 0]
 
-  # DIVUW:
-  #   format:
+  DIVUW:
+    format: M
+    opcode: 59
+    f3: 5
+    f7: 1
+    operator: ' / '
+    size1: [32, 0]
+    size2: [32, 0]
+    rs1: uint64_t
+    rs2: uint64_t
 
   # REMW: 
-  #   format:
+  #   format: 64M 
+  #   opcode: 59
+  #   f3: 6
+  #   f7: 1
 
   # REMUW:
-  #   format:
+  #   format: 64M
+  #   opcode: 59
+  #   f3: 7
+  #   f7: 1

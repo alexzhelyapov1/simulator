@@ -2,9 +2,8 @@
 #include <map>
 #include <functional>
 #include <bitset>
-//get_reg, set_reg - по умолчанию возвращают int64_t
-//TODO: верно ли сдвиги тут генерятся?
 //логический сдвиг в с++ - для беззнаковых, арифметический - для знаковых
+
 using InstructionHandler = std::function<void(uint64_t)>;
 <% instruction_set = InstructionSet.new('riscv_instructions.yaml')%>
 std::map<uint32_t, InstructionHandler> instruction_map = {
@@ -157,4 +156,65 @@ void <%=insts_name%> (uint64_t instruction_code) {
   if (get_reg(rs1) <%details['operator']%> get_reg(rs2)) set_pc(get_pc() + imm);
 }
 <%end%>
+//RISCV32-64M extension
+<% format_args = instruction_set.get_args('M')
+instruction_set.find_by_format('M').each do |insts_name, details| %>
+void <%=insts_name%> (uint64_t instruction_code) {
+  uint64_t rd, rs1, rs2;
+  rd = (instruction_code & <%= format_args['rd'][:mask] %>) >> <%= format_args['rd'][:start_bit] %>;
+  rs1 = (instruction_code & <%= format_args['rs1'][:mask] %>) >> <%= format_args['rs1'][:start_bit] %>;
+  rs2 = (instruction_code & <%= format_args['rs2'][:mask] %>) >> <%= format_args['rs2'][:start_bit] %>;
+  <%
+    type_rs1 = details&.key?('rs1') ? 'uint64_t' : 'int64_t'
+    type_rs2 = details&.key?('rs2') ? 'uint64_t' : 'int64_t'
+    size_rs1 = details&.key?('size1') ? '& 0xFFFFFFFF' : ''
+    size_rs2 = details&.key?('size2') ? '& 0xFFFFFFFF' : ''
+ 
+    parts = [
+      'auto result = ',
+      '(',
+      type_rs1,
+      ')',
+      '(get_reg(rs1) ',
+      size_rs1,
+      ')',
+      details['operator'],
+      '(',
+      type_rs2,
+      ')',
+      '(get_reg(rs2) ',
+      size_rs2,
+      ');'
+    ]
+  %>
+  <%= parts.join('') %>
+  <%
+    num_bits = details.key?('lower') ? details['lower'] : details['upper']
+    if details&.key?('lower')
+      if num_bits == 64 
+        mask = 0xFFFFFFFFFFFFFFFF
+      elsif num_bits == 32
+        mask = 0xFFFFFFFF
+      end
 
+      parts = [
+        'set_reg(rd, result & ',
+        mask,
+        ');'
+      ]
+    
+    elsif details&.key?('upper')
+      parts = [
+        'set_reg(rd, result >> ',
+        num_bits,
+        ');'
+      ]
+    else
+      parts = [
+        'set_reg(rd, result);'
+      ]
+    end
+  %>
+  <%= parts.join('') %>
+}
+<%end %>
