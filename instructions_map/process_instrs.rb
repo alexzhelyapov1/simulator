@@ -4,6 +4,15 @@ require 'erb'
 class InstructionSet
   def initialize(yaml_file)
     @yaml_data = Psych.load_file(yaml_file)
+    @instruction_definitions = group_instructions_by_format
+  end
+
+  def group_instructions_by_format
+    @yaml_data['instructions'].group_by { |_, details| details['format'] }
+  end
+
+  def instruction_definitions
+    @instruction_definitions
   end
 
   def find_by_format(format)
@@ -20,6 +29,11 @@ class InstructionSet
     format_info
   end
 
+  def get_bit(number, bit_position)
+    mask = 1 << bit_position
+    (number & mask) > 0
+  end
+  
   def calculate_mask(start_bit, end_bit)
     (1 << (end_bit - start_bit + 1) - 1) << start_bit
   end
@@ -32,8 +46,28 @@ class InstructionSet
     format_info = get_format_info(format)
     format_info.each_with_object({}) do |(arg_name, range), format_args|
       start_bit, end_bit = range
-      format_args[arg_name] = {start_bit: start_bit, end_bit: end_bit, mask: calculate_mask(start_bit, end_bit)}
+      mask = calculate_mask(start_bit, end_bit)
+      format_args[arg_name] = {
+        start_bit: start_bit,
+        end_bit: end_bit,
+        mask: mask,
+        type: determine_argument_type(arg_name, format) # Add type determination
+      }
     end
+  end
+
+  def determine_argument_type(arg_name, format)
+    case arg_name
+    when 'rd', 'rs1', 'rs2'
+      'int'
+    when 'imm', 'offset'
+      'int64_t'
+    when 'shamt'
+      'int'
+    else
+      'int'
+    end
+
   end
 
   def generate_c_code(template_path, output_path)
@@ -57,19 +91,15 @@ class InstructionSet
     cpp_map_entries
   end
 
-  def generate_opcode_mask_map()
+  def generate_opcode_mask_map
     max_opcodes = 127
     opcode_map = Array.new(max_opcodes, 0)
     @yaml_data['instructions'].each do |name, details|
       key = create_instruction_key(details)
       opcode = details['opcode']
-      if opcode >= 0 && opcode < max_opcodes
-        opcode_map[opcode] = key
-      else
-        puts "Предупреждение: Опкод #{opcode} вне диапазона массива."
-      end
+      opcode_map[opcode] = key
     end
-  opcode_map
+    opcode_map
   end
 
   def create_instruction_key(details)
@@ -88,4 +118,4 @@ class InstructionSet
 end
 
 instruction_set = InstructionSet.new('riscv_instructions.yaml')
-instruction_set.generate_c_code('generate_insts.erb', 'generated_functions.cpp')
+instruction_set.generate_c_code('generate_insts.erb', 'generated_functions_new.cpp')
