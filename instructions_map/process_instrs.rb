@@ -28,11 +28,6 @@ class InstructionSet
     end
     format_info
   end
-
-  def get_bit(number, bit_position)
-    mask = 1 << bit_position
-    (number & mask) > 0
-  end
   
   def calculate_mask(start_bit, end_bit)
     (1 << (end_bit - start_bit + 1) - 1) << start_bit
@@ -51,7 +46,7 @@ class InstructionSet
         start_bit: start_bit,
         end_bit: end_bit,
         mask: mask,
-        type: determine_argument_type(arg_name, format) # Add type determination
+        type: determine_argument_type(arg_name, format)
       }
     end
   end
@@ -67,7 +62,6 @@ class InstructionSet
     else
       'int'
     end
-
   end
 
   def generate_c_code(template_path, output_path)
@@ -95,11 +89,23 @@ class InstructionSet
     max_opcodes = 127
     opcode_map = Array.new(max_opcodes, 0)
     @yaml_data['instructions'].each do |name, details|
-      key = create_instruction_key(details)
+      mask = create_mask_format_identifier(details)
       opcode = details['opcode']
-      opcode_map[opcode] = key
+      opcode_map[opcode] = mask
     end
     opcode_map
+  end
+
+  def create_mask_format_identifier(details)
+    mask = 0
+    format_details = @yaml_data['formats'][details['format']]
+    ['f3', 'f7', 'opcode', 'shamt'].each do |field|
+      if format_details.key?(field)
+        start_bit, end_bit = format_details[field]
+        mask |= calculate_mask(start_bit, end_bit)
+      end
+    end
+    mask
   end
 
   def create_instruction_key(details)
@@ -107,7 +113,6 @@ class InstructionSet
     key = 0
     ['opcode', 'f3', 'f7', 'shamt'].each do |field|
       next unless details.key?(field) && format_details.key?(field)
-
       start_bit, end_bit = format_details[field]
       value = details[field]
       key |= set_bits(value, start_bit)

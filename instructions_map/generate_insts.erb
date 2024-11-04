@@ -25,7 +25,7 @@ void <%= instruction_name %>(uint64_t instruction_code) {
   <% 
     format_args.each do |arg_name, arg_details| 
     next if arg_name == 'shamt' && !details.key?(arg_name) 
-    next if arg_name == 'f3' || arg_name == 'opcode'
+    next if arg_name == 'f3' || arg_name == 'opcode' || arg_name == 'f7'
   %>
   <%= arg_details[:type] %> <%= arg_name %> = (instruction_code & <%= arg_details[:mask] %>) >> <%= arg_details[:start_bit] %>;
   <% 
@@ -41,21 +41,21 @@ void <%= instruction_name %>(uint64_t instruction_code) {
         code = "set_reg(rd, #{type_cast}(#{uint_cast}(get_reg(rs1)) #{details['operator']} #{shamt_expr} #{details['afterop']}));"
       end
     when 'R'
-      code = "set_reg(rd, #{details.key?('type') ? '(int64_t)' : ''}(#{details.key?('type') ? '(uint64_t)' : ''}(get_reg(rs1)) #{details['operator']} #{details.key?('type') ? '(int64_t)' : ''}(get_reg(rs2))#{details['afterop']});"
+      code = "set_reg(rd, #{details.key?('type') ? '(int64_t)' : ''}(#{details.key?('type') ? '(uint64_t)' : ''}(get_reg(rs1)) #{details['operator']} #{details.key?('type') ? '(int64_t)' : ''}(get_reg(rs2))#{details['afterop']}));"
     when 'U'
       code = "set_reg(rd, #{details['preop']} imm << 12);"
     when 'S'
       code = <<~CODE
         uint64_t offset_high = (instruction_code & #{format_args['imm_2'][:mask]}) >> #{format_args['imm_2'][:start_bit]};
-        uint64_t offset_low = (instruction_code & #{format_args['imm_1'][:mask]}) >> #{format_args['imm_1'][:start_bit]};
-        int64_t offset = ((int32_t)(offset_high) << 5) | offset_low;
-        int64_t address = get_reg(rs1) + offset;
-        uint#{details['store']}_t mask = std::bitset<#{details['store']}>(0).to_ulong();
-        store_mem(address, get_reg(rs2) & mask);
+          uint64_t offset_low = (instruction_code & #{format_args['imm_1'][:mask]}) >> #{format_args['imm_1'][:start_bit]};
+          int64_t offset = ((int32_t)(offset_high) << 5) | offset_low;
+          int64_t address = get_reg(rs1) + offset;
+          uint#{details['store']}_t mask = std::bitset<#{details['store']}>(0).to_ulong();
+          store_mem(address, get_reg(rs2) & mask);
       CODE
     when 'J'
       jtype = details.key?('f3') ? 'offset' : 'imm'
-      code = "set_reg(rd, get_pc() + 4);\n"
+      code = "set_reg(rd, get_pc() + 4);\n  "
       code += details.key?('f3') ? "set_pc((get_reg(rs1) + #{format_args[jtype][:mask]}) & ~1);" : "set_pc(get_pc() + #{format_args[jtype][:mask]});"
 
     when 'B'
@@ -65,7 +65,7 @@ void <%= instruction_name %>(uint64_t instruction_code) {
       type_rs2 = details&.key?('rs2') ? 'uint64_t' : 'int64_t'
       size_rs1 = details&.key?('size1') ? '& 0xFFFFFFFF' : ''
       size_rs2 = details&.key?('size2') ? '& 0xFFFFFFFF' : ''
-      code = "auto result = (#{type_rs1})(get_reg(rs1) #{size_rs1}) #{details['operator']} (#{type_rs2})(get_reg(rs2) #{size_rs2});"
+      code = "auto result = (#{type_rs1})(get_reg(rs1) #{size_rs1}) #{details['operator']} (#{type_rs2})(get_reg(rs2) #{size_rs2});\n  "
       num_bits = details.key?('lower') ? details['lower'] : details['upper']
       if details&.key?('lower')
         mask = num_bits == 64 ? 0xFFFFFFFFFFFFFFFF : 0xFFFFFFFF
