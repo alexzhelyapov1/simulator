@@ -51,9 +51,6 @@ formats:
     rs2: [20, 24]
     f7: [25, 31]
 
-  D:
-
-
 instructions:
   LUI:
     format: U

@@ -57,6 +57,21 @@ class InstructionSet
     cpp_map_entries
   end
 
+  def generate_opcode_mask_map()
+    max_opcodes = 127
+    opcode_map = Array.new(max_opcodes, 0)
+    @yaml_data['instructions'].each do |name, details|
+      key = create_instruction_key(details)
+      opcode = details['opcode']
+      if opcode >= 0 && opcode < max_opcodes
+        opcode_map[opcode] = key
+      else
+        puts "Предупреждение: Опкод #{opcode} вне диапазона массива."
+      end
+    end
+  opcode_map
+  end
+
   def create_instruction_key(details)
     format_details = @yaml_data['formats'][details['format']]
     key = 0

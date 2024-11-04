@@ -2,12 +2,16 @@
 #include <map>
 #include <functional>
 #include <bitset>
-//логический сдвиг в с++ - для беззнаковых, арифметический - для знаковых
 
+//логический сдвиг в с++ - для беззнаковых, арифметический - для знаковых
 using InstructionHandler = std::function<void(uint64_t)>;
 <% instruction_set = InstructionSet.new('riscv_instructions.yaml')%>
 std::map<uint32_t, InstructionHandler> instruction_map = {
 <%= instruction_set.generate_map %>
+};
+<%opcode_map = generate_opcode_mask_map()%>
+unsigned int opcode_map[<%= opcode_map.size %>] = {
+  <%= opcode_map.each_slice(8).map { |slice| slice.join(', ') }.join(",\n  ") %>
 };
 <% format_args = instruction_set.get_args('I')
  instruction_set.find_by_format('I').each do |instruction_name, details| %>

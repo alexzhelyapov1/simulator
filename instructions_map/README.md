@@ -14,19 +14,9 @@ get_pc()
 set_pc()
 
 ###### Instructions that have not yet been implemented:
-BEQ BNE BLT BGE BLTU BGEU
-FENCE FENCE.I
+BEQ BNE BLT BGE BLTU BGEU - требует уточнений, надо аккуратно собирать imm
+FENCE FENCE.I - не ясно как реализовать, нужно ли это для базовой версии симулятора?
 CSRRW CSRRS CSRRC CSRRWI CSRRSI CSRRCI 
 ECALL EBREAK
 URET SRET MRET
 WFI SFENCE.VMA
-
-###### 32M:
-REM REMU
-
-###### 64M:
-REMW REMUW
-
-#### Need to be implemented:
-arr[opcode]= mask
-
