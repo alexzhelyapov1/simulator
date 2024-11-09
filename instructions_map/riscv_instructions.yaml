@@ -59,13 +59,13 @@ instructions:
   LUI:
     format: U
     opcode: 55
-    preop:
+    operator:
     log: load upper immediate
 
   AUIPC:
     format: U
     opcode: 23
-    preop: "get_pc() + "
+    operator: "getPc() + "
     log: add upper immediate to pc
 
   ADDI:
