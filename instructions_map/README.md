@@ -5,23 +5,32 @@ We use RV32I + RV64I + RV64M (to be able to use multiplication and division)
 ruby process_instrs.rb
 
 #### Functions in the decoder that must be implemented and used in instruction map
-get_reg - по умолчанию возвращают int64_t
-set_reg 
+getReg - return int64_t
+setReg 
 
-store_mem
-load_mem
-get_pc()
-set_pc()
+storeMem
+loadMem
+getPc()
+setPc()
 
 ###### Instructions that have not yet been implemented:
-[ ] Check S-format imm
+[X] Check S-format imm -> Add functions getImm - that return 32bit imm
 
-[ ] BEQ BNE BLT BGE BLTU BGEU - требует уточнений, надо аккуратно собирать imm
+[X] BEQ BNE BLT BGE BLTU BGEU 
 
-FENCE FENCE.I - не ясно как реализовать, нужно ли это для базовой версии симулятора?
+FENCE FENCE.I - not yet implemented
 CSRRW CSRRS CSRRC CSRRWI CSRRSI CSRRCI 
 ECALL EBREAK
 URET SRET MRET
 WFI SFENCE.VMA
 
 [ ] Assembly - ? (For tests)
+
+Done + checked:
+[X] S-format
+[X] U-format
+[X] I
+[X] R
+[X] J - need to check JALR (& ~1 is necessary? + sext)
+[X] B
+[ ] M

@@ -2,6 +2,8 @@
 #include <map>
 #include <bitset>
 
+#include "../machine/hart.h"
+
 //логический сдвиг в с++ - для беззнаковых, арифметический - для знаковых
 <% 
   instruction_set = InstructionSet.new('riscv_instructions.yaml')
@@ -9,86 +11,144 @@
   format_args = instruction_set.get_args(format) 
   instructions.each do |instruction_name, details| 
 %>
-void <%= instruction_name %>(Hart &hart, const Inst &inst) {
+void <%= instruction_name %>(Hart &hart, const std::shared_ptr<Inst> inst) {
   <% 
     case format
     when 'I'
+      mask = details.key?('mask') ? details['mask'] : ''
       type_cast = details.key?('type') ? '(int64_t)' : ''
       uint_cast = details.key?('type') ? '(uint64_t)' : ''
-      shamt_expr = details.key?('shamt') ? '(imm & 0x3F)' : 'imm'
-      if details.key?('load')
-        code = "hart.setReg(inst.rd, (int64_t)(load_mem((hart.getReg(inst.rs1) + inst.imm), #{details['load']})));"
+      shamt_expr = details.key?('shamt') ? '((uint32_t)inst->imm & 63)' : 'inst->imm'
+      
+      load_operation = details.key?('load') ? "hart.setReg(inst->rd, (int64_t)(loadMem<int#{details['load']}_t>((hart.getReg(inst->rs1) + inst->imm))));" : ""
+
+      arithmetic_operation = details.key?('operator') ? "hart.setReg(inst->rd, #{type_cast}(#{uint_cast}(hart.getReg(inst->rs1)) #{details['operator']} #{shamt_expr} #{details['afterop']})#{mask});" : ""
+      
+      if details.key?('load') 
+        code = load_operation 
       else
-        code = "hart.setReg(inst.rd, #{type_cast}(#{uint_cast}(hart.getReg(inst.rs1)) #{details['operator']} #{shamt_expr} #{details['afterop']}));"
+        code = arithmetic_operation
+      end
+
+      if instruction_name == 'SRLI'
+        parts = [
+          "if inst->imm & (1 << 10) == 0 {\n",
+          "\t\thart.setReg(inst->rd, ((hart.getReg(inst->rs1)) >> ((uint32_t)inst->imm & 63) ));\n",
+          "\t}\n\telse {\n",
+          "\t\thart.setReg(inst->rd, (int64_t)((uint64_t)(hart.getReg(inst->rs1)) >> ((uint32_t)inst->imm & 63) ));\n",
+          "\t}"
+        ]
+        code =  parts.join('') 
+      end
+      if instruction_name == 'SRLIW'
+        parts = [
+          "if inst->imm & (1 << 10) == 0 {\n",
+          "\t\thart.setReg(inst->rd, ((hart.getReg(inst->rs1)#{mask}) >> ((uint32_t)inst->imm & 63) ));\n",
+          "\t}\n\telse {\n",
+          "\t\thart.setReg(inst->rd, (int64_t)((uint64_t)(hart.getReg(inst->rs1)#{mask}) >> ((uint32_t)inst->imm & 63) ));\n",
+          "\t}"
+        ]
+        code =  parts.join('') 
       end
     when 'R'
-      code = "hart.setReg(inst.rd, #{details.key?('type') ? '(int64_t)' : ''}(#{details.key?('type') ? '(uint64_t)' : ''}(hart.getReg(inst.rs1)) #{details['operator']} #{details.key?('type') ? '(int64_t)' : ''}(hart.getReg(inst.rs2))#{details['afterop']}));"
+      mask = details.key?('mask') ? details['mask'] : ''
+      uint_cast = details.key?('type') ? '(uint64_t)' : ''
+      int_cast = details.key?('type') ? '(int64_t)' : ''
+      op = details['operator']
+      afterop = details['afterop']
+      code = "hart.setReg(inst->rd, #{int_cast}(#{uint_cast}(hart.getReg(inst->rs1)#{mask}) #{op} #{uint_cast}(hart.getReg(inst->rs2)#{mask})#{afterop})#{mask});"
+    
     when 'U'
-      code = "hart.setReg(inst.rd, #{details['operator']} inst.imm);"
+      code = "hart.setReg(inst->rd, #{details['operator']} inst->imm);"
+
     when 'S'
-      code = <<~CODE
-        int64_t address = hart.getReg(inst.rs1) + inst.offset;
-        uint#{details['store']}_t mask = std::bitset<#{details['store']}>(0).to_ulong();
-        hart.storeMem(address, hart.getReg(inst.rs2) & mask);
-    CODE
+      code = "hart.storeMem<int#{details['store']}_t>(hart.getReg(inst->rs1) + inst->imm, hart.getReg(inst->rs2));"
+
     when 'J'
-      jtype = details.key?('f3') ? 'offset' : 'imm'
-      code = "hart.setReg(inst.rd, hart.getPc() + 4);\n  "
-      code += details.key?('f3') ? "hart.setPc((hart.getReg(inst.rs1) + #{format_args[jtype][:mask]}) & ~1);" : "hart.setPc(hart.getPc() + #{format_args[jtype][:mask]});"
+      code = "hart.setReg(inst->rd, hart.getPC() + 4);\n  "
+      code += details.key?('f3') ? "hart.setPC(((hart.getReg(inst->rs1) + inst->imm) & ~1) - 4);" : "hart.setPC((hart.getPc() + inst->imm) - 4);"
 
     when 'B'
-      code = "if (hart.getReg(inst.rs1) #{details['operator']} hart.getReg(inst.rs2)) hart.setPc(hart.getPc() + inst.imm);"
+      uint_cast = details.key?('type') ? '(uint64_t)' : ''
+      op = details['operator']
+      code = "if (#{uint_cast}hart.getReg(inst->rs1) #{op} #{uint_cast}hart.getReg(inst->rs2)) hart.setPC(hart.getPc() + inst->imm);"
+    
     when 'M'
       type_rs1 = details&.key?('rs1') ? 'uint64_t' : 'int64_t'
       type_rs2 = details&.key?('rs2') ? 'uint64_t' : 'int64_t'
-      size_rs1 = details&.key?('size1') ? '& 0xFFFFFFFF' : ''
-      size_rs2 = details&.key?('size2') ? '& 0xFFFFFFFF' : ''
-      code = "auto result = (#{type_rs1})(hart.getReg(inst.rs1) #{size_rs1}) #{details['operator']} (#{type_rs2})(hart.getReg(inst.rs2) #{size_rs2});\n  "
+      size_rs1 = details&.key?('size1') ? '& FFFFFFFF' : ''
+      size_rs2 = details&.key?('size2') ? '& FFFFFFFF' : ''
+      
+      code = "auto result = (#{type_rs1})(hart.getReg(inst->rs1) #{size_rs1}) #{details['operator']} (#{type_rs2})(hart.getReg(inst->rs2) #{size_rs2});\n  "
       num_bits = details.key?('lower') ? details['lower'] : details['upper']
       if details&.key?('lower')
-        mask = num_bits == 64 ? 0xFFFFFFFFFFFFFFFF : 0xFFFFFFFF
-        code += "hart.setReg(inst.rd, result & #{mask});"
+        mask = num_bits == 64 ? 'FFFFFFFFFFFFFFFF' : 'FFFFFFFF'
+        code += "hart.setReg(inst->rd, result & #{mask});"
       elsif details&.key?('upper')
-        code += "hart.setReg(inst.rd, result >> #{num_bits});"
+        code += "hart.setReg(inst->rd, result >> #{num_bits});"
       else
-        code += "hart.setReg(inst.rd, result);"
+        code += "hart.setReg(inst->rd, result);"
       end
+
+      when 'SYSTEM'
+        code = "hart.exceptionReturn();"
     end
   %>
   <%= code %>
 }
 <% end %>
 <% end %>
-using InstructionHandler = void(*)(Hart&, const Inst&);
+using InstructionHandler = void(*)(Hart&, const std::shared_ptr<Inst>);
 std::map<uint32_t, InstructionHandler> instructionMap = {
 <%= instruction_set.generate_map %>
 };
-<%opcode_map = generate_opcode_mask_map()%>
-unsigned int opcodeMap[<%= opcode_map.size %>] = {
-  <%= opcode_map.each_slice(8).map { |slice| slice.join(', ') }.join(",\n  ") %>
-};
 
-constexpr int maskB1 = 1 << 7;
-constexpr int maskB2 = 15 << 8;
-constexpr int maskB3 = 63 << 25;
-constexpr int maskB3 = 1 << 31;
+<%decode_map = generate_decode_map%>
+<%
+  cpp_code = <<~CPP
+    std::pair<int32_t[7], int32_t(*)(int32_t)> decodeMap[127] = {
+  CPP
 
-int32_t getImmB (int32_t instCode) {
-  return (instCode & maskB1) << 4 + (instCode & maskB2) >> 7 + 
-  (instCode & maskB3) >> 20 + (instCode & maskB3) >> 19;
+  decode_map.each do |pair|
+    mask_array, get_imm_func = pair
+    cpp_code << "  {{"
+    cpp_code << mask_array.map { |item| item.to_s }.join(",")
+    cpp_code << "}, "
+    cpp_code << (get_imm_func.nil? ? "nullptr" : get_imm_func.to_s)
+    cpp_code << "},\n"
+  end
+  cpp_code << "};"
+%>
+<%= cpp_code %>
+
+constexpr int32_t getImmInvalid (int32_t instCode) {
+  return 0;  
+}
+
+constexpr int maskI = 4095 << 20;
+constexpr int signExt11 = 65535 << 12;
+
+int32_t getImmI (int32_t instCode) {
+  return signExt11 + ((((instCode & maskI) >> 20) + 1 << 12) & 4095);
 }
 
 constexpr int maskS1 = 31 << 7;
 constexpr int maskS2 = 127 << 25;
 
 int32_t getImmS (int32_t instCode) {
-  return (instCode & maskS1) >> 7 + (instCode & maskS2) >> 20;
+  return signExt11 + (((instCode & maskS1) >> 7 + (instCode & maskS2) >> 20) + 1 << 12) & 4095);
 }
 
-constexpr int maskI = 4095 << 20;
+constexpr int maskB1 = 1 << 7;
+constexpr int maskB2 = 15 << 8;
+constexpr int maskB3 = 63 << 25;
+constexpr int maskB3 = 1 << 31;
 
-int32_t getImmI (int32_t instCode) {
-  return (instCode & maskI) >> 20;
+constexpr int signExt12 = 1048575 << 13;
+
+int32_t getImmB (int32_t instCode) {
+  return signExt12 + ((((instCode & maskB1) << 4 + (instCode & maskB2) >> 7 + 
+  (instCode & maskB3) >> 20 + (instCode & maskB3) >> 19) + 1 << 13) & 1048575);
 }
 
 constexpr int maskU = 1048575 << 12;
@@ -101,18 +161,10 @@ constexpr int maskJ1 = 255 << 12;
 constexpr int maskJ2 = 1 << 20;
 constexpr int maskJ3 = 1023 << 21;
 constexpr int maskJ4 = 1 << 31;
+constexpr int signExt20 = 2047 << 21;
 
 int32_t getImmJ (int32_t instCode) {
-  return instCode & maskJ1 + (instCode & maskJ2) >> 9 + (instCode & maskJ3) >> 20 + (instCode & maskJ4) >> 11;
+  return signExt20 + (((instCode & maskJ1 + (instCode & maskJ2) >> 9 + 
+  (instCode & maskJ3) >> 20 + (instCode & maskJ4) >> 11) + 1 << 20) & 2097151);
 }
 
-// std::pair<int32_t[9], int32_t(*)(int32_t)> a = {(int32_t[9]){0, 0, 0, 0, 0, 0, 0, 0, 0}, (int32_t (*)(int32_t))(getImmB)};
-
-std::pair<int32_t[9], int32_t(*)(int32_t)> decodeMap[127] = {
-  {{0, 0, 0, 0, 0, 0, 0, 0, 0}, getImmB},
-  // ... другие пары ...
-};
-
-
-// [mask for opcode + f<3/7/...>, mask for rd, shift for rd ]
-// mask => (31 << 7), shift => 7

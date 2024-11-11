@@ -31,11 +31,6 @@ formats:
   B: 
     rs1: [15, 19]
     rs2: [20, 24]
-    # offset: 
-    #   7: 11
-    #   [8, 11] : [1, 4]
-    #   [25, 30] : [5, 10]
-    #   31: 12
     opcode: [0, 6]
     f3: [12, 14]
 
@@ -54,6 +49,13 @@ formats:
     rs1: [15, 19]
     rs2: [20, 24]
     f7: [25, 31]
+  
+  SYSTEM:
+    opcode: [0, 6]
+    rd: [7, 11]
+    f3: [12, 14]
+    rs1: [15, 19]
+    f12: [20, 31]
 
 instructions:
   LUI:
@@ -114,7 +116,6 @@ instructions:
     opcode: 19
     f3: 1
     operator: '<<'
-    type: uint64_t
     shamt: 0
 
   SRLI:
@@ -122,50 +123,50 @@ instructions:
     opcode: 19
     f3: 5
     operator: '>>'
-    type: uint64_t
+    type:
     shamt: 0
 
-  SRAI: 
-    format: I
-    opcode: 19 
-    f3: 5
-    operator: '>>'
-    shamt: 16
+  # SRAI: 
+    # format: I
+    # opcode: 19 
+    # f3: 5
+    # operator: '>>'
+    # shamt: 16
 
   LB:
     format: I
     opcode: 3
+    load: 8
     f3: 0
     operator: '+'
-    load: 8
 
   LH:
     format: I
     opcode: 3
+    load: 16
     f3: 1
     operator: '+'
-    load: 16
 
   LW:
     format: I
     opcode: 3
+    load: 32
     f3: 2
     operator: '+'
-    load: 32
 
   LBU:
     format: I
     opcode: 3
+    load: 8
     f3: 4
     operator: '+'
-    load: 8
 
   LHU:
     format: I
     opcode: 3
+    load: 16
     f3: 5
     operator: '+'
-    load: 16
 
   ADD:
     format: R
@@ -195,7 +196,7 @@ instructions:
     f3: 2
     f7: 0
     operator: '<'
-    afterop: '? 1 : 0'
+    afterop: ' ? 1 : 0'
 
   SLTU:
     format: R
@@ -203,7 +204,7 @@ instructions:
     f3: 3
     f7: 0
     operator: '<'
-    afterop: '? 1 : 0'
+    afterop: ' ? 1 : 0'
     type: uint64_t
 
   XOR:
@@ -274,43 +275,39 @@ instructions:
     format: B
     opcode: 99
     f3: 0
-    type: signed
     operator: '=='
 
   BNE:
     format: B
     opcode: 99
     f3: 1
-    type: signed
     operator: '!='
 
   BLT:
     format: B
     opcode: 99
     f3: 4
-    type: signed
-    operator: '<s'
+    operator: '<'
 
   BGE:
     format: B
     opcode: 99
     f3: 5
-    type: signed
     operator: '>='
 
   BLTU:
     format: B
     opcode: 99
     f3: 6
-    type: unsigned
-    operator: '<u'
+    type: uint64_t
+    operator: '<'
 
   BGEU:
     format: B
     opcode: 99
     f3: 7
-    type: unsigned
-    operator: '>=u'
+    type: uint64_t
+    operator: '>='
 
   # FENCE:
   #   format:
@@ -342,14 +339,29 @@ instructions:
   # EBREAK:
   #   format:
 
-  # URET:
-  #   format:
+  URET:
+    format: SYSTEM
+    opcode: 115
+    rd: 0
+    f3: 0
+    rs1: 0
+    f12: 2
 
-  # SRET:
-  #   format:
+  SRET:
+    format: SYSTEM
+    opcode: 115
+    rd: 0
+    f3: 0
+    rs1: 0
+    f12: 258
 
-  # MRET:
-  #   format:
+  MRET:
+    format: SYSTEM
+    opcode: 115
+    rd: 0
+    f3: 0
+    rs1: 0
+    f12: 770
 
   # WFI:
   #   format:
@@ -362,6 +374,7 @@ instructions:
     opcode: 27
     f3: 0
     operator: '+'
+    mask: ' & 4294967295'
 
   SLLIW: 
     format: I
@@ -369,6 +382,7 @@ instructions:
     f3: 1
     operator: '<<'
     shamt: 0
+    mask: ' & 4294967295'
 
   SRLIW: 
     format: I
@@ -377,18 +391,20 @@ instructions:
     f3: 5
     shamt: 0
     type: uint64_t
+    mask: ' & 4294967295'
 
-  SRAIW:
-    format: I 
-    opcode: 27
-    operator: '>>'
-    f3: 5
-    shamt: 32
+  # SRAIW:
+  #   format: I 
+  #   opcode: 27
+  #   operator: '>>'
+  #   f3: 5
+  #   shamt: 32
 
   ADDW: 
     format: R
     opcode: 59
     operator: '+'
+    mask: ' & 4294967295'
     f3: 0
     f7: 0
 
@@ -396,6 +412,7 @@ instructions:
     format: R
     opcode: 59
     operator: '-'
+    mask: ' & 4294967295'
     f3: 0
     f7: 32
 
@@ -447,7 +464,7 @@ instructions:
     f3: 0
     f7: 1
     lower: 64
-    operator: ' * '
+    operator: '*'
 
   MULH: 
     format: M
@@ -455,7 +472,7 @@ instructions:
     f3: 1
     f7: 1
     upper: 64
-    operator: ' * '
+    operator: '*'
 
   MULHSU:
     format: M
@@ -464,7 +481,7 @@ instructions:
     f7: 1
     upper: 64
     rs2: uint64_t
-    operator: ' * '
+    operator: '*'
 
   MULHU:
     format: M
@@ -474,14 +491,14 @@ instructions:
     upper: 64
     rs1: uint64_t
     rs2: uint64_t
-    operator: ' * '
+    operator: '*'
 
   DIV: 
     format: M
     opcode: 51
     f3: 4
     f7: 1
-    operator: ' / '
+    operator: '/'
 
   DIVU:
     format: M
@@ -490,21 +507,21 @@ instructions:
     f7: 1
     rs1: uint64_t
     rs2: uint64_t
-    operator: ' / '
+    operator: '/'
 
   REM: 
     format: M
     opcode: 51
     f3: 6
     f7: 1
-    operator: ' % '
+    operator: '%'
 
   REMU:
     format: M
     opcode: 51
     f3: 7
     f7: 1
-    operator: ' % '
+    operator: '%'
     rs1: uint64_t
     rs2: uint64_t
 
@@ -514,14 +531,14 @@ instructions:
     f3: 0
     f7: 1
     lower: 32
-    operator: ' * '
+    operator: '*'
 
   DIVW: 
     format: M
     opcode: 59
     f3: 4
     f7: 1
-    operator: ' / '
+    operator: '/'
     size1: [32, 0]
     size2: [32, 0]
 
@@ -530,7 +547,7 @@ instructions:
     opcode: 59
     f3: 5
     f7: 1
-    operator: ' / '
+    operator: '/'
     size1: [32, 0]
     size2: [32, 0]
     rs1: uint64_t
@@ -541,7 +558,7 @@ instructions:
     opcode: 59
     f3: 6
     f7: 1
-    operator: ' % '
+    operator: '%'
     size1: [32, 0]
     size2: [32, 0]
 
@@ -550,7 +567,7 @@ instructions:
     opcode: 59
     f3: 7
     f7: 1
-    operator: ' % '
+    operator: '%'
     size1: [32, 0]
     size2: [32, 0]
     rs1: uint64_t
