@@ -2,8 +2,7 @@
 #include "hart.h"
 #include <memory>
 
-namespace Machine 
-{
+namespace Machine {
 
 std::shared_ptr<Hart> Machine::CreateHart() {
   auto newHart = std::make_shared<Hart>(shared_from_this());
@@ -11,16 +10,10 @@ std::shared_ptr<Hart> Machine::CreateHart() {
   return newHart;
 }
 
-template <typename ValType>
-ValType Machine::loadMem(RegValue address)
-{
-  return mem->loadMem<ValType>(address);
+std::shared_ptr<Hart> Machine::CreateHart(const RegValue& PC) {
+  auto newHart = std::make_shared<Hart>(shared_from_this(), PC);
+  harts.push_back(newHart);
+  return newHart;
 }
 
-template <typename ValType>
-void Machine::storeMem(RegValue address, ValType val)
-{
-  return mem->storeMem(address, val);
-}
-
-}
+} // namespace Machine

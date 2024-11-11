@@ -15,4 +15,4 @@ ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 )
 
 add_executable(Machine ${MACHINE_SRC})
-target_include_directories(Machine PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/${CACHE_DIR})
+target_include_directories(Machine PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/${CACHE_DIR} ${CMAKE_BINARY_DIR}/${GEN_DIR})

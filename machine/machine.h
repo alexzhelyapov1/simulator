@@ -25,12 +25,13 @@ public:
     }    
 
     std::shared_ptr<Hart> CreateHart();
+    std::shared_ptr<Hart> CreateHart(const RegValue& PC);
 
-    template <typename ValType>
-    ValType loadMem(RegValue address);
-    
-    template <typename ValType>
-    void storeMem(RegValue address, ValType val);
+    template <typename ValType> ValType loadMem(RegValue address) { return mem->loadMem<ValType>(address); }
+
+    template <typename ValType> void storeMem(RegValue address, ValType val) {
+        return mem->storeMem(address, val);
+    }
 };
 
 }

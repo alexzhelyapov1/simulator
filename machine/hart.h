@@ -62,21 +62,29 @@ public:
     }
     ~Hart() {}
 
-    std::shared_ptr<Instr> Decode(const Word& instrCode);
+
+
+    std::shared_ptr<Instr> decode(const Word& instrCode);
     void RunSimpleInterpreterWithInstCache();
 
-    void SetPC(const RegValue &pc);
-    const RegValue &GetPC();
+    void setPC(const RegValue &pc);
+    const RegValue &getPC();
     RegValue getReg(const RegId &reg);
     void setReg(const RegId &reg, const RegValue &val);
 
+    void exceptionReturn();
+
     inline const RegValue &MMU(RegValue vaddress);
 
-    template <typename ValType>
-    ValType loadMem(RegValue address);
+    template <typename ValType> ValType loadMem(RegValue address) {
+        auto hostAddress = MMU(address);
+        return machine.lock()->loadMem<ValType>(hostAddress);
+    }
 
-    template <typename ValType>
-    void storeMem(RegValue address, ValType val);
+    template <typename ValType> void storeMem(RegValue address, ValType val) {
+        auto hostAddress = MMU(address);
+        machine.lock()->storeMem(hostAddress, val);
+    }
 
     friend class Machine;
 };
