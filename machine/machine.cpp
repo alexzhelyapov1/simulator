@@ -12,15 +12,15 @@ std::shared_ptr<Hart> Machine::CreateHart() {
 }
 
 template <typename ValType>
-ValType loadMem(RegValue address)
+ValType Machine::loadMem(RegValue address)
 {
-  
+  return mem->loadMem<ValType>(address);
 }
 
 template <typename ValType>
-void storeMem(RegValue address, ValType val)
+void Machine::storeMem(RegValue address, ValType val)
 {
-
+  return mem->storeMem(address, val);
 }
 
 }

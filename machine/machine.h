@@ -17,11 +17,12 @@ class Machine : public std::enable_shared_from_this<Machine>
 {
 private:
     std::vector<std::shared_ptr<Hart>> harts;
+    std::shared_ptr<Mem> mem;
 public:
-    Machine() {}
-    ~Machine() {}
-
-    
+    Machine(RegValue memSize) 
+    {
+        mem = std::make_shared<Mem>(memSize);
+    }    
 
     std::shared_ptr<Hart> CreateHart();
 
