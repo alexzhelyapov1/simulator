@@ -67,7 +67,7 @@ instructions:
   AUIPC:
     format: U
     opcode: 23
-    operator: "getPc() + "
+    operator: "hart.getPC() + "
     log: add upper immediate to pc
 
   ADDI:

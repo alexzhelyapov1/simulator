@@ -1,5 +1,6 @@
 #include "hart.h"
 #include "machine.h"
+#include "gen_func.h"
 
 namespace Machine {
 

@@ -208,7 +208,7 @@ OptionParser.new do |opts|
     options[:dir] = dir
   end
 
-  opts.on("-gen GEN_DIR", "--gen_dir GEN_DIR", "dir where gen_func.cpp") do |gen|
+  opts.on("-gen GEN_DIR", "--gen_dir GEN_DIR", "dir where gen_func.h") do |gen|
     options[:gen] = gen
   end
 
@@ -224,4 +224,4 @@ print options[:dir], "\n", options[:gen], "\n"
 InstructionSet::YAML_PATH = File.join(options[:dir], 'riscv_instructions.yaml')
 print InstructionSet::YAML_PATH, "\n"
 instruction_set = InstructionSet.new(InstructionSet::YAML_PATH)
-instruction_set.generate_c_code(options[:dir] + 'generate_insts.erb', options[:gen] + 'gen_func.cpp')
+instruction_set.generate_c_code(options[:dir] + 'generate_insts.erb', options[:gen] + 'gen_func.h')

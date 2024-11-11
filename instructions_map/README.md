@@ -10,7 +10,7 @@ setReg
 
 storeMem
 loadMem
-getPc()
+getPC()
 setPc()
 
 ###### Instructions that have not yet been implemented:
