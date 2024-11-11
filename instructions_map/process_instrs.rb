@@ -1,8 +1,15 @@
 require 'psych'
 require 'erb'
+require 'optparse'
 
 class InstructionSet
+  YAML_PATH = ""
+
   def initialize(yaml_file)
+    unless File.exist?(yaml_file)
+      puts "Error: riscv_instructions.yaml not found at #{yaml_file}"
+      exit 1
+    end
     @yaml_data = Psych.load_file(yaml_file)
     @instruction_definitions = group_instructions_by_format
   end
@@ -193,5 +200,28 @@ class InstructionSet
 
 end
 
-instruction_set = InstructionSet.new('riscv_instructions.yaml')
-instruction_set.generate_c_code('generate_insts.erb', 'gen_func.cpp')
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: script.rb [options]"
+
+  opts.on("-sd DIR", "--sourse_dir DIR", "dir where riscv_instructions.yaml, generate_insts.erb") do |dir|
+    options[:dir] = dir
+  end
+
+  opts.on("-gen GEN_DIR", "--gen_dir GEN_DIR", "dir where gen_func.cpp") do |gen|
+    options[:gen] = gen
+  end
+
+  print opts, "\n"
+end.parse!
+
+unless options[:dir] && options[:gen]
+  puts options
+  exit 1
+end
+
+print options[:dir], "\n", options[:gen], "\n"
+InstructionSet::YAML_PATH = File.join(options[:dir], 'riscv_instructions.yaml')
+print InstructionSet::YAML_PATH, "\n"
+instruction_set = InstructionSet.new(InstructionSet::YAML_PATH)
+instruction_set.generate_c_code(options[:dir] + 'generate_insts.erb', options[:gen] + 'gen_func.cpp')

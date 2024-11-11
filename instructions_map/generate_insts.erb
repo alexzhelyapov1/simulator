@@ -6,7 +6,8 @@
 
 //логический сдвиг в с++ - для беззнаковых, арифметический - для знаковых
 <% 
-  instruction_set = InstructionSet.new('riscv_instructions.yaml')
+  instruction_set = InstructionSet.new(InstructionSet::YAML_PATH)
+  print "yaml path in rb: #{InstructionSet::YAML_PATH}", "\n"
   instruction_set.instruction_definitions.each do |format, instructions| 
   format_args = instruction_set.get_args(format) 
   instructions.each do |instruction_name, details| 
