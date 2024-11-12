@@ -1,6 +1,7 @@
 #include "intBitCache.h"
 #include "machine.h"
 #include <memory>
+#include "loader.h"
 
 class myInt {
 public:
@@ -11,8 +12,10 @@ public:
 };
 
 int main() {
-  auto machine = std::make_shared<Machine::Machine>(10240000);
+  auto machine = std::make_shared<Machine::Machine>(0xFFFFFFF);
   auto hart = machine->CreateHart();
+  auto loader = machine->CreateLoader();
+  loader->loadElf("/home/alex/mipt/simulator/build/a.out");
 
   auto cache = std::make_shared<IntBitCache<myInt, 2, 0>>();
   cache->put(std::make_shared<myInt>(3));

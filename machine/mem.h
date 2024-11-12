@@ -17,7 +17,7 @@ private:
     std::byte* mem;
 public:
     Mem(MemAddressType size) : memSize(size)
-    { 
+    {
         mem = static_cast<std::byte *>(mmap(nullptr, memSize, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0));
     }
 
@@ -39,6 +39,7 @@ public:
     void storeMemCpy(MemAddressType address, void *source, uint64_t size) {
         if (address < memSize - size) {
             memcpy(mem, source, size);
+            return;
         }
         throw std::runtime_error("ACCESS TO OUT OF RANGE MEMORY");
     }
