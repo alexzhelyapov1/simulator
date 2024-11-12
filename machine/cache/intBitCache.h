@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <mutex>
 #include <memory>
+#include <array>
 
 #ifndef INT_BIT_CACHE_H
 #define INT_BIT_CACHE_H
@@ -12,10 +13,13 @@
 template <typename Value, size_t bitSize, size_t bitShift>
 class IntBitCache {
 private:
-    std::shared_ptr<Value> cacheArr[1 << bitSize] {};
-    size_t bitMask {((1 << bitSize) - 1) << bitShift};
+    std::array<std::shared_ptr<Value>, 1 << bitSize> cacheArr;
+    size_t bitMask;
 public:
-    IntBitCache() {};
+    IntBitCache() 
+    {
+        bitMask = ((1 << bitSize) - 1) << bitShift;
+    }
 
     void put(std::shared_ptr<Value> val)
     {
@@ -25,7 +29,7 @@ public:
     std::shared_ptr<Value> get(size_t key)
     {
         std::shared_ptr<Value> findVal = cacheArr[(key & bitMask) >> bitShift];
-        if(findVal->cacheId() == key)
+        if(findVal != nullptr && findVal->cacheId() == key)
         {
             return findVal;
         }

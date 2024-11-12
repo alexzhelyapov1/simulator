@@ -27,11 +27,12 @@ public:
     Machine(RegValue memSize) 
     {
         mem = std::make_shared<Mem>(memSize);
-    }    
+    }
 
     std::shared_ptr<Hart> CreateHart();
     std::shared_ptr<Hart> CreateHart(const RegValue& PC);
-    std::shared_ptr<Loader::Loader> CreateLoader();
+
+    std::vector<std::shared_ptr<Hart>> &GetHarts() {return harts;}
 
     template <typename ValType> ValType loadMem(RegValue address) { return mem->loadMem<ValType>(address); }
 

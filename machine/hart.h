@@ -43,26 +43,27 @@ public:
     }
 };
 
-using InstCacheType = IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>;
-
 class Hart
 {
 private:
     std::weak_ptr<Machine> machine;
     RegValue PC {0};
     RegValue Regfile[32];
-    std::shared_ptr<InstCacheType> instCache {};
+    std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
+    bool free {true};
     
 public:
     Hart(std::shared_ptr<Machine> machine, const RegValue &PC) : machine(machine), PC(PC) {
+        instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
     }
     Hart(std::shared_ptr<Machine> machine) : machine(machine) {
+        instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
     }
     ~Hart() {}
 
-
+    const bool &GetStatus() {return free;} 
 
     std::shared_ptr<Instr> decode(const Word& instrCode);
     void RunSimpleInterpreterWithInstCache();
@@ -74,7 +75,7 @@ public:
 
     void exceptionReturn();
 
-    inline const RegValue &MMU(RegValue vaddress);
+    inline const RegValue &MMU(RegValue &vaddress);
 
     template <typename ValType> ValType loadMem(RegValue address) {
         auto hostAddress = MMU(address);

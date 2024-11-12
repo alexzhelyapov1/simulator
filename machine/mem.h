@@ -23,14 +23,14 @@ public:
 
     template <typename ValType> ValType loadMem(MemAddressType address) {
         if (address < memSize - sizeof(ValType)) {
-            return *(reinterpret_cast<ValType *>(mem[address]));
+            return *(reinterpret_cast<ValType *>(mem + address));
         }
         throw std::runtime_error("ACCESS TO OUT OF RANGE MEMORY");
     }
 
     template <typename ValType> void storeMem(MemAddressType address, ValType val) {
         if (address < memSize - sizeof(ValType)) {
-            *(reinterpret_cast<ValType *>(mem[address])) = val;
+            *(reinterpret_cast<ValType *>(mem + address)) = val;
             return;
         }
         throw std::runtime_error("ACCESS TO OUT OF RANGE MEMORY");
