@@ -1,6 +1,7 @@
 #include <memory>
 #include <cstddef>
 #include <sys/mman.h>
+#include <cstring>
 
 #ifndef MEM_H
 #define MEM_H
@@ -31,6 +32,13 @@ public:
         if (address < memSize - sizeof(ValType)) {
             *(reinterpret_cast<ValType *>(mem[address])) = val;
             return;
+        }
+        throw std::runtime_error("ACCESS TO OUT OF RANGE MEMORY");
+    }
+
+    void storeMemCpy(MemAddressType address, void *source, uint64_t size) {
+        if (address < memSize - size) {
+            memcpy(mem, source, size);
         }
         throw std::runtime_error("ACCESS TO OUT OF RANGE MEMORY");
     }

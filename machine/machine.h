@@ -4,6 +4,10 @@
 #ifndef MACHINE_H
 #define MACHINE_H
 
+namespace Loader {
+    class Loader;
+}
+
 namespace Machine 
 {
 
@@ -18,6 +22,7 @@ class Machine : public std::enable_shared_from_this<Machine>
 private:
     std::vector<std::shared_ptr<Hart>> harts;
     std::shared_ptr<Mem> mem;
+    std::shared_ptr<Loader::Loader> loader;
 public:
     Machine(RegValue memSize) 
     {
@@ -26,12 +31,15 @@ public:
 
     std::shared_ptr<Hart> CreateHart();
     std::shared_ptr<Hart> CreateHart(const RegValue& PC);
+    std::shared_ptr<Loader::Loader> CreateLoader();
 
     template <typename ValType> ValType loadMem(RegValue address) { return mem->loadMem<ValType>(address); }
 
     template <typename ValType> void storeMem(RegValue address, ValType val) {
         return mem->storeMem(address, val);
     }
+
+    void storeMemCpy(MemAddressType address, void *source, uint64_t size) { mem->storeMemCpy(address, source, size); }
 };
 
 }

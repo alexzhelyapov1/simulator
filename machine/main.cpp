@@ -11,7 +11,7 @@ public:
 };
 
 int main() {
-  auto machine = std::make_shared<Machine::Machine>(1024000);
+  auto machine = std::make_shared<Machine::Machine>(10240000);
   auto hart = machine->CreateHart();
 
   auto cache = std::make_shared<IntBitCache<myInt, 2, 0>>();
