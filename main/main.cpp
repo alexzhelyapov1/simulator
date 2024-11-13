@@ -9,5 +9,5 @@ int main(int argc, char **argv)
 
     auto simulator = std::make_shared<Simulator::Simulator>(0xFFFFFFFF);
     simulator->StartSimulationOnSimpleInterpreter(argv[1]);
-    
+
 }

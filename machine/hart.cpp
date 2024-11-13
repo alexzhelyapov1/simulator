@@ -48,6 +48,7 @@ void Hart::setPC(const RegValue &pc) {
     PC = pc;
 #ifdef SIMULATION_LOG
     SimulationLog(std::string("Set PC with: ") + std::to_string(PC));
+    std::cout << "Set PC: " << std::hex << PC << std::endl;
 #endif
 }
 
