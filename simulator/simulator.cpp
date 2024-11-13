@@ -25,6 +25,7 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, 
         simHart->RunSimpleInterpreterWithInstCache();
     } catch (const std::exception &e) {
         std::cout << "Simulation ended with: " << e.what() << std::endl;
+        std::cout << "Num of runed instructions: " << simHart->GetNumOfRunInstr() << std::endl;
     }
 
     if (dumpMemPath.size() != 0) {

@@ -3,6 +3,7 @@
 #include <bitset>
 #include <memory>
 #include <array>
+#include <iostream>
 
 #ifndef GEN_INSTS_H
 #define GEN_INSTS_H
@@ -137,7 +138,7 @@ constexpr uint32_t signExt12 = 1048575 << 12;
 
 int32_t getImmB (int32_t instCode) {
   return signExt12 + (((((instCode & maskB1) << 4) + ((instCode & maskB2) >> 7) + 
-  ((instCode & maskB3) >> 20) + ((instCode & maskB4) >> 19)) + (1 << 12)) & static_cast<int32_t>(1048575U));
+  ((instCode & maskB3) >> 20) + ((instCode & maskB4) >> 19)) + (1 << 12)) & static_cast<int32_t>(8191U));
 }
 
 constexpr uint32_t maskU = 1048575 << 12;

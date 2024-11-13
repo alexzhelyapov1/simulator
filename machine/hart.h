@@ -40,7 +40,7 @@ private:
     std::weak_ptr<Machine> machine;
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
     bool free {true};
-    
+    RegValue numOfRunnedInstr {0};
 public:
     Hart(std::shared_ptr<Machine> machine, const RegValue &PC) : machine(machine), PC(PC) {
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
@@ -63,6 +63,7 @@ public:
     void setReg(const RegId &reg, const RegValue &val);
 
     void exceptionReturn();
+    const RegValue &GetNumOfRunInstr() {return numOfRunnedInstr;}
 
     inline const RegValue &MMU(RegValue &vaddress);
 

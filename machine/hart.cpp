@@ -4,7 +4,7 @@
 
 namespace Machine {
 
-#define SIMULATION_LOG
+// #define SIMULATION_LOG
 
 #ifdef SIMULATION_LOG
 #include <iostream>
@@ -86,6 +86,7 @@ void Hart::RunSimpleInterpreterWithInstCache() {
         auto inst = decode(instCode);
         inst->handler(*this, inst);
         PC += sizeof(Word);
+        numOfRunnedInstr++;
 #ifdef SIMULATION_LOG
         SimulationLog(std::string(""));
 #endif
