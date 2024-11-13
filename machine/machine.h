@@ -40,9 +40,9 @@ public:
         return mem->storeMem(address, val);
     }
 
-    void DumpMem(const std::string &outPath, const RegValue &startSize, const RegValue &endSize) 
+    void DumpMem(const std::string &outPath, const RegValue &startAddress, const RegValue &endAddress) 
     {
-        mem->DumpMemory(outPath, startSize, endSize);
+        mem->DumpMemory(outPath, startAddress, endAddress);
     }
 
     void storeMemCpy(MemAddressType address, void *source, uint64_t size) { mem->storeMemCpy(address, source, size); }

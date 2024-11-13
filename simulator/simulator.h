@@ -29,7 +29,7 @@ public:
         loader = std::make_shared<Loader::Loader>(machine);
     };
 
-    void StartSimulationOnSimpleInterpreter(const std::string &filePath);
+    void StartSimulationOnSimpleInterpreter(const std::string &filePath, const std::string &dumpMemPath = "");
 };
 
 } // namespace Simulator

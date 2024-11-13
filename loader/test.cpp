@@ -25,4 +25,4 @@ int main() {
     std::cout << std::hex << header.e_entry << std::dec << std::endl;
 
     file.close();
- }
+}

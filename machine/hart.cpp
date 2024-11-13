@@ -1,6 +1,6 @@
 #include "hart.h"
-#include "machine.h"
 #include "gen_func.h"
+#include "machine.h"
 
 namespace Machine {
 
@@ -21,14 +21,18 @@ RegValue Hart::getReg(const RegId &reg) {
     return Regfile[reg];
 }
 
-Instr::Instr(Word instrCode)
-{
+Instr::Instr(Word instrCode) {
     auto decodeInfo = decodeMap[opcodeMask & instrCode];
     auto decodeArr = decodeInfo.first;
     auto decodeImmFunc = decodeInfo.second;
+#ifdef SIMULATION_LOG
+    SimulationLog(std::string("opode + Fns: ") + std::to_string(decodeArr[0] & instrCode));
+#endif
     handler = instructionMap[decodeArr[0] & instrCode];
     imm = decodeImmFunc(instrCode);
-    std::cout << "imm: " << (imm) << std::endl;
+#ifdef SIMULATION_LOG
+    SimulationLog(std::string("Decode imm: ") + std::to_string(imm));
+#endif
     rd = (instrCode & decodeArr[1]) >> decodeArr[2];
     rs1 = (instrCode & decodeArr[3]) >> decodeArr[4];
     rs2 = (instrCode & decodeArr[5]) >> decodeArr[6];
@@ -75,10 +79,16 @@ const RegValue &Hart::getPC() {
 void Hart::RunSimpleInterpreterWithInstCache() {
     free = false;
     while (true) {
+#ifdef SIMULATION_LOG
+        SimulationLog(std::string("Execute PC: ") + std::to_string(PC));
+#endif
         auto instCode = loadMem<Word>(PC);
         auto inst = decode(instCode);
         inst->handler(*this, inst);
         PC += sizeof(Word);
+#ifdef SIMULATION_LOG
+        SimulationLog(std::string(""));
+#endif
     }
 }
 

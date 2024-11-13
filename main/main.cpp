@@ -8,6 +8,11 @@ int main(int argc, char **argv)
     }
 
     auto simulator = std::make_shared<Simulator::Simulator>(0xFFFFFFFF);
-    simulator->StartSimulationOnSimpleInterpreter(argv[1]);
+    if(argc < 3)
+    {
+        simulator->StartSimulationOnSimpleInterpreter(argv[1]);
+        return 0;
+    }
+    simulator->StartSimulationOnSimpleInterpreter(argv[1], argv[2]);
 
 }

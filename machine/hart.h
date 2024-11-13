@@ -35,9 +35,9 @@ public:
 class Hart
 {
 private:
-    std::weak_ptr<Machine> machine;
     RegValue PC {0};
     RegValue Regfile[32];
+    std::weak_ptr<Machine> machine;
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
     bool free {true};
     

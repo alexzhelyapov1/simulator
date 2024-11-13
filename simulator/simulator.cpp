@@ -2,7 +2,7 @@
 
 namespace Simulator {
 
-void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath) {
+void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, const std::string &dumpMemPath) {
     std::shared_ptr<Machine::Hart> simHart = nullptr;
     for (auto hart : machine->GetHarts()) {
         if (hart->GetStatus()) {
@@ -15,16 +15,20 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath) 
     }
 
     // TODO: Give loader pages for loadElf
-    simHart->setPC(loader->loadElf(filePath));
-    // void *buff = new Machine::Word(0xCD023);
-    // machine->storeMemCpy(0x10000, buff, 4U);
-    // std::cout << "load Mem: " << machine->loadMem<Machine::Word>(0x10000) << std::endl;
-    machine->DumpMem("./build/dump.txt", 0x10000, 0x11000);
+    auto pc = loader->loadElf(filePath);
+    simHart->setPC(pc);
+    if (dumpMemPath.size() != 0) {
+        machine->DumpMem(dumpMemPath, pc, pc + 0x10000);
+    }
 
     try {
         simHart->RunSimpleInterpreterWithInstCache();
     } catch (const std::exception &e) {
         std::cout << "Simulation ended with: " << e.what() << std::endl;
+    }
+
+    if (dumpMemPath.size() != 0) {
+        machine->DumpMem(dumpMemPath, pc, pc + 0x10000);
     }
 }
 
