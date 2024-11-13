@@ -1,6 +1,20 @@
 # simulator
 Risc-V simulator
 
+### How to run
+```
+ninja Simulator
+./build/Simulator <path-to-elf-file>
+```
+
+### How to get elf file
+```
+compile-elf.sh <input-file> <output-dir> <output-filename>
+```
+Example:
+```
+compile-elf.sh ./test/2.s ./build myelf
+```
 
 #### Suggestions:
 1) Create your own brunch to develop your own module.
