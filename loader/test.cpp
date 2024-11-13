@@ -22,7 +22,7 @@ int main() {
     Elf_Ehdr header;
     file.read(reinterpret_cast<char *>(&header), sizeof(header));
 
-    std::cout << std::hex << header.e_entry << std::endl;
+    std::cout << std::hex << header.e_entry << std::dec << std::endl;
 
     file.close();
  }

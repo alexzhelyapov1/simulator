@@ -4,6 +4,9 @@
 #include <memory>
 #include <array>
 
+#ifndef GEN_INSTS_H
+#define GEN_INSTS_H
+
 namespace Machine
 {
 
@@ -107,15 +110,15 @@ std::map<uint32_t, InstructionHandler> instructionMap = {
 <%= instruction_set.generate_map %>
 };
 
-constexpr int32_t getImmInvalid (int32_t instCode) {
+int32_t getImmInvalid (int32_t instCode) {
   return 0;  
 }
 
 constexpr uint32_t maskI = 4095 << 20;
-constexpr uint32_t signExt11 = 65535 << 12;
+constexpr uint32_t signExt11 = 2097151 << 11;
 
 int32_t getImmI (int32_t instCode) {
-  return signExt11 + ((((instCode & maskI) >> 20) + (1 << 12)) & static_cast<int32_t>(4095U));
+  return signExt11 + ((((instCode & maskI) >> 20) + (1 << 11)) & static_cast<int32_t>(4095U));
 }
 
 constexpr uint32_t maskS1 = 31 << 7;
@@ -165,7 +168,7 @@ int32_t getImmJ (int32_t instCode) {
     cpp_code << "{{"
     cpp_code << mask_array.map { |item| "static_cast<int32_t>(#{item.to_s}U)" }.join(",")
     cpp_code << "}, "
-    cpp_code << (get_imm_func.nil? ? "nullptr" : get_imm_func.to_s)
+    cpp_code << (get_imm_func.nil? ? "getImmInvalid" : get_imm_func.to_s)
     cpp_code << "},\n"
   end
   cpp_code << "};"
@@ -173,3 +176,5 @@ int32_t getImmJ (int32_t instCode) {
 <%= cpp_code %>
 
 }
+
+#endif

@@ -16,7 +16,9 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath) 
 
     // TODO: Give loader pages for loadElf
     simHart->setPC(loader->loadElf(filePath));
-
+    // void *buff = new Machine::Word(0xCD023);
+    // machine->storeMemCpy(0x10000, buff, 4U);
+    // std::cout << "load Mem: " << machine->loadMem<Machine::Word>(0x10000) << std::endl;
     machine->DumpMem("./build/dump.txt", 0x10000, 0x11000);
 
     try {

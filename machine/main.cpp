@@ -12,7 +12,7 @@ class myInt {
 };
 
 int main() {
-    auto machine = std::make_shared<Machine::Machine>(0xFFFFFF);
+    auto machine = std::make_shared<Machine::Machine>(0xFFFFFFF);
     auto hart = machine->CreateHart();
 
     auto cache = std::make_shared<IntBitCache<myInt, 2, 0>>();

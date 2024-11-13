@@ -14,14 +14,14 @@ class Mem
 {
 private:
     MemAddressType memSize;
-    std::byte* mem;
+    uint8_t* mem;
 public:
     Mem(MemAddressType size) : memSize(size)
     {
-        mem = static_cast<std::byte *>(mmap(nullptr, memSize, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0));
+        mem = static_cast<uint8_t *>(mmap(nullptr, memSize, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0));
     }
 
-    void DumpMemory(const std::string &outPath, const RegValue &startSize, const RegValue &endSize);
+    void DumpMemory(const std::string &outPath, const int64_t &startSize, const int64_t &endSize);
 
     template <typename ValType> ValType loadMem(MemAddressType address) {
         if (address < memSize - sizeof(ValType)) {
@@ -39,11 +39,14 @@ public:
     }
 
     void storeMemCpy(MemAddressType address, void *source, uint64_t size) {
-        if (address < memSize - size) {
-            memcpy(mem, source, size);
-            return;
+        if(size + address >= memSize)
+        {
+            throw std::runtime_error("ACCESS TO OUT OF RANGE MEMORY");
         }
-        throw std::runtime_error("ACCESS TO OUT OF RANGE MEMORY");
+        for(int64_t i = 0; i < size; i++)
+        {
+            mem[i + address] = ((uint8_t *)(source))[i];
+        }
     }
 };
 

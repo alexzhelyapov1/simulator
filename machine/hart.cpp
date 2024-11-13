@@ -1,6 +1,6 @@
 #include "hart.h"
-#include "gen_func.h"
 #include "machine.h"
+#include "gen_func.h"
 
 namespace Machine {
 
@@ -19,6 +19,19 @@ RegValue Hart::getReg(const RegId &reg) {
     SimulationLog(std::string("Get Register: ") + std::to_string(reg) + " val: " + std::to_string(Regfile[reg]));
 #endif
     return Regfile[reg];
+}
+
+Instr::Instr(Word instrCode)
+{
+    auto decodeInfo = decodeMap[opcodeMask & instrCode];
+    auto decodeArr = decodeInfo.first;
+    auto decodeImmFunc = decodeInfo.second;
+    handler = instructionMap[decodeArr[0] & instrCode];
+    imm = decodeImmFunc(instrCode);
+    std::cout << "imm: " << (imm) << std::endl;
+    rd = (instrCode & decodeArr[1]) >> decodeArr[2];
+    rs1 = (instrCode & decodeArr[3]) >> decodeArr[4];
+    rs2 = (instrCode & decodeArr[5]) >> decodeArr[6];
 }
 
 void Hart::setReg(const RegId &reg, const RegValue &val) {
@@ -48,7 +61,7 @@ void Hart::setPC(const RegValue &pc) {
     PC = pc;
 #ifdef SIMULATION_LOG
     SimulationLog(std::string("Set PC with: ") + std::to_string(PC));
-    std::cout << "Set PC: " << std::hex << PC << std::endl;
+    std::cout << "Set PC: " << std::hex << PC << std::dec << std::endl;
 #endif
 }
 

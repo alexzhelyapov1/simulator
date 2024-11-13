@@ -2,6 +2,7 @@
 #include <functional>
 #include "machine.h"
 #include "intBitCache.h"
+#include <iostream>
 #ifndef HART_H
 #define HART_H
 #define INST_CACHE_BIT_SIZE 10
@@ -13,9 +14,7 @@ namespace Machine
 class Hart;
 class Instr;
 using InstructionHandler = void (*)(Hart &, const std::shared_ptr<Instr>);
-static std::unordered_map<Word, InstructionHandler> instMapHandler {}; 
-static std::pair<int32_t[9], int32_t(*)(int32_t)> decodeMasks[127] = {};
-static Word opcodeMask = 127;
+static Word opcodeMask = static_cast<Word>(127);
 
 class Instr 
 {
@@ -25,17 +24,7 @@ public:
     Word imm;
     InstructionHandler handler;
 
-    Instr(Word instrCode) : instrCode(instrCode)
-    {
-        auto decodeInfo = decodeMasks[opcodeMask & instrCode];
-        auto decodeArr = decodeInfo.first;
-        auto decodeImmFunc = decodeInfo.second;
-        handler = instMapHandler[decodeArr[0]];
-        imm = decodeImmFunc(instrCode);
-        rd = (instrCode & decodeArr[1]) >> decodeArr[2];
-        rs1 = (instrCode & decodeArr[3]) >> decodeArr[4];
-        rs2 = (instrCode & decodeArr[5]) >> decodeArr[6];
-    }
+    Instr(Word instrCode);
 
     Word cacheId()
     {
