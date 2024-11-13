@@ -17,7 +17,7 @@ public:
     Loader(std::shared_ptr<Machine::Machine> machine) : machine(machine) {}
     ~Loader() {}
 
-    void loadElf(const std::string &path) const;
+    uint64_t loadElf(const std::string &path) const;
 };
 
 

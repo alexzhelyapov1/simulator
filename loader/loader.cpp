@@ -15,7 +15,7 @@ typedef Elf32_Phdr Elf_Phdr;
 typedef Elf32_Addr Elf_Addr;
 #endif
 
-void Loader::loadElf(const std::string &path) const {
+uint64_t Loader::loadElf(const std::string &path) const {
     std::ifstream file(path, std::ios::binary);
     if (!file.is_open()) {
         throw std::runtime_error("[ERROR]:[Loader]: Can't open file: " + path + ".");
@@ -52,6 +52,8 @@ void Loader::loadElf(const std::string &path) const {
     free(buffer);
 
     file.close();
+
+    return header.e_entry;
 }
 
 } // namespace Loader

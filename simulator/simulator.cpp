@@ -14,9 +14,8 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath) 
         simHart = machine->CreateHart();
     }
 
-    // TODO: Give loader pages for loadElf and make loader return Address
-    loader->loadElf(filePath);
-    simHart->setPC(0);
+    // TODO: Give loader pages for loadElf
+    simHart->setPC(loader->loadElf(filePath));
 
     try {
         simHart->RunSimpleInterpreterWithInstCache();
