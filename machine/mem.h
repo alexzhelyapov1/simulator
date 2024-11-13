@@ -21,6 +21,8 @@ public:
         mem = static_cast<std::byte *>(mmap(nullptr, memSize, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0));
     }
 
+    void DumpMemory(const std::string &outPath, const RegValue &startSize, const RegValue &endSize);
+
     template <typename ValType> ValType loadMem(MemAddressType address) {
         if (address < memSize - sizeof(ValType)) {
             return *(reinterpret_cast<ValType *>(mem + address));

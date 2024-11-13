@@ -17,6 +17,8 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath) 
     // TODO: Give loader pages for loadElf
     simHart->setPC(loader->loadElf(filePath));
 
+    machine->DumpMem("./build/dump.txt", 0x10000, 0x11000);
+
     try {
         simHart->RunSimpleInterpreterWithInstCache();
     } catch (const std::exception &e) {

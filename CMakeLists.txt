@@ -22,6 +22,7 @@ add_subdirectory(${LOADER_ROOT_DIR})
 set(SIMULATOR_SRC
 ${MACHINE_ROOT_DIR}/machine.cpp
 ${MACHINE_ROOT_DIR}/hart.cpp
+${MACHINE_ROOT_DIR}/mem.cpp
 ${MAIN_ROOT_DIR}/main.cpp
 ${LOADER_ROOT_DIR}/loader.cpp
 ${SIMULATOR_ROOT_DIR}/simulator.cpp
