@@ -48,3 +48,10 @@ add_custom_target(clang-force-format
     COMMAND find "${INSTRUCTIONS_MAP_ROOT_DIR}" "${MACHINE_ROOT_DIR}" "${LOADER_ROOT_DIR}" "${SIMULATOR_ROOT_DIR}" "${CACHE_DIR}"
                 -name "*.cpp" -exec clang-format -style='{ColumnLimit: 120, IndentWidth: 4, UseTab: Never}' -i {} +
 )
+
+add_custom_target(clang-force-format-h
+    COMMAND find "${INSTRUCTIONS_MAP_ROOT_DIR}" "${MACHINE_ROOT_DIR}" "${LOADER_ROOT_DIR}" "${SIMULATOR_ROOT_DIR}" "${CACHE_DIR}"
+                -name "*.h" -exec clang-format -style='{ColumnLimit: 120, IndentWidth: 4, UseTab: Never}' -i {} +
+)
+
+add_dependencies(clang-force-format clang-force-format-h)

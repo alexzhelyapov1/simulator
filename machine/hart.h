@@ -1,24 +1,22 @@
-#include <memory>
-#include <functional>
-#include "machine.h"
 #include "intBitCache.h"
+#include "machine.h"
+#include <functional>
 #include <iostream>
+#include <memory>
 #ifndef HART_H
 #define HART_H
 #define INST_CACHE_BIT_SIZE 10
 #define INST_CACHE_BIT_SHIFT 0
 
-namespace Machine 
-{
+namespace Machine {
 
 class Hart;
 class Instr;
 using InstructionHandler = void (*)(Hart &, const std::shared_ptr<Instr>);
 static Word opcodeMask = static_cast<Word>(127);
 
-class Instr 
-{
-public:
+class Instr {
+  public:
     Word instrCode;
     RegId rd, rs1, rs2;
     Word imm;
@@ -26,35 +24,39 @@ public:
 
     Instr(Word instrCode);
 
-    Word cacheId()
-    {
-        return instrCode;
-    }
+    operator int() const { return instrCode; }
 };
 
-class Hart
-{
-private:
-    RegValue PC {0};
+class Hart {
+  private:
+    RegValue PC{0};
     RegValue Regfile[32];
-    std::weak_ptr<Machine> machine;
+    Machine &machine;
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
-    bool free {true};
-    RegValue numOfRunnedInstr {0};
-public:
-    Hart(std::shared_ptr<Machine> machine, const RegValue &PC) : machine(machine), PC(PC) {
-        instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+    std::shared_ptr<IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> InstMemCache;
+    bool free{true};
+    RegValue numOfRunnedInstr{0};
+
+  public:
+    Hart(Machine &machine, const RegValue &PC) : machine(machine), PC(PC) {
+        instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
+            new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+        InstMemCache = std::shared_ptr<IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
+            new IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
     }
-    Hart(std::shared_ptr<Machine> machine) : machine(machine) {
-        instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+    Hart(Machine &machine) : machine(machine) {
+        instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
+            new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+        InstMemCache = std::shared_ptr<IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
+            new IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
     }
     ~Hart() {}
 
-    const bool &GetStatus() {return free;} 
+    const bool &GetStatus() { return free; }
 
-    std::shared_ptr<Instr> decode(const Word& instrCode);
+    std::shared_ptr<Instr> decode(const Word &instrCode);
     void RunSimpleInterpreterWithInstCache();
 
     void setPC(const RegValue &pc);
@@ -63,23 +65,23 @@ public:
     void setReg(const RegId &reg, const RegValue &val);
 
     void exceptionReturn();
-    const RegValue &GetNumOfRunInstr() {return numOfRunnedInstr;}
+    const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
     inline const RegValue &MMU(RegValue &vaddress);
 
     template <typename ValType> ValType loadMem(RegValue address) {
         auto hostAddress = MMU(address);
-        return machine.lock()->loadMem<ValType>(hostAddress);
+        return machine.loadMem<ValType>(hostAddress);
     }
 
     template <typename ValType> void storeMem(RegValue address, ValType val) {
         auto hostAddress = MMU(address);
-        machine.lock()->storeMem(hostAddress, val);
+        machine.storeMem(hostAddress, val);
     }
 
     friend class Machine;
 };
 
-}
+} // namespace Machine
 
 #endif

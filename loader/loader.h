@@ -1,26 +1,23 @@
-#include <memory>
+#include "machine.h"
 #include <iostream>
 #include <memory>
-#include "machine.h"
 
 #ifndef LOADER_H
 #define LOADER_H
 
 namespace Loader {
 
-class Loader
-{
-private:
+class Loader {
+  private:
     std::weak_ptr<Machine::Machine> machine;
 
-public:
+  public:
     Loader(std::shared_ptr<Machine::Machine> machine) : machine(machine) {}
     ~Loader() {}
 
     uint64_t loadElf(const std::string &path) const;
 };
 
-
-}
+} // namespace Loader
 
 #endif
