@@ -33,7 +33,7 @@ class Hart {
     RegValue Regfile[32];
     Machine &machine;
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
-    std::shared_ptr<IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> InstMemCache;
+    std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instMemCache;
     bool free{true};
     RegValue numOfRunnedInstr{0};
 
@@ -41,15 +41,15 @@ class Hart {
     Hart(Machine &machine, const RegValue &PC) : machine(machine), PC(PC) {
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
-        InstMemCache = std::shared_ptr<IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
-            new IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+        instMemCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
+            new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
     }
     Hart(Machine &machine) : machine(machine) {
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
-        InstMemCache = std::shared_ptr<IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
-            new IntBitCache<Word, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+        instMemCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
+            new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
     }
     ~Hart() {}

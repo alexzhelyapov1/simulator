@@ -82,8 +82,13 @@ void Hart::RunSimpleInterpreterWithInstCache() {
 #ifdef SIMULATION_LOG
         SimulationLog(std::string("Execute PC: ") + std::to_string(PC));
 #endif
-        auto instCode = loadMem<Word>(PC);
-        auto inst = decode(instCode);
+        auto inst = instMemCache->get(PC);
+        if(inst == nullptr)
+        {
+            auto instCode = loadMem<Word>(PC);
+            inst = decode(instCode);
+            instMemCache->put(inst);
+        }
         inst->handler(*this, inst);
         PC += sizeof(Word);
         numOfRunnedInstr++;
