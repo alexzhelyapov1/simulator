@@ -7,6 +7,8 @@
 #define HART_H
 #define INST_CACHE_BIT_SIZE 10
 #define INST_CACHE_BIT_SHIFT 0
+#define TLB_BIT_SIZE 10
+#define TLB_BIT_SHIFT 12
 
 namespace Machine {
 
@@ -27,18 +29,42 @@ class Instr {
     operator int() const { return instrCode; }
 };
 
+enum class AccessType {
+    READ,
+    WRITE, 
+    EXECUTE
+};
+
 class Hart {
   private:
     RegValue PC{0};
     RegValue Regfile[32];
     Machine &machine;
+
+    std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
+    std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
+    std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> executeTLB;
+
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instMemCache;
     bool free{true};
     RegValue numOfRunnedInstr{0};
 
+    std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> getTLB(AccessType access_type) {
+        switch (access_type) {
+            case AccessType::READ:  return readTLB;
+            case AccessType::WRITE: return writeTLB;
+            case AccessType::EXECUTE: return executeTLB;
+            default: return nullptr;
+        }
+    }
+
   public:
     Hart(Machine &machine, const RegValue &PC) : machine(machine), PC(PC) {
+        readTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        writeTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        executeTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         instMemCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
@@ -46,6 +72,10 @@ class Hart {
         Regfile[0] = 0;
     }
     Hart(Machine &machine) : machine(machine) {
+        readTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        writeTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        executeTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         instMemCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(

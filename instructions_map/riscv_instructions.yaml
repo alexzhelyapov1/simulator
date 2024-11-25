@@ -374,7 +374,7 @@ instructions:
     opcode: 27
     f3: 0
     operator: '+'
-    mask: ' & 4294967295'
+    mask: ' & 0b11111111111111111111111111111111'
 
   SLLIW: 
     format: I
@@ -382,7 +382,7 @@ instructions:
     f3: 1
     operator: '<<'
     shamt: 0
-    mask: ' & 4294967295'
+    mask: ' & 0b11111111111111111111111111111111U'
 
   SRLIW: 
     format: I
@@ -391,7 +391,7 @@ instructions:
     f3: 5
     shamt: 0
     type: uint64_t
-    mask: ' & 4294967295'
+    mask: ' & 0b11111111111111111111111111111111U'
 
   # SRAIW:
   #   format: I 
@@ -404,7 +404,7 @@ instructions:
     format: R
     opcode: 59
     operator: '+'
-    mask: ' & 4294967295'
+    mask: ' & 0b11111111111111111111111111111111U'
     f3: 0
     f7: 0
 
@@ -412,7 +412,7 @@ instructions:
     format: R
     opcode: 59
     operator: '-'
-    mask: ' & 4294967295'
+    mask: ' & 0b11111111111111111111111111111111U'
     f3: 0
     f7: 32
 
@@ -496,6 +496,7 @@ instructions:
   DIV: 
     format: M
     opcode: 51
+    lower: 32
     f3: 4
     f7: 1
     operator: '/'
@@ -507,6 +508,7 @@ instructions:
     f7: 1
     rs1: uint64_t
     rs2: uint64_t
+    lower: 32
     operator: '/'
 
   REM: 

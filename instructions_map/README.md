@@ -14,23 +14,10 @@ getPC()
 setPc()
 
 ###### Instructions that have not yet been implemented:
-[X] Check S-format imm -> Add functions getImm - that return 32bit imm
-
-[X] BEQ BNE BLT BGE BLTU BGEU 
-
 FENCE FENCE.I - not yet implemented
 CSRRW CSRRS CSRRC CSRRWI CSRRSI CSRRCI 
 ECALL EBREAK
 URET SRET MRET
 WFI SFENCE.VMA
 
-[ ] Assembly - ? (For tests)
-
-Done + checked:
-[X] S-format
-[X] U-format
-[X] I
-[X] R
-[X] J - need to check JALR (& ~1 is necessary? + sext)
-[X] B
-[ ] M
+[ ] Fix div and same instrs

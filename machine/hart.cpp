@@ -4,7 +4,7 @@
 
 namespace Machine {
 
-// #define SIMULATION_LOG
+#define SIMULATION_LOG
 
 #ifdef SIMULATION_LOG
 #include <iostream>
