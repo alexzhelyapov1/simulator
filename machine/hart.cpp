@@ -85,7 +85,7 @@ void Hart::RunSimpleInterpreterWithInstCache() {
         auto inst = instMemCache->get(PC);
         if(inst == nullptr)
         {
-            auto instCode = loadMem<Word>(PC);
+            auto instCode = loadtoExec<Word>(PC);
             inst = decode(instCode);
             instMemCache->put(inst);
         }
@@ -105,8 +105,24 @@ void Hart::exceptionReturn() {
     throw std::runtime_error("EXCEPTION RETURN FROM HART");
 }
 
-inline const RegValue &Hart::MMU(RegValue &vaddress) {
-    // TODO insert MMU here
+inline const RegValue &Hart::MMU(RegValue &vaddress, AccessType accessFlag) {
+    // get VPN
+    auto vPN = vaddress & ~0xFFF;
+    // get Offset
+    auto offset = vaddress & 0xFFF;
+
+    // go to TLB by access flag
+    if (accessFlag == AccessType::READ) {
+
+    }
+
+    // page table
+
+    // make physical address
+    // update tlb
+
+    // return paddress + status
+
     return vaddress;
 }
 

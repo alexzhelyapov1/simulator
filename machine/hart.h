@@ -40,6 +40,7 @@ class Hart {
     RegValue PC{0};
     RegValue Regfile[32];
     Machine &machine;
+    // std::array<RegValue> special_regs;
 
     std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
     std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
@@ -97,15 +98,20 @@ class Hart {
     void exceptionReturn();
     const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
-    inline const RegValue &MMU(RegValue &vaddress);
+    inline const RegValue &MMU(RegValue &vaddress, AccessType accessFlag);
 
     template <typename ValType> ValType loadMem(RegValue address) {
-        auto hostAddress = MMU(address);
+        auto hostAddress = MMU(address, AccessType::READ);
+        return machine.loadMem<ValType>(hostAddress);
+    }
+
+    template <typename ValType> ValType loadtoExec(RegValue address) {
+        auto hostAddress = MMU(address, AccessType::EXECUTE);
         return machine.loadMem<ValType>(hostAddress);
     }
 
     template <typename ValType> void storeMem(RegValue address, ValType val) {
-        auto hostAddress = MMU(address);
+        auto hostAddress = MMU(address, AccessType::WRITE);
         machine.storeMem(hostAddress, val);
     }
 
