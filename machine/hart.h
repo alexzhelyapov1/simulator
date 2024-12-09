@@ -35,12 +35,16 @@ enum class AccessType {
     EXECUTE
 };
 
+enum class MMUMode {
+    BASE_MODE
+};
+
 class Hart {
   private:
     RegValue PC{0};
     RegValue Regfile[32];
     Machine &machine;
-    // std::array<RegValue> special_regs;
+    std::array<RegValue, 2> special_regs; // [0] - Page Table Pointer, [1] - MMU mode
 
     std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
     std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
