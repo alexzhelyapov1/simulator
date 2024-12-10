@@ -1,23 +1,15 @@
 #include "hart.h"
 #include "gen_func.h"
 #include "machine.h"
+#include <sstream>
+
+#define MODULE "Hart"
+#include "logging.h"
 
 namespace Machine {
 
-#define SIMULATION_LOG
-
-#ifdef SIMULATION_LOG
-#include <iostream>
-#endif
-
-#ifdef SIMULATION_LOG
-void SimulationLog(std::string log) { std::cout << "[SIMULATION LOG] " << log << std::endl; }
-#endif
-
 RegValue Hart::getReg(const RegId &reg) {
-#ifdef SIMULATION_LOG
-    SimulationLog(std::string("Get Register: ") + std::to_string(reg) + " val: " + std::to_string(Regfile[reg]));
-#endif
+    Log(LogLevel::DEBUG, std::string("Get Register: ") + std::to_string(reg) + " val: " + std::to_string(Regfile[reg]));
     return Regfile[reg];
 }
 
@@ -25,14 +17,10 @@ Instr::Instr(Word instrCode) {
     auto decodeInfo = decodeMap[opcodeMask & instrCode];
     auto decodeArr = decodeInfo.first;
     auto decodeImmFunc = decodeInfo.second;
-#ifdef SIMULATION_LOG
-    SimulationLog(std::string("opode + Fns: ") + std::to_string(decodeArr[0] & instrCode));
-#endif
+    Log(LogLevel::DEBUG, std::string("opode + Fns: ") + std::to_string(decodeArr[0] & instrCode));
     handler = instructionMap[decodeArr[0] & instrCode];
     imm = decodeImmFunc(instrCode);
-#ifdef SIMULATION_LOG
-    SimulationLog(std::string("Decode imm: ") + std::to_string(imm));
-#endif
+    Log(LogLevel::DEBUG, std::string("Decode imm: ") + std::to_string(imm));
     rd = (instrCode & decodeArr[1]) >> decodeArr[2];
     rs1 = (instrCode & decodeArr[3]) >> decodeArr[4];
     rs2 = (instrCode & decodeArr[5]) >> decodeArr[6];
@@ -43,16 +31,12 @@ void Hart::setReg(const RegId &reg, const RegValue &val) {
         return;
     }
     Regfile[reg] = val;
-#ifdef SIMULATION_LOG
-    SimulationLog(std::string("Set Register: ") + std::to_string(reg) + " with val: " + std::to_string(val));
-#endif
+    Log(LogLevel::DEBUG, std::string("Set Register: ") + std::to_string(reg) + " with val: " + std::to_string(val));
 }
 
 std::shared_ptr<Instr> Hart::decode(const Word &instrCode) {
     auto inst = instCache->get(instrCode);
-#ifdef SIMULATION_LOG
-    SimulationLog(std::string("Get Inst Code: ") + std::to_string(instrCode));
-#endif
+    Log(LogLevel::DEBUG, std::string("Get Inst Code: ") + std::to_string(instrCode));
     if (inst != nullptr) {
         return inst;
     }
@@ -63,25 +47,21 @@ std::shared_ptr<Instr> Hart::decode(const Word &instrCode) {
 
 void Hart::setPC(const RegValue &pc) {
     PC = pc;
-#ifdef SIMULATION_LOG
-    SimulationLog(std::string("Set PC with: ") + std::to_string(PC));
-    std::cout << "Set PC: " << std::hex << PC << std::dec << std::endl;
-#endif
+    Log(LogLevel::DEBUG, std::string("Set PC with: ") + std::to_string(PC));
+    std::stringstream ss;
+    ss << "Set PC (hex): " << std::hex << PC << std::dec << std::endl;
+    Log(LogLevel::DEBUG, ss.str());
 }
 
 const RegValue &Hart::getPC() {
-#ifdef SIMULATION_LOG
-    SimulationLog(std::string("Get PC: ") + std::to_string(PC));
-#endif
+    Log(LogLevel::DEBUG, std::string("Get PC: ") + std::to_string(PC));
     return PC;
 }
 
 void Hart::RunSimpleInterpreterWithInstCache() {
     free = false;
     while (true) {
-#ifdef SIMULATION_LOG
-        SimulationLog(std::string("Execute PC: ") + std::to_string(PC));
-#endif
+        Log(LogLevel::DEBUG, std::string("Execute PC: ") + std::to_string(PC));
         auto inst = instMemCache->get(PC);
         if(inst == nullptr)
         {
@@ -92,16 +72,12 @@ void Hart::RunSimpleInterpreterWithInstCache() {
         inst->handler(*this, inst);
         PC += sizeof(Word);
         numOfRunnedInstr++;
-#ifdef SIMULATION_LOG
-        SimulationLog(std::string(""));
-#endif
+        Log(LogLevel::DEBUG, std::string(""));
     }
 }
 
 void Hart::exceptionReturn() {
-#ifdef SIMULATION_LOG
-    SimulationLog(std::string("EXCEPTION RETURN"));
-#endif
+    Log(LogLevel::DEBUG, std::string("EXCEPTION RETURN"));
     throw std::runtime_error("EXCEPTION RETURN FROM HART");
 }
 

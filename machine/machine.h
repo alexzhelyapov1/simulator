@@ -1,6 +1,7 @@
 #include "mem.h"
 #include <memory>
 #include <vector>
+#include <unordered_map>
 #ifndef MACHINE_H
 #define MACHINE_H
 
@@ -21,6 +22,7 @@ class Machine {
     std::vector<std::shared_ptr<Hart>> harts;
     std::shared_ptr<Mem> mem;
     std::shared_ptr<Loader::Loader> loader;
+    std::unordered_map<uint64_t, uint64_t> page_table;
 
   public:
     Machine(RegValue memSize) { mem = std::make_shared<Mem>(memSize); }

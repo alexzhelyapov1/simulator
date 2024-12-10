@@ -13,6 +13,7 @@ set(LOADER_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/loader")
 set(MAIN_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/main")
 set(BUILD_DIR_GEN "${CMAKE_BINARY_DIR}/generated")
 set(CACHE_DIR "${MACHINE_ROOT_DIR}/cache")
+set(TOOLS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tools")
 
 
 add_subdirectory(${INSTRUCTIONS_MAP_ROOT_DIR})
@@ -26,6 +27,7 @@ ${MACHINE_ROOT_DIR}/mem.cpp
 ${MAIN_ROOT_DIR}/main.cpp
 ${LOADER_ROOT_DIR}/loader.cpp
 ${SIMULATOR_ROOT_DIR}/simulator.cpp
+${TOOLS_DIR}/logging.cpp
 )
 
 set(SIMULATOR_INCLUDE_DIRS
@@ -34,6 +36,7 @@ ${CACHE_DIR}
 ${BUILD_DIR_GEN}
 ${LOADER_ROOT_DIR}
 ${SIMULATOR_ROOT_DIR}
+${TOOLS_DIR}
 )
 
 add_executable(Simulator ${SIMULATOR_SRC})

@@ -13,6 +13,7 @@ ${CMAKE_CURRENT_SOURCE_DIR}/machine.cpp
 ${CMAKE_CURRENT_SOURCE_DIR}/hart.cpp
 ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 ${LOADER_ROOT_DIR}/loader.cpp
+${TOOLS_DIR}/logging.cpp
 )
 
 add_executable(Machine ${MACHINE_SRC})
@@ -23,4 +24,5 @@ target_include_directories(Machine PRIVATE
     ${CMAKE_BINARY_DIR}/${GEN_DIR}
     ${BUILD_DIR_GEN}
     ${LOADER_ROOT_DIR}
+    ${TOOLS_DIR}
 )

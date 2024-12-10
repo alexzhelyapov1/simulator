@@ -3,17 +3,14 @@
 #include <fstream>
 #include <iostream>
 
+#define MODULE "Loader"
+#include "logging.h"
+
 namespace Loader {
 
-#if __x86_64__ || __ppc64__
 typedef Elf64_Ehdr Elf_Ehdr;
 typedef Elf64_Phdr Elf_Phdr;
 typedef Elf64_Addr Elf_Addr;
-#else
-typedef Elf32_Ehdr Elf_Ehdr;
-typedef Elf32_Phdr Elf_Phdr;
-typedef Elf32_Addr Elf_Addr;
-#endif
 
 uint64_t Loader::loadElf(const std::string &path) const {
     std::ifstream file(path, std::ios::binary);
@@ -41,6 +38,8 @@ uint64_t Loader::loadElf(const std::string &path) const {
         }
     }
 
+    Log(LogLevel::DEBUG, "Buffer size: " + std::to_string(buffer_size));
+
     char *buffer = reinterpret_cast<char *>(calloc(buffer_size, 1));
     if (!buffer) {
         throw std::runtime_error("Can't allocate buffer to read elf.");
@@ -58,6 +57,8 @@ uint64_t Loader::loadElf(const std::string &path) const {
             file.read(buffer, program_header.p_filesz);
             // copy p_filesz bytes, other p_memsz - p_filesz bytes are zero
             machine.lock()->storeMemCpy(program_header.p_vaddr, buffer, program_header.p_filesz);
+            Log(LogLevel::DEBUG, "Load segment: VADDR = " + std::to_string(program_header.p_vaddr) + ", size = " +
+                std::to_string(program_header.p_filesz) + " bytes.");
         }
     }
 
@@ -65,6 +66,7 @@ uint64_t Loader::loadElf(const std::string &path) const {
 
     file.close();
 
+    Log(LogLevel::DEBUG, "Entry point = " + std::to_string(header.e_entry));
     return header.e_entry;
 }
 
