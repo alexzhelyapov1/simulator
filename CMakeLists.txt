@@ -10,6 +10,7 @@ set(INSTRUCTIONS_MAP_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/instructions_map")
 set(MACHINE_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/machine")
 set(SIMULATOR_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/simulator")
 set(LOADER_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/loader")
+set(TIMERS_INTERRUPTS "${CMAKE_CURRENT_SOURCE_DIR}/timers_interrupts")
 set(MAIN_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/main")
 set(BUILD_DIR_GEN "${CMAKE_BINARY_DIR}/generated")
 set(CACHE_DIR "${MACHINE_ROOT_DIR}/cache")
@@ -17,7 +18,6 @@ set(TOOLS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tools")
 
 
 add_subdirectory(${INSTRUCTIONS_MAP_ROOT_DIR})
-add_subdirectory(${MACHINE_ROOT_DIR})
 add_subdirectory(${LOADER_ROOT_DIR})
 
 set(SIMULATOR_SRC
@@ -28,6 +28,7 @@ ${MAIN_ROOT_DIR}/main.cpp
 ${LOADER_ROOT_DIR}/loader.cpp
 ${SIMULATOR_ROOT_DIR}/simulator.cpp
 ${TOOLS_DIR}/logging.cpp
+${TIMERS_INTERRUPTS}/timers.cpp
 )
 
 set(SIMULATOR_INCLUDE_DIRS
@@ -37,6 +38,7 @@ ${BUILD_DIR_GEN}
 ${LOADER_ROOT_DIR}
 ${SIMULATOR_ROOT_DIR}
 ${TOOLS_DIR}
+${TIMERS_INTERRUPTS}
 )
 
 add_executable(Simulator ${SIMULATOR_SRC})

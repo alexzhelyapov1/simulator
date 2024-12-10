@@ -1,5 +1,7 @@
 #include "intBitCache.h"
 #include "machine.h"
+#include "csr.h"
+#include "entry.h"
 #include <functional>
 #include <iostream>
 #include <memory>
@@ -45,17 +47,18 @@ class Hart {
     RegValue Regfile[32];
     Machine &machine;
     std::array<RegValue, 2> special_regs; // [0] - Page Table Pointer, [1] - MMU mode
+    ControlStatusRegisters* csr; 
 
-    std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
-    std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
-    std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> executeTLB;
+    std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
+    std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
+    std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> executeTLB;
 
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instMemCache;
     bool free{true};
     RegValue numOfRunnedInstr{0};
 
-    std::shared_ptr<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>> getTLB(AccessType access_type) {
+    std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> getTLB(AccessType access_type) {
         switch (access_type) {
             case AccessType::READ:  return readTLB;
             case AccessType::WRITE: return writeTLB;
@@ -66,9 +69,9 @@ class Hart {
 
   public:
     Hart(Machine &machine, const RegValue &PC) : machine(machine), PC(PC) {
-        readTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        writeTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        executeTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        readTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        writeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        executeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
 
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
@@ -77,9 +80,9 @@ class Hart {
         Regfile[0] = 0;
     }
     Hart(Machine &machine) : machine(machine) {
-        readTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        writeTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        executeTLB = std::make_shared<IntBitCache<uint64_t, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        readTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        writeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        executeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
         
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
@@ -119,6 +122,9 @@ class Hart {
         machine.storeMem(hostAddress, val);
     }
 
+    void handleInterrupt() {
+
+    }
     friend class Machine;
 };
 
