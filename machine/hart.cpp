@@ -8,11 +8,6 @@
 
 namespace Machine {
 
-RegValue Hart::getReg(const RegId &reg) {
-    Log(LogLevel::DEBUG, std::string("Get Register: ") + std::to_string(reg) + " val: " + std::to_string(Regfile[reg]));
-    return Regfile[reg];
-}
-
 Instr::Instr(Word instrCode) {
     auto decodeInfo = decodeMap[opcodeMask & instrCode];
     auto decodeArr = decodeInfo.first;
@@ -26,13 +21,7 @@ Instr::Instr(Word instrCode) {
     rs2 = (instrCode & decodeArr[5]) >> decodeArr[6];
 }
 
-void Hart::setReg(const RegId &reg, const RegValue &val) {
-    if (reg == 0) {
-        return;
-    }
-    Regfile[reg] = val;
-    Log(LogLevel::DEBUG, std::string("Set Register: ") + std::to_string(reg) + " with val: " + std::to_string(val));
-}
+
 
 std::shared_ptr<Instr> Hart::decode(const Word &instrCode) {
     auto inst = instCache->get(instrCode);
@@ -43,19 +32,6 @@ std::shared_ptr<Instr> Hart::decode(const Word &instrCode) {
     inst = std::make_shared<Instr>(instrCode);
     instCache->put(inst);
     return inst;
-}
-
-void Hart::setPC(const RegValue &pc) {
-    PC = pc;
-    Log(LogLevel::DEBUG, std::string("Set PC with: ") + std::to_string(PC));
-    std::stringstream ss;
-    ss << "Set PC (hex): " << std::hex << PC << std::dec << std::endl;
-    Log(LogLevel::DEBUG, ss.str());
-}
-
-const RegValue &Hart::getPC() {
-    Log(LogLevel::DEBUG, std::string("Get PC: ") + std::to_string(PC));
-    return PC;
 }
 
 void Hart::RunSimpleInterpreterWithInstCache() {
@@ -76,7 +52,7 @@ void Hart::RunSimpleInterpreterWithInstCache() {
     }
 }
 
-void Hart::exceptionReturn() {
+inline void Hart::exceptionReturn() {
     Log(LogLevel::DEBUG, std::string("EXCEPTION RETURN"));
     throw std::runtime_error("EXCEPTION RETURN FROM HART");
 }

@@ -12,6 +12,9 @@
 #define TLB_BIT_SIZE 10
 #define TLB_BIT_SHIFT 12
 
+#define MODULE "Hart"
+#include "logging.h"
+
 namespace Machine {
 
 class Hart;
@@ -39,6 +42,13 @@ enum class AccessType {
 
 enum class MMUMode {
     BASE_MODE
+};
+
+
+class LinearBlock
+{
+  public:
+    std::vector<std::shared_ptr<Instr>> instrs;
 };
 
 class Hart {
@@ -97,13 +107,31 @@ class Hart {
     std::shared_ptr<Instr> decode(const Word &instrCode);
     void RunSimpleInterpreterWithInstCache();
 
-    void setPC(const RegValue &pc);
-    const RegValue &getPC();
-    RegValue getReg(const RegId &reg);
-    void setReg(const RegId &reg, const RegValue &val);
+    void setPC(const RegValue &pc) {
+        PC = pc;
+        Log(LogLevel::DEBUG, std::string("Set PC with: ") + std::to_string(PC));
+    }
 
-    void exceptionReturn();
-    const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
+    const RegValue &getPC() {
+        Log(LogLevel::DEBUG, std::string("Get PC: ") + std::to_string(PC));
+        return PC;
+    }
+
+    RegValue getReg(const RegId &reg) {
+        Log(LogLevel::DEBUG, std::string("Get Register: ") + std::to_string(reg) + " val: " + std::to_string(Regfile[reg]));
+        return Regfile[reg];
+    }
+
+    void setReg(const RegId &reg, const RegValue &val) {
+        if (reg == 0) {
+            return;
+        }
+        Regfile[reg] = val;
+        Log(LogLevel::DEBUG, std::string("Set Register: ") + std::to_string(reg) + " with val: " + std::to_string(val));
+    }
+
+    inline void exceptionReturn();
+    inline const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
     inline const RegValue &MMU(RegValue &vaddress, AccessType accessFlag);
 
@@ -129,5 +157,8 @@ class Hart {
 };
 
 } // namespace Machine
+
+
+#undef MODULE
 
 #endif
