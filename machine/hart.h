@@ -1,7 +1,7 @@
 #include "intBitCache.h"
 #include "machine.h"
-#include "csr.h"
 #include "entry.h"
+#include "timers.h"
 #include <functional>
 #include <iostream>
 #include <memory>
@@ -11,6 +11,7 @@
 #define INST_CACHE_BIT_SHIFT 0
 #define TLB_BIT_SIZE 10
 #define TLB_BIT_SHIFT 12
+#define MAX_TICK 10000
 
 namespace Machine {
 
@@ -41,13 +42,24 @@ enum class MMUMode {
     BASE_MODE
 };
 
+enum class SpecialRegs : RegValue {
+    MIP = 2,
+    MIE = 3, 
+    MSTATUS = 4,
+    MTIME = 5, 
+    MTIMECMP = 6
+};
+
 class Hart {
   private:
     RegValue PC{0};
     RegValue Regfile[32];
     Machine &machine;
-    std::array<RegValue, 2> special_regs; // [0] - Page Table Pointer, [1] - MMU mode
-    ControlStatusRegisters* csr; 
+    std::array<RegValue, 4096> special_regs; // [0] - Page Table Pointer, [1] - MMU mode
+
+    std::vector<Timer> globalTimers; 
+    std::vector<Timer> currentTimers;
+    Timer globalTimer{0, MAX_TICK};
 
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
@@ -122,9 +134,46 @@ class Hart {
         machine.storeMem(hostAddress, val);
     }
 
+
     void handleInterrupt() {
+        // set regs + setPC
+    }
+
+    inline RegValue getSpecialReg(SpecialRegs idx) {
+        return special_regs[(int)idx];
+    }
+
+    inline void setSpecialReg(SpecialRegs idx, RegValue Value) {
+        special_regs[(int)idx] = Value;
+    }
+
+    inline void incrementTimer() {
+        // вектор глобальный таймеров
+        // текущий лист таймеров где всегда меньше 10000
+
+        // на каждом такте вычитать current у таймеров из currentTimers 
+        // флаг в структуру - конечный таймер или его перезапускать
+        // после handleInterrupt in current делаем set max timer если таймер бесконечный
+
+        setSpecialReg(SpecialRegs::MTIME, getSpecialReg(SpecialRegs::MTIME) + 1);
+
+        if (getSpecialReg(SpecialRegs::MTIME) >= getSpecialReg(SpecialRegs::MTIMECMP) && getSpecialReg(SpecialRegs::MTIMECMP) != 0) {
+            RegValue mip_value = getSpecialReg(SpecialRegs::MIP); 
+            mip_value |= (1 << 7);
+            setSpecialReg(SpecialRegs::MIP, mip_value);
+
+            handleInterrupt();
+            setSpecialReg(SpecialRegs::MTIMECMP, 0);
+        }
+    }
+
+    void createTimer(uint64_t max, bool isfinite) {
+        if(max > MAX_TICK) {
+            globalTimers.push_back(Timer{max, max, isfinite});
+        }
 
     }
+
     friend class Machine;
 };
 
