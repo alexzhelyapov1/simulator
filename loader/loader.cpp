@@ -3,8 +3,8 @@
 #include <fstream>
 #include <iostream>
 
-#define MODULE "Loader"
-#include "logging.h"
+#include "hart.h"
+
 
 namespace Loader {
 
@@ -12,7 +12,7 @@ typedef Elf64_Ehdr Elf_Ehdr;
 typedef Elf64_Phdr Elf_Phdr;
 typedef Elf64_Addr Elf_Addr;
 
-uint64_t Loader::loadElf(const std::string &path) const {
+uint64_t Loader::loadElf(const std::string &path, std::shared_ptr<Machine::Hart> &hart) const {
     std::ifstream file(path, std::ios::binary);
     if (!file.is_open()) {
         throw std::runtime_error("[ERROR]:[Loader]: Can't open file: " + path + ".");
@@ -51,14 +51,14 @@ uint64_t Loader::loadElf(const std::string &path) const {
         file.read(reinterpret_cast<char *>(&program_header), sizeof(program_header));
 
         if (program_header.p_type == PT_LOAD) {
-            // std::cout << std::hex << program_header.p_vaddr << " + " << program_header.p_memsz << " = "
-            // << program_header.p_vaddr + program_header.p_memsz << std::endl;
             file.seekg(program_header.p_offset);
             file.read(buffer, program_header.p_filesz);
             // copy p_filesz bytes, other p_memsz - p_filesz bytes are zero
-            machine.lock()->storeMemCpy(program_header.p_vaddr, buffer, program_header.p_filesz);
-            Log(LogLevel::DEBUG, "Load segment: VADDR = " + std::to_string(program_header.p_vaddr) + ", size = " +
-                std::to_string(program_header.p_filesz) + " bytes.");
+            RegValue paddr = hart->MMU(program_header.p_vaddr, Machine::AccessType::WRITE);
+            machine.lock()->storeMemCpy(paddr, buffer, program_header.p_filesz);
+
+            Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Loaded segment:" << "vaddr: 0x" 
+                << program_header.p_vaddr << ", paddr: 0x" << paddr << ", size: 0x" << program_header.p_filesz).str());
         }
     }
 
@@ -66,7 +66,8 @@ uint64_t Loader::loadElf(const std::string &path) const {
 
     file.close();
 
-    Log(LogLevel::DEBUG, "Entry point = " + std::to_string(header.e_entry));
+    Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Entry point (va): 0x" << header.e_entry).str());
+
     return header.e_entry;
 }
 

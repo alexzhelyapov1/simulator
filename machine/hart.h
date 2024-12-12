@@ -1,3 +1,7 @@
+#ifndef MODULE
+    #define MODULE "Hart"
+    #include "logging.h"
+#endif
 #include "intBitCache.h"
 #include "machine.h"
 #include "csr.h"
@@ -12,9 +16,6 @@
 #define TLB_BIT_SIZE 10
 #define TLB_BIT_SHIFT 12
 #define MAX_BB_SIZE 512
-
-#define MODULE "Hart"
-#include "logging.h"
 
 namespace Machine {
 
@@ -39,13 +40,15 @@ class Instr {
 };
 
 enum class AccessType {
-    READ,
-    WRITE, 
-    EXECUTE
+    READ = 1,
+    WRITE = 1 << 1,
+    EXECUTE = 1 << 2
 };
 
-enum class MMUMode {
-    BASE_MODE
+// For convenience value = number of page tables in this mode. SATP_MODE_SIZE = 4 allows to do this
+enum class SATP_MMU_MODE: int64_t {
+    SV39 = int64_t(3) << 60,
+    SV48 = int64_t(4) << 60,
 };
 
 
@@ -69,8 +72,8 @@ class Hart {
     RegValue PC{0};
     RegValue Regfile[32];
     Machine &machine;
-    std::array<RegValue, 2> special_regs; // [0] - Page Table Pointer, [1] - MMU mode
-    ControlStatusRegisters* csr; 
+    ControlStatusRegisters* csr;
+    RegValue special_regs[1]; // [0] - satp
 
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
@@ -106,7 +109,7 @@ class Hart {
         readTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
         writeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
         executeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        
+
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         BBMemCache = std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
@@ -147,7 +150,7 @@ class Hart {
     inline void exceptionReturn();
     inline const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
-    inline const RegValue &MMU(RegValue &vaddress, AccessType accessFlag);
+    RegValue MMU(RegValue vaddress, AccessType accessFlag);
 
     template <typename ValType> ValType loadMem(RegValue address) {
         auto hostAddress = MMU(address, AccessType::READ);
@@ -162,6 +165,18 @@ class Hart {
     template <typename ValType> void storeMem(RegValue address, ValType val) {
         auto hostAddress = MMU(address, AccessType::WRITE);
         machine.storeMem(hostAddress, val);
+    }
+
+    inline void setSatp(RegValue value) {
+        special_regs[0] = value;
+    }
+
+    inline SATP_MMU_MODE getSatpMmuMode() {
+        return static_cast<SATP_MMU_MODE>(special_regs[0] & (int64_t(0xFFFF) << 60));
+    }
+
+    inline RegValue getRootPageTablePaddr() {
+        return (special_regs[0] & (int64_t(1) << 44) - 1) << 12;
     }
 
     void handleInterrupt() {
