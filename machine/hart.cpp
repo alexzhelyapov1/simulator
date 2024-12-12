@@ -1,10 +1,6 @@
 #include "hart.h"
 #include "gen_func.h"
 #include "machine.h"
-#include <sstream>
-
-#define MODULE "Hart"
-#include "logging.h"
 
 namespace Machine {
 
@@ -47,10 +43,7 @@ std::shared_ptr<Instr> Hart::decode(const Word &instrCode) {
 
 void Hart::setPC(const RegValue &pc) {
     PC = pc;
-    Log(LogLevel::DEBUG, std::string("Set PC with: ") + std::to_string(PC));
-    std::stringstream ss;
-    ss << "Set PC (hex): " << std::hex << PC << std::dec << std::endl;
-    Log(LogLevel::DEBUG, ss.str());
+    Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Set PC: 0x" << PC).str());
 }
 
 const RegValue &Hart::getPC() {
@@ -61,7 +54,7 @@ const RegValue &Hart::getPC() {
 void Hart::RunSimpleInterpreterWithInstCache() {
     free = false;
     while (true) {
-        Log(LogLevel::DEBUG, std::string("Execute PC: ") + std::to_string(PC));
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Execute PC: 0x" << PC).str());
         auto inst = instMemCache->get(PC);
         if(inst == nullptr)
         {
@@ -81,25 +74,68 @@ void Hart::exceptionReturn() {
     throw std::runtime_error("EXCEPTION RETURN FROM HART");
 }
 
-inline const RegValue &Hart::MMU(RegValue &vaddress, AccessType accessFlag) {
+RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
     // get VPN
-    auto vPN = vaddress & ~0xFFF;
+    const RegValue VPN = vaddress >> 12;
+
     // get Offset
-    auto offset = vaddress & 0xFFF;
+    const RegValue offset = vaddress & 0xFFF;
 
     // go to TLB by access flag
-    if (accessFlag == AccessType::READ) {
+    auto tlb = getTLB(accessFlag);
 
+    auto found_in_tlb = tlb->get(vaddress & ~0xFFF);
+    if (found_in_tlb != nullptr) {
+        #ifndef NDEBUG
+        if (found_in_tlb->paddr & 0xFFF != 0) {
+            throw std::runtime_error("Paddr should be aligned at 4kb.");
+        }
+        #endif
+
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "TLB vaddr: 0x" << vaddress << " => paddr: 0x"
+            << found_in_tlb->paddr + offset << ", access: 0x" << static_cast<int64_t>(accessFlag)).str());
+        return found_in_tlb->paddr + offset;
     }
 
-    // page table
+    // SV39
+    const uint32_t VPN_1 = (VPN >> 18) & 0x1FF;
+    const uint32_t VPN_2 = (VPN >> 9) & 0x1FF;
+    const uint32_t VPN_3 = VPN & 0x1FF;
 
-    // make physical address
+
+    // Find paddr
+    RegValue *page_table_0 = nullptr;
+    RegValue *page_table_1 = nullptr;
+    RegValue *page_table_2 = nullptr;
+
+    page_table_0 = reinterpret_cast<RegValue *>(machine.mem->GetHostAddr(getSATP() & ~0xFFF));
+
+    if (page_table_0[VPN_1] == 0) {
+        throw std::runtime_error("Page fault (page_table_1 = 0).");
+    }
+    page_table_1 = reinterpret_cast<RegValue *>(machine.mem->GetHostAddr(page_table_0[VPN_1]));
+
+    if (page_table_1[VPN_2] == 0) {
+        throw std::runtime_error("Page fault (page_table_2 = 0).");
+    }
+    page_table_2 = reinterpret_cast<RegValue *>(machine.mem->GetHostAddr(page_table_1[VPN_2]));
+
+    RegValue paddress = page_table_2[VPN_3];
+
+    // Check for access rights
+    if (paddress & static_cast<RegValue>(accessFlag) == 0) {
+        throw std::runtime_error("Page fault (bad access rights).");
+    }
+
     // update tlb
+    std::shared_ptr<TLBEntry> new_tlb_entry(new TLBEntry(vaddress & ~0xFFF, paddress & ~0xFFF));
+    tlb->put(new_tlb_entry);
 
-    // return paddress + status
+    Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "MMU vaddr: 0x" << vaddress << " => paddr: 0x"
+        << (paddress & ~0xFFF) + offset).str());
 
-    return vaddress;
+    // return paddress
+    return (paddress & ~0xFFF) + offset;
 }
 
 } // namespace Machine

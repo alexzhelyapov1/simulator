@@ -1,3 +1,8 @@
+#ifndef MODULE
+    #define MODULE "Hart"
+    #include "logging.h"
+    #include <sstream>
+#endif
 #include "intBitCache.h"
 #include "machine.h"
 #include "csr.h"
@@ -32,9 +37,9 @@ class Instr {
 };
 
 enum class AccessType {
-    READ,
-    WRITE, 
-    EXECUTE
+    READ = 1,
+    WRITE = 1 << 1,
+    EXECUTE = 1 << 2
 };
 
 enum class MMUMode {
@@ -46,8 +51,8 @@ class Hart {
     RegValue PC{0};
     RegValue Regfile[32];
     Machine &machine;
-    std::array<RegValue, 2> special_regs; // [0] - Page Table Pointer, [1] - MMU mode
-    ControlStatusRegisters* csr; 
+    ControlStatusRegisters* csr;
+    RegValue special_regs[1]; // [0] - satp
 
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
@@ -105,7 +110,7 @@ class Hart {
     void exceptionReturn();
     const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
-    inline const RegValue &MMU(RegValue &vaddress, AccessType accessFlag);
+    RegValue MMU(RegValue vaddress, AccessType accessFlag);
 
     template <typename ValType> ValType loadMem(RegValue address) {
         auto hostAddress = MMU(address, AccessType::READ);
@@ -120,6 +125,14 @@ class Hart {
     template <typename ValType> void storeMem(RegValue address, ValType val) {
         auto hostAddress = MMU(address, AccessType::WRITE);
         machine.storeMem(hostAddress, val);
+    }
+
+    inline void setSATP(RegValue value) {
+        special_regs[0] = value;
+    }
+
+    inline RegValue getSATP() {
+        return special_regs[0];
     }
 
     void handleInterrupt() {

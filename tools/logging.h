@@ -1,4 +1,5 @@
 // Before include this header you should define MODULE as string of current file. (e.g. #define MODULE "LOADER")
+#pragma once
 #include <string>
 
 enum class LogLevel {

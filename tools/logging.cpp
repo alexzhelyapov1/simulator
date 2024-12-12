@@ -1,7 +1,9 @@
 #include <array>
 #include <iostream>
 
+#ifndef MODULE
 #define MODULE "Logging"
+#endif
 #include "logging.h"
 
 
