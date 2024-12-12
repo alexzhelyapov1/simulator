@@ -265,35 +265,41 @@ instructions:
     format: J
     opcode: 111
     log: jump and link
+    BBend: "true"
 
   JALR:
     format: J
     opcode: 103
     f3: 0
+    BBend: "true"
   
   BEQ:
     format: B
     opcode: 99
     f3: 0
     operator: '=='
+    BBend: "true"
 
   BNE:
     format: B
     opcode: 99
     f3: 1
     operator: '!='
+    BBend: "true"
 
   BLT:
     format: B
     opcode: 99
     f3: 4
     operator: '<'
+    BBend: "true"
 
   BGE:
     format: B
     opcode: 99
     f3: 5
     operator: '>='
+    BBend: "true"
 
   BLTU:
     format: B
@@ -301,6 +307,7 @@ instructions:
     f3: 6
     type: uint64_t
     operator: '<'
+    BBend: "true"
 
   BGEU:
     format: B
@@ -308,6 +315,7 @@ instructions:
     f3: 7
     type: uint64_t
     operator: '>='
+    BBend: "true"
 
   # FENCE:
   #   format:
@@ -346,6 +354,7 @@ instructions:
     f3: 0
     rs1: 0
     f12: 2
+    BBend: "true"
 
   SRET:
     format: SYSTEM
@@ -354,6 +363,7 @@ instructions:
     f3: 0
     rs1: 0
     f12: 258
+    BBend: "true"
 
   MRET:
     format: SYSTEM
@@ -362,6 +372,7 @@ instructions:
     f3: 0
     rs1: 0
     f12: 770
+    BBend: "true"
 
   # WFI:
   #   format:

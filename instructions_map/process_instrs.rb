@@ -96,7 +96,7 @@ class InstructionSet
   def create_general_mask(opcode, format)
     format_details = get_format_info(format)
     instructions_with_format = find_by_format(format)
-    fields = ['f3', 'f7', 'opcode']
+    fields = ['f3', 'f7', 'f12', 'opcode']
     if instructions_with_format['opcode'] == opcode && instructions_with_format.key?('shamt')
       fields << 'shamt'
     end
@@ -189,7 +189,7 @@ class InstructionSet
   def create_instruction_key(details)
     format_details = @yaml_data['formats'][details['format']]
     key = 0
-    ['opcode', 'f3', 'f7', 'shamt'].each do |field|
+    ['opcode', 'f3', 'f7', 'f12', 'shamt'].each do |field|
       next unless details.key?(field) && format_details.key?(field)
       start_bit, end_bit = format_details[field]
       value = details[field]
@@ -198,6 +198,90 @@ class InstructionSet
     key
   end
 
+  # Собираем код для метода, скопировал из .erb
+  def get_code(format, instruction_name, details)
+    case format
+    when 'I'
+      mask = details.key?('mask') ? details['mask'] : ''
+      type_cast = details.key?('type') ? '(int64_t)' : ''
+      uint_cast = details.key?('type') ? '(uint64_t)' : ''
+      shamt_expr = details.key?('shamt') ? '((uint32_t)inst->imm & 63U)' : 'inst->imm'
+      
+      load_operation = details.key?('load') ? "hart.setReg(inst->rd, (int64_t)(hart.loadMem<int#{details['load']}_t>((hart.getReg(inst->rs1) + inst->imm))));" : ""
+
+      arithmetic_operation = details.key?('operator') ? "hart.setReg(inst->rd, #{type_cast}(#{uint_cast}(hart.getReg(inst->rs1)) #{details['operator']} #{shamt_expr} #{details['afterop']})#{mask});" : ""
+      
+      if details.key?('load') 
+        code = load_operation 
+      else
+        code = arithmetic_operation
+      end
+
+      if instruction_name == 'SRLI'
+        parts = [
+          "if((inst->imm & (1 << 10)) == 0) {\n",
+          "\t\thart.setReg(inst->rd, ((hart.getReg(inst->rs1)) >> ((uint32_t)inst->imm & 63U) ));\n",
+          "\t}\n\telse {\n",
+          "\t\thart.setReg(inst->rd, (int64_t)((uint64_t)(hart.getReg(inst->rs1)) >> ((uint32_t)inst->imm & 63U) ));\n",
+          "\t}"
+        ]
+        code =  parts.join('') 
+      end
+      if instruction_name == 'SRLIW'
+        parts = [
+          "if((inst->imm & (1 << 10)) == 0) {\n",
+          "\t\thart.setReg(inst->rd, ((hart.getReg(inst->rs1)#{mask}) >> ((uint32_t)inst->imm & 63U) ));\n",
+          "\t}\n\telse {\n",
+          "\t\thart.setReg(inst->rd, (int64_t)((uint64_t)(hart.getReg(inst->rs1)#{mask}) >> ((uint32_t)inst->imm & 63U) ));\n",
+          "\t}"
+        ]
+        code =  parts.join('') 
+      end
+    when 'R'
+      mask = details.key?('mask') ? details['mask'] : ''
+      uint_cast = details.key?('type') ? '(uint64_t)' : ''
+      int_cast = details.key?('type') ? '(int64_t)' : ''
+      op = details['operator']
+      afterop = details['afterop']
+      code = "hart.setReg(inst->rd, #{int_cast}(#{uint_cast}(hart.getReg(inst->rs1)#{mask}) #{op} #{uint_cast}(hart.getReg(inst->rs2)#{mask})#{afterop})#{mask});"
+    
+    when 'U'
+      code = "hart.setReg(inst->rd, #{details['operator']} inst->imm);"
+
+    when 'S'
+      code = "hart.storeMem<int#{details['store']}_t>(hart.getReg(inst->rs1) + inst->imm, hart.getReg(inst->rs2));"
+
+    when 'J'
+      code = "hart.setReg(inst->rd, hart.getPC() + 4);\n  "
+      code += details.key?('f3') ? "hart.setPC(((hart.getReg(inst->rs1) + inst->imm) & ~(1U)) - 4);" : "hart.setPC((hart.getPC() + inst->imm) - 4);"
+
+    when 'B'
+      uint_cast = details.key?('type') ? '(uint64_t)' : ''
+      op = details['operator']
+      code = "if(#{uint_cast}hart.getReg(inst->rs1) #{op} #{uint_cast}hart.getReg(inst->rs2)) hart.setPC(hart.getPC() + inst->imm);"
+    
+    when 'M'
+      type_rs1 = details&.key?('rs1') ? 'uint64_t' : 'int64_t'
+      type_rs2 = details&.key?('rs2') ? 'uint64_t' : 'int64_t'
+      size_rs1 = details&.key?('size1') ? '& 0xFFFFFFFF' : ''
+      size_rs2 = details&.key?('size2') ? '& 0xFFFFFFFF' : ''
+      
+      code = "auto result = (#{type_rs1})(hart.getReg(inst->rs1) #{size_rs1}) #{details['operator']} (#{type_rs2})(hart.getReg(inst->rs2) #{size_rs2});\n  "
+      num_bits = details.key?('lower') ? details['lower'] : details['upper']
+      if details&.key?('lower')
+        mask = num_bits == 64 ? '0xFFFFFFFFFFFFFFFF' : '0xFFFFFFFF'
+        code += "hart.setReg(inst->rd, result & #{mask});"
+      elsif details&.key?('upper')
+        code += "hart.setReg(inst->rd, result >> #{64 - num_bits});"
+      else
+        code += "hart.setReg(inst->rd, result);"
+      end
+
+      when 'SYSTEM'
+        code = "hart.exceptionReturn();"
+    end
+    code
+  end
 end
 
 options = {}
