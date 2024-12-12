@@ -8,6 +8,9 @@
 #ifndef GEN_INSTS_H
 #define GEN_INSTS_H
 
+#define MODULE "Hart"
+#include "logging.h"
+
 namespace Machine
 {
 <% 
@@ -17,95 +20,80 @@ namespace Machine
   format_args = instruction_set.get_args(format) 
   instructions.each do |instruction_name, details| 
 %>
+
+<% 
+    code = instruction_set.get_code(format, instruction_name, details)
+%>
+
 void <%= instruction_name %>(Hart &hart, const std::shared_ptr<Instr> inst) {
-  <% 
-    case format
-    when 'I'
-      mask = details.key?('mask') ? details['mask'] : ''
-      type_cast = details.key?('type') ? '(int64_t)' : ''
-      uint_cast = details.key?('type') ? '(uint64_t)' : ''
-      shamt_expr = details.key?('shamt') ? '((uint32_t)inst->imm & 63U)' : 'inst->imm'
-      
-      load_operation = details.key?('load') ? "hart.setReg(inst->rd, (int64_t)(hart.loadMem<int#{details['load']}_t>((hart.getReg(inst->rs1) + inst->imm))));" : ""
-
-      arithmetic_operation = details.key?('operator') ? "hart.setReg(inst->rd, #{type_cast}(#{uint_cast}(hart.getReg(inst->rs1)) #{details['operator']} #{shamt_expr} #{details['afterop']})#{mask});" : ""
-      
-      if details.key?('load') 
-        code = load_operation 
-      else
-        code = arithmetic_operation
-      end
-
-      if instruction_name == 'SRLI'
-        parts = [
-          "if((inst->imm & (1 << 10)) == 0) {\n",
-          "\t\thart.setReg(inst->rd, ((hart.getReg(inst->rs1)) >> ((uint32_t)inst->imm & 63U) ));\n",
-          "\t}\n\telse {\n",
-          "\t\thart.setReg(inst->rd, (int64_t)((uint64_t)(hart.getReg(inst->rs1)) >> ((uint32_t)inst->imm & 63U) ));\n",
-          "\t}"
-        ]
-        code =  parts.join('') 
-      end
-      if instruction_name == 'SRLIW'
-        parts = [
-          "if((inst->imm & (1 << 10)) == 0) {\n",
-          "\t\thart.setReg(inst->rd, ((hart.getReg(inst->rs1)#{mask}) >> ((uint32_t)inst->imm & 63U) ));\n",
-          "\t}\n\telse {\n",
-          "\t\thart.setReg(inst->rd, (int64_t)((uint64_t)(hart.getReg(inst->rs1)#{mask}) >> ((uint32_t)inst->imm & 63U) ));\n",
-          "\t}"
-        ]
-        code =  parts.join('') 
-      end
-    when 'R'
-      mask = details.key?('mask') ? details['mask'] : ''
-      uint_cast = details.key?('type') ? '(uint64_t)' : ''
-      int_cast = details.key?('type') ? '(int64_t)' : ''
-      op = details['operator']
-      afterop = details['afterop']
-      code = "hart.setReg(inst->rd, #{int_cast}(#{uint_cast}(hart.getReg(inst->rs1)#{mask}) #{op} #{uint_cast}(hart.getReg(inst->rs2)#{mask})#{afterop})#{mask});"
-    
-    when 'U'
-      code = "hart.setReg(inst->rd, #{details['operator']} inst->imm);"
-
-    when 'S'
-      code = "hart.storeMem<int#{details['store']}_t>(hart.getReg(inst->rs1) + inst->imm, hart.getReg(inst->rs2));"
-
-    when 'J'
-      code = "hart.setReg(inst->rd, hart.getPC() + 4);\n  "
-      code += details.key?('f3') ? "hart.setPC(((hart.getReg(inst->rs1) + inst->imm) & ~(1U)) - 4);" : "hart.setPC((hart.getPC() + inst->imm) - 4);"
-
-    when 'B'
-      uint_cast = details.key?('type') ? '(uint64_t)' : ''
-      op = details['operator']
-      code = "if(#{uint_cast}hart.getReg(inst->rs1) #{op} #{uint_cast}hart.getReg(inst->rs2)) hart.setPC(hart.getPC() + inst->imm);"
-    
-    when 'M'
-      type_rs1 = details&.key?('rs1') ? 'uint64_t' : 'int64_t'
-      type_rs2 = details&.key?('rs2') ? 'uint64_t' : 'int64_t'
-      size_rs1 = details&.key?('size1') ? '& 0xFFFFFFFF' : ''
-      size_rs2 = details&.key?('size2') ? '& 0xFFFFFFFF' : ''
-      
-      code = "auto result = (#{type_rs1})(hart.getReg(inst->rs1) #{size_rs1}) #{details['operator']} (#{type_rs2})(hart.getReg(inst->rs2) #{size_rs2});\n  "
-      num_bits = details.key?('lower') ? details['lower'] : details['upper']
-      if details&.key?('lower')
-        mask = num_bits == 64 ? '0xFFFFFFFFFFFFFFFF' : '0xFFFFFFFF'
-        code += "hart.setReg(inst->rd, result & #{mask});"
-      elsif details&.key?('upper')
-        code += "hart.setReg(inst->rd, result >> #{64 - num_bits});"
-      else
-        code += "hart.setReg(inst->rd, result);"
-      end
-
-      when 'SYSTEM'
-        code = "hart.exceptionReturn();"
-    end
-  %>
   <%= code %>
 }
 <% end %>
 <% end %>
+
+void ExecuteLinearBlock(Hart &hart, const std::shared_ptr<LinearBlock> &instBlock) {
+  static void *instrMarks[] = {
+<% size = 0 %>
+<% instruction_set.instruction_definitions.each do |format, instructions|  %>
+  <% instructions.each do |instruction_name, details| %>
+    &&<%= instruction_name %>, //<%= size %>
+  <% size += 1 %>
+  <% end %>
+<% end %>
+    &&RETURN
+  };
+  uWord blockPC = 0;
+  std::shared_ptr<Instr> inst = instBlock->instr(blockPC);
+  uint64_t mark = inst->mark;
+  goto *instrMarks[mark];
+<% instruction_set.instruction_definitions.each do |format, instructions|  %>
+  <% instructions.each do |instruction_name, details| %>
+    <%= instruction_name %>:
+    Log(LogLevel::DEBUG, std::string("Execute PC: ") + std::to_string(hart.getPC()));
+    {
+    <% 
+        code = instruction_set.get_code(format, instruction_name, details)
+    %>
+    <%= code %>
+    }
+    hart.setPC(hart.getPC() + sizeof(Word));
+    blockPC++;
+    inst = instBlock->instr(blockPC);
+    mark = inst->mark;
+    goto *instrMarks[mark];
+  <% end %>
+<% end %>
+  RETURN:
+  return;
+}
+
+constexpr int32_t SIZE_OF_INSTRS = <%= size %>;
+
+bool checkBBEndInstr(uWord opcodeFns) {
+  switch(opcodeFns) {
+  <% instruction_set.instruction_definitions.each do |format, instructions|  %>
+  <% instructions.each do |instruction_name, details| %>
+    <%= if details.key?("BBend") then "case #{instruction_set.create_instruction_key(details)}:\n
+    return false;" end %>
+  <% end %>
+<% end %>
+    default:
+      return true;
+  }
+}
+
+std::map<uWord, uWord> instructionMarkMap = {
+  <% index = 0 %>
+  <% instruction_set.instruction_definitions.each do |format, instructions|  %>
+    <% instructions.each do |instruction_name, details| %>
+      {<%= instruction_set.create_instruction_key(details) %>, <%= index %>}, //<%= instruction_name %>
+    <% index += 1 %>
+    <% end %>
+  <% end %>
+};
+
 using InstructionHandler = void(*)(Hart&, const std::shared_ptr<Instr>);
-std::map<uint32_t, InstructionHandler> instructionMap = {
+std::map<uWord, InstructionHandler> instructionMap = {
 <%= instruction_set.generate_map %>
 };
 
@@ -113,43 +101,43 @@ int32_t getImmInvalid (int32_t instCode) {
   return 0;  
 }
 
-constexpr uint32_t maskI = 0b111111111111 << 20;
-constexpr uint32_t signExt11 = 0b000111111111111111111111 << 11;
+constexpr uWord maskI = 0b111111111111 << 20;
+constexpr uWord signExt11 = 0b000111111111111111111111 << 11;
 
 int32_t getImmI (int32_t instCode) {
   return signExt11 + ((((instCode & maskI) >> 20) + (1 << 11)) & static_cast<int32_t>(0b111111111111U));
 }
 
-constexpr uint32_t maskS1 = 0b00011111 << 7;
-constexpr uint32_t maskS2 = 0b01111111 << 25;
+constexpr uWord maskS1 = 0b00011111 << 7;
+constexpr uWord maskS2 = 0b01111111 << 25;
 
 int32_t getImmS (int32_t instCode) {
   return signExt11 + (((((instCode & maskS1) >> 7) + ((instCode & maskS2) >> 20)) + (1 << 11)) & static_cast<int32_t>(0b111111111111U));
 }
 
-constexpr uint32_t maskB1 = 1 << 7;
-constexpr uint32_t maskB2 = 0b1111 << 8;
-constexpr uint32_t maskB3 = 0b00111111 << 25;
-constexpr uint32_t maskB4 = 1 << 31;
+constexpr uWord maskB1 = 1 << 7;
+constexpr uWord maskB2 = 0b1111 << 8;
+constexpr uWord maskB3 = 0b00111111 << 25;
+constexpr uWord maskB4 = 1 << 31;
 
-constexpr uint32_t signExt12 = 0b11111111111111111111 << 12;
+constexpr uWord signExt12 = 0b11111111111111111111 << 12;
 
 int32_t getImmB (int32_t instCode) {
   return signExt12 + (((((instCode & maskB1) << 4) + ((instCode & maskB2) >> 7) + 
   ((instCode & maskB3) >> 20) + ((instCode & maskB4) >> 19)) + (1 << 12)) & static_cast<int32_t>(0b0001111111111111U));
 }
 
-constexpr uint32_t maskU = 0b11111111111111111111 << 12;
+constexpr uWord maskU = 0b11111111111111111111 << 12;
 
 int32_t getImmU (int32_t instCode) {
   return instCode & maskU;
 }
 
-constexpr uint32_t maskJ1 = 0b11111111 << 12;
-constexpr uint32_t maskJ2 = 1 << 20;
-constexpr uint32_t maskJ3 = 0b001111111111 << 21;
-constexpr uint32_t maskJ4 = 1 << 31;
-constexpr uint32_t signExt20 = 0b011111111111 << 20;
+constexpr uWord maskJ1 = 0b11111111 << 12;
+constexpr uWord maskJ2 = 1 << 20;
+constexpr uWord maskJ3 = 0b001111111111 << 21;
+constexpr uWord maskJ4 = 1 << 31;
+constexpr uWord signExt20 = 0b011111111111 << 20;
 
 int32_t getImmJ (int32_t instCode) {
   return signExt20 + (((instCode & maskJ1) + ((instCode & maskJ2) >> 9) + 

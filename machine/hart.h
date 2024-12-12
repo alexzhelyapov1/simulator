@@ -11,6 +11,7 @@
 #define INST_CACHE_BIT_SHIFT 0
 #define TLB_BIT_SIZE 10
 #define TLB_BIT_SHIFT 12
+#define MAX_BB_SIZE 512
 
 #define MODULE "Hart"
 #include "logging.h"
@@ -28,8 +29,11 @@ class Instr {
     RegId rd, rs1, rs2;
     Word imm;
     InstructionHandler handler;
+    RegValue mark;
+    uWord opcodeFns;
 
     Instr(Word instrCode);
+    Instr();
 
     operator int() const { return instrCode; }
 };
@@ -47,8 +51,17 @@ enum class MMUMode {
 
 class LinearBlock
 {
-  public:
     std::vector<std::shared_ptr<Instr>> instrs;
+    RegValue pc;
+  public:
+    inline std::shared_ptr<Instr> instr(RegValue blockPC) {
+        return instrs[blockPC];
+    }
+    inline RegValue size(){
+        return instrs.size() - 1;
+    }
+    LinearBlock(Hart &hart, const RegValue &PC);
+    operator int() const { return pc; }
 };
 
 class Hart {
@@ -64,7 +77,7 @@ class Hart {
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> executeTLB;
 
     std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
-    std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instMemCache;
+    std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> BBMemCache;
     bool free{true};
     RegValue numOfRunnedInstr{0};
 
@@ -85,8 +98,8 @@ class Hart {
 
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
-        instMemCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
-            new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+        BBMemCache = std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
+            new IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
     }
     Hart(Machine &machine) : machine(machine) {
@@ -96,8 +109,8 @@ class Hart {
         
         instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
-        instMemCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
-            new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+        BBMemCache = std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
+            new IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
     }
     ~Hart() {}
@@ -106,6 +119,7 @@ class Hart {
 
     std::shared_ptr<Instr> decode(const Word &instrCode);
     void RunSimpleInterpreterWithInstCache();
+    void RunInterpreterWithBBCache();
 
     void setPC(const RegValue &pc) {
         PC = pc;

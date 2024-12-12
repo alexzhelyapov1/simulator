@@ -14,6 +14,7 @@ namespace Machine {
 using RegValue = int64_t;
 using RegId = int8_t;
 using Word = int32_t;
+using uWord = uint32_t;
 
 class Hart;
 

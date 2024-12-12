@@ -12,16 +12,37 @@ Instr::Instr(Word instrCode) {
     auto decodeInfo = decodeMap[opcodeMask & instrCode];
     auto decodeArr = decodeInfo.first;
     auto decodeImmFunc = decodeInfo.second;
-    Log(LogLevel::DEBUG, std::string("opode + Fns: ") + std::to_string(decodeArr[0] & instrCode));
-    handler = instructionMap[decodeArr[0] & instrCode];
+    opcodeFns = decodeArr[0] & instrCode;
+    Log(LogLevel::DEBUG, std::string("opode + Fns: ") + std::to_string(opcodeFns));
+    handler = instructionMap[opcodeFns];
     imm = decodeImmFunc(instrCode);
     Log(LogLevel::DEBUG, std::string("Decode imm: ") + std::to_string(imm));
     rd = (instrCode & decodeArr[1]) >> decodeArr[2];
     rs1 = (instrCode & decodeArr[3]) >> decodeArr[4];
     rs2 = (instrCode & decodeArr[5]) >> decodeArr[6];
+    mark = instructionMarkMap[opcodeFns];
 }
 
+LinearBlock::LinearBlock(Hart &hart, const RegValue &PC) : pc(PC) {
+    RegValue instCode;
+    RegValue shift = 0;
+    std::shared_ptr<Instr> instr;
+    do {
+        instCode = hart.loadtoExec<Word>(PC + shift);
+        instr = hart.decode(instCode);
+        instrs.push_back(instr);
+        shift += sizeof(Word);
+    } while(checkBBEndInstr(instr->opcodeFns) && instrs.size() < MAX_BB_SIZE);
+    instrs.push_back(std::shared_ptr<Instr>(new Instr()));
+    Log(LogLevel::DEBUG, std::string("End of decoding BB"));
+    Log(LogLevel::DEBUG, std::string(""));
+}
 
+Instr::Instr() {
+    instrCode = 0;
+    handler = nullptr;
+    mark = SIZE_OF_INSTRS;
+}
 
 std::shared_ptr<Instr> Hart::decode(const Word &instrCode) {
     auto inst = instCache->get(instrCode);
@@ -38,16 +59,27 @@ void Hart::RunSimpleInterpreterWithInstCache() {
     free = false;
     while (true) {
         Log(LogLevel::DEBUG, std::string("Execute PC: ") + std::to_string(PC));
-        auto inst = instMemCache->get(PC);
-        if(inst == nullptr)
-        {
-            auto instCode = loadtoExec<Word>(PC);
-            inst = decode(instCode);
-            instMemCache->put(inst);
-        }
+        auto instCode = loadtoExec<Word>(PC);
+        auto inst = decode(instCode);
         inst->handler(*this, inst);
         PC += sizeof(Word);
         numOfRunnedInstr++;
+        Log(LogLevel::DEBUG, std::string(""));
+    }
+}
+
+void Hart::RunInterpreterWithBBCache() {
+    free = false;
+    while (true) {
+        Log(LogLevel::DEBUG, std::string("Execute PC: ") + std::to_string(PC));
+        auto bb = BBMemCache->get(PC);
+        if(bb == nullptr)
+        {
+            bb = std::shared_ptr<LinearBlock>(new LinearBlock(*this, PC));
+            BBMemCache->put(bb);
+        }
+        ExecuteLinearBlock(*this, bb);
+        numOfRunnedInstr += bb->size();
         Log(LogLevel::DEBUG, std::string(""));
     }
 }
