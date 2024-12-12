@@ -1,3 +1,7 @@
+#ifndef MODULE
+    #define MODULE "Loader"
+    #include "logging.h"
+#endif
 #include "machine.h"
 #include <iostream>
 #include <memory>
@@ -15,7 +19,7 @@ class Loader {
     Loader(std::shared_ptr<Machine::Machine> machine) : machine(machine) {}
     ~Loader() {}
 
-    uint64_t loadElf(const std::string &path) const;
+    uint64_t loadElf(const std::string &path, std::shared_ptr<Machine::Hart> &hart) const;
 };
 
 } // namespace Loader
