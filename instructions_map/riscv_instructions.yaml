@@ -323,23 +323,42 @@ instructions:
   # FENCE.I:
   #   format:
 
-  # CSRRW:
-  #   format:
+  CSRRW: 
+    format: I
+    opcode: 115 
+    f3: 1
+    imm: csr
 
-  # CSRRS:
-  #   format:
 
-  # CSRRC:
-  #   format:
+  CSRRS:
+    format: I
+    opcode: 115
+    f3: 2
+    imm: csr
 
-  # CSRRWI:
-  #   format:
+  CSRRC:
+    format: I
+    opcode: 115
+    f3: 3
+    imm: csr
 
-  # CSRRSI:
-  #   format:
+  CSRRWI:
+    format: I
+    opcode: 115
+    f3: 5
+    imm: csr
 
-  # CSRRCI:
-  #   format:
+  CSRRSI:
+    format: I
+    opcode: 115
+    f3: 6
+    imm: csr
+
+  CSRRCI:
+    format: I
+    opcode: 115
+    f3: 7
+    imm: csr
 
   # ECALL:
   #   format:
