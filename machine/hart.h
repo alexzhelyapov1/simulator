@@ -73,15 +73,11 @@ enum class SpecialRegs : RegValue {
     MIE = 3, 
     MSTATUS = 4,
     MTIME = 5, 
-    MTIMECMP = 6
-};
-
-enum class SpecialRegs : RegValue {
-    MIP = 2,
-    MIE = 3, 
-    MSTATUS = 4,
-    MTIME = 5, 
-    MTIMECMP = 6
+    MTIMECMP = 6,
+    MCOUNTEREN = 7, // регистр управления счетчиком
+    MEPC = 8, // pc куда прыгаем при interrupt
+    MCAUSE = 9, // причина прерывания
+    MTVAL = 10 // доп информация о прерывании
 };
 
 class Hart {
@@ -200,7 +196,10 @@ class Hart {
     }
 
     void handleInterrupt() {
-        // set regs + setPC
+        setSpecialReg(SpecialRegs::MEPC, getPC());
+        // если в MIP установлен MEI -> external interrupt, если MTI -> Machine Timer Interrupt
+        // проверить то же для MIE
+        
     }
 
     inline RegValue getSpecialReg(SpecialRegs idx) {
@@ -212,9 +211,6 @@ class Hart {
     }
 
     inline void incrementTimer() {
-        // вектор глобальный таймеров
-        // текущий лист таймеров где всегда меньше 10000
-
         // на каждом такте вычитать current у таймеров из currentTimers 
         // флаг в структуру - конечный таймер или его перезапускать
         // после handleInterrupt in current делаем set max timer если таймер бесконечный

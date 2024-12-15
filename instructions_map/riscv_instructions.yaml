@@ -327,38 +327,44 @@ instructions:
     format: I
     opcode: 115 
     f3: 1
-    imm: csr
-
+    rd_not_x0: 1, 1
 
   CSRRS:
     format: I
     opcode: 115
     f3: 2
-    imm: csr
+    rs1_bits: '| '
+    rs1_not_x0: 1, 1
 
   CSRRC:
     format: I
     opcode: 115
     f3: 3
-    imm: csr
+    rs1_bits: '& ~'
+    rs1_not_x0: 1, 1
 
   CSRRWI:
     format: I
     opcode: 115
     f3: 5
-    imm: csr
+    rd_not_x0: 1, 1
+    uimm:
 
   CSRRSI:
     format: I
     opcode: 115
     f3: 6
-    imm: csr
+    rs1_bits: '| '
+    rs1_not_x0: 1, 1
+    uimm:
 
   CSRRCI:
     format: I
     opcode: 115
     f3: 7
-    imm: csr
+    rs1_bits: '& ~'
+    rs1_not_x0: 1, 1
+    uimm:
 
   # ECALL:
   #   format:

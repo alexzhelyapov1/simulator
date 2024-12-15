@@ -5,10 +5,10 @@
 
 
 struct TLBEntry {
-    RegValue vaddr;
-    RegValue paddr;
+    Machine::RegValue vaddr;
+    Machine::RegValue paddr;
 
-    TLBEntry(RegValue vaddr, RegValue paddr): vaddr(vaddr), paddr(paddr){}
+    TLBEntry(Machine::RegValue vaddr, Machine::RegValue paddr): vaddr(vaddr), paddr(paddr){}
 
     operator size_t() const {
         return static_cast<size_t> (vaddr);

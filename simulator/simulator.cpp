@@ -37,13 +37,13 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, 
 
 void Simulator::AllocVirtualMemToStartProcess(std::shared_ptr<Machine::Hart> &hart) {
     // Allocate root page table
-    RegValue root_page_table_paddr = machine->mem->AllocPages();
+    Machine::RegValue root_page_table_paddr = machine->mem->AllocPages();
     Log(LogLevel::DEBUG, (std::stringstream() << "Root page table vaddr: "
             << std::hex << root_page_table_paddr).str());
 
     // set SATP register
-    RegValue mmu_mode = static_cast<RegValue>(Machine::SATP_MMU_MODE::SV39);
-    RegValue asid = RegValue(0) << 44;
+    Machine::RegValue mmu_mode = static_cast<Machine::RegValue>(Machine::SATP_MMU_MODE::SV39);
+    Machine::RegValue asid = Machine::RegValue(0) << 44;
     hart->setSatp(mmu_mode | asid | (root_page_table_paddr >> 12));
     Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "SATP: 0x"
         << (mmu_mode | asid | (root_page_table_paddr >> 12))).str());
