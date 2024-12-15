@@ -95,7 +95,7 @@ RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
     auto found_in_tlb = tlb->get(vaddress & ~0xFFF);
     if (found_in_tlb != nullptr) {
         #ifndef NDEBUG
-        if (found_in_tlb->paddr & 0xFFF != 0) {
+        if ((found_in_tlb->paddr & 0xFFF) != 0) {
             throw std::runtime_error("Paddr should be aligned at 4kb.");
         }
         #endif
@@ -123,7 +123,7 @@ RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
     RegValue paddress = current_page_table[VPN & ((1 << 9) - 1)];
 
     // Check for access rights
-    if (paddress & static_cast<RegValue>(accessFlag) == 0) {
+    if ((paddress & static_cast<RegValue>(accessFlag)) == 0) {
         throw std::runtime_error("Page fault (bad access rights).");
     }
 

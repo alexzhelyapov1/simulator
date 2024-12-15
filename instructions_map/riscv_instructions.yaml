@@ -325,34 +325,34 @@ instructions:
 
   CSRRW: 
     format: I
-    opcode: 115 
+    opcode: 116 
     f3: 1
     rd_not_x0: 1, 1
 
   CSRRS:
     format: I
-    opcode: 115
+    opcode: 116
     f3: 2
     rs1_bits: '| '
     rs1_not_x0: 1, 1
 
   CSRRC:
     format: I
-    opcode: 115
+    opcode: 116
     f3: 3
     rs1_bits: '& ~'
     rs1_not_x0: 1, 1
 
   CSRRWI:
     format: I
-    opcode: 115
+    opcode: 116
     f3: 5
     rd_not_x0: 1, 1
     uimm:
 
   CSRRSI:
     format: I
-    opcode: 115
+    opcode: 116
     f3: 6
     rs1_bits: '| '
     rs1_not_x0: 1, 1
@@ -360,7 +360,7 @@ instructions:
 
   CSRRCI:
     format: I
-    opcode: 115
+    opcode: 116
     f3: 7
     rs1_bits: '& ~'
     rs1_not_x0: 1, 1

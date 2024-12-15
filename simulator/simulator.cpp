@@ -44,7 +44,7 @@ void Simulator::AllocVirtualMemToStartProcess(std::shared_ptr<Machine::Hart> &ha
     // set SATP register
     Machine::RegValue mmu_mode = static_cast<Machine::RegValue>(Machine::SATP_MMU_MODE::SV39);
     Machine::RegValue asid = Machine::RegValue(0) << 44;
-    hart->setSatp(mmu_mode | asid | (root_page_table_paddr >> 12));
+    hart->setSpecialReg(Machine::SpecialRegs::SATP, mmu_mode | asid | (root_page_table_paddr >> 12));
     Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "SATP: 0x"
         << (mmu_mode | asid | (root_page_table_paddr >> 12))).str());
 

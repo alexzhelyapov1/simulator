@@ -69,6 +69,7 @@ class LinearBlock
 };
 
 enum class SpecialRegs : RegValue {
+    SATP = 0,
     MIP = 2,
     MIE = 3, 
     MSTATUS = 4,
@@ -183,12 +184,8 @@ class Hart {
         machine.storeMem(hostAddress, val);
     }
 
-    inline void setSatp(RegValue value) {
-        special_regs[0] = value;
-    }
-
     inline SATP_MMU_MODE getSatpMmuMode() {
-        return static_cast<SATP_MMU_MODE>(special_regs[0] & (int64_t(0xFFFF) << 60));
+        return static_cast<SATP_MMU_MODE>(special_regs[0] & (uint64_t(0xFFFF) << 60));
     }
 
     inline RegValue getRootPageTablePaddr() {
