@@ -92,6 +92,14 @@ class InstructionSet
     cpp_map_entries
   end
 
+  def gen_log_map
+    instruction_map = generate_instruction_keys
+    cpp_map_entries = instruction_map.map do |key, instruction_name|
+      "{#{key}, \"#{instruction_name}\"},"
+    end.join("\n")
+    cpp_map_entries
+  end
+
  # Получаю для соотв формата общую маску для спец полей
   def create_general_mask(opcode, format)
     format_details = get_format_info(format)

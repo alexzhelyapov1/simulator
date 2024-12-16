@@ -8,6 +8,7 @@
 #include <memory>
 #include <array>
 #include <iostream>
+#include <string>
 
 #ifndef GEN_INSTS_H
 #define GEN_INSTS_H
@@ -93,6 +94,12 @@ std::map<uWord, uWord> instructionMarkMap = {
   <% end %>
 };
 
+// Map for logging : key - opcode+fn, value - instr name
+std::map<int, std::string> logMap = {
+<%=instruction_set.gen_log_map %>
+};
+
+// instructionMap: opcode + fn - ключ, значение - указатель на функцию-обработчик инструкции
 using InstructionHandler = void(*)(Hart&, const std::shared_ptr<Instr>);
 std::map<uWord, InstructionHandler> instructionMap = {
 <%= instruction_set.generate_map %>
