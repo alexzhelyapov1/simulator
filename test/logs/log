@@ -1,0 +1,188 @@
+[DEBUG]:[Simulator]: Base paddr: 7f5aa1c5e000
+[DEBUG]:[Simulator]: Root page table vaddr: 0
+[DEBUG]:[Simulator]: SATP: 0x3000000000000000
+[DEBUG]:[Loader]: Buffer size: 908
+[DEBUG]:[Hart]: MMU vaddr: 0x10000 => paddr: 0x11000
+[DEBUG]:[Loader]: Loaded segment:vaddr: 0x10000, paddr: 0x11000, size: 0x38c
+[DEBUG]:[Hart]: MMU vaddr: 0x1138c => paddr: 0x1238c
+[DEBUG]:[Loader]: Loaded segment:vaddr: 0x1138c, paddr: 0x1238c, size: 0x52
+[DEBUG]:[Loader]: Entry point (va): 0x100b0
+[DEBUG]:[Hart]: Set PC with: 65712
+[DEBUG]:[Hart]: Execute PC: 65712
+[DEBUG]:[Hart]: MMU vaddr: 0x100b0 => paddr: 0x110b0
+[DEBUG]:[Hart]: Get Inst Code: 8389267
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 8
+[DEBUG]:[Hart]: TLB vaddr: 0x100b4 => paddr: 0x110b4, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 5399
+[DEBUG]:[Hart]: opсode + Fns: 23
+[DEBUG]:[Hart]: Runed Instruction: AUIPC
+[DEBUG]:[Hart]: Decode imm: 4096
+[DEBUG]:[Hart]: TLB vaddr: 0x100b8 => paddr: 0x110b8, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 763692307
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 728
+[DEBUG]:[Hart]: TLB vaddr: 0x100bc => paddr: 0x110bc, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1050003
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 1
+[DEBUG]:[Hart]: TLB vaddr: 0x100c0 => paddr: 0x110c0, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 336643
+[DEBUG]:[Hart]: opсode + Fns: 8195
+[DEBUG]:[Hart]: Runed Instruction: LW
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x100c4 => paddr: 0x110c4, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 134431331
+[DEBUG]:[Hart]: opсode + Fns: 16483
+[DEBUG]:[Hart]: Runed Instruction: BLT
+[DEBUG]:[Hart]: Decode imm: 132
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 65712
+[DEBUG]:[Hart]: Execute PC: 65712
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 5 with val: 8
+[DEBUG]:[Hart]: Get PC: 65712
+[DEBUG]:[Hart]: Set PC with: 65716
+[DEBUG]:[Hart]: Get PC: 65716
+[DEBUG]:[Hart]: Execute PC: 65716
+[DEBUG]:[Hart]: Get PC: 65716
+[DEBUG]:[Hart]: Set Register: 10 with val: 69812
+[DEBUG]:[Hart]: Get PC: 65716
+[DEBUG]:[Hart]: Set PC with: 65720
+[DEBUG]:[Hart]: Get PC: 65720
+[DEBUG]:[Hart]: Execute PC: 65720
+[DEBUG]:[Hart]: Get Register: 10 val: 69812
+[DEBUG]:[Hart]: Set Register: 10 with val: 70540
+[DEBUG]:[Hart]: Get PC: 65720
+[DEBUG]:[Hart]: Set PC with: 65724
+[DEBUG]:[Hart]: Get PC: 65724
+[DEBUG]:[Hart]: Execute PC: 65724
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 11 with val: 1
+[DEBUG]:[Hart]: Get PC: 65724
+[DEBUG]:[Hart]: Set PC with: 65728
+[DEBUG]:[Hart]: Get PC: 65728
+[DEBUG]:[Hart]: Execute PC: 65728
+[DEBUG]:[Hart]: Get Register: 10 val: 70540
+[DEBUG]:[Hart]: MMU vaddr: 0x1138c => paddr: 0x1238c
+[DEBUG]:[Hart]: Set Register: 6 with val: 0
+[DEBUG]:[Hart]: Get PC: 65728
+[DEBUG]:[Hart]: Set PC with: 65732
+[DEBUG]:[Hart]: Get PC: 65732
+[DEBUG]:[Hart]: Execute PC: 65732
+[DEBUG]:[Hart]: Get Register: 6 val: 0
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get PC: 65732
+[DEBUG]:[Hart]: Set PC with: 65736
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 65736
+[DEBUG]:[Hart]: TLB vaddr: 0x100c8 => paddr: 0x110c8, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 139677795
+[DEBUG]:[Hart]: opсode + Fns: 20579
+[DEBUG]:[Hart]: Runed Instruction: BGE
+[DEBUG]:[Hart]: Decode imm: 128
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 65736
+[DEBUG]:[Hart]: Execute PC: 65736
+[DEBUG]:[Hart]: Get Register: 6 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 8
+[DEBUG]:[Hart]: Get PC: 65736
+[DEBUG]:[Hart]: Set PC with: 65740
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 65740
+[DEBUG]:[Hart]: TLB vaddr: 0x100cc => paddr: 0x110cc, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 352321775
+[DEBUG]:[Hart]: opсode + Fns: 111
+[DEBUG]:[Hart]: Runed Instruction: JAL
+[DEBUG]:[Hart]: Decode imm: 336
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 65740
+[DEBUG]:[Hart]: Execute PC: 65740
+[DEBUG]:[Hart]: Get PC: 65740
+[DEBUG]:[Hart]: Set Register: 1 with val: 65744
+[DEBUG]:[Hart]: Get PC: 65740
+[DEBUG]:[Hart]: Set PC with: 66072
+[DEBUG]:[Hart]: Get PC: 66072
+[DEBUG]:[Hart]: Set PC with: 66076
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 66076
+[DEBUG]:[Hart]: TLB vaddr: 0x1021c => paddr: 0x1121c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: -20905709
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: -20
+[DEBUG]:[Hart]: TLB vaddr: 0x10220 => paddr: 0x11220, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 8464419
+[DEBUG]:[Hart]: opсode + Fns: 8227
+[DEBUG]:[Hart]: Runed Instruction: SW
+[DEBUG]:[Hart]: Decode imm: 16
+[DEBUG]:[Hart]: TLB vaddr: 0x10224 => paddr: 0x11224, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 9512483
+[DEBUG]:[Hart]: opсode + Fns: 8227
+[DEBUG]:[Hart]: Runed Instruction: SW
+[DEBUG]:[Hart]: Decode imm: 12
+[DEBUG]:[Hart]: TLB vaddr: 0x10228 => paddr: 0x11228, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 18949155
+[DEBUG]:[Hart]: opсode + Fns: 8227
+[DEBUG]:[Hart]: Runed Instruction: SW
+[DEBUG]:[Hart]: Decode imm: 8
+[DEBUG]:[Hart]: TLB vaddr: 0x1022c => paddr: 0x1122c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 19997219
+[DEBUG]:[Hart]: opсode + Fns: 8227
+[DEBUG]:[Hart]: Runed Instruction: SW
+[DEBUG]:[Hart]: Decode imm: 4
+[DEBUG]:[Hart]: TLB vaddr: 0x10230 => paddr: 0x11230, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1122339
+[DEBUG]:[Hart]: opсode + Fns: 8227
+[DEBUG]:[Hart]: Runed Instruction: SW
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10234 => paddr: 0x11234, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 10486835
+[DEBUG]:[Hart]: opсode + Fns: 51
+[DEBUG]:[Hart]: Runed Instruction: ADD
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10238 => paddr: 0x11238, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 11535539
+[DEBUG]:[Hart]: opсode + Fns: 51
+[DEBUG]:[Hart]: Runed Instruction: ADD
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x1023c => paddr: 0x1123c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 2355
+[DEBUG]:[Hart]: opсode + Fns: 51
+[DEBUG]:[Hart]: Runed Instruction: ADD
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10240 => paddr: 0x11240, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 2483
+[DEBUG]:[Hart]: opсode + Fns: 51
+[DEBUG]:[Hart]: Runed Instruction: ADD
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10244 => paddr: 0x11244, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 8392595
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 8
+[DEBUG]:[Hart]: TLB vaddr: 0x10248 => paddr: 0x11248, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 32819299
+[DEBUG]:[Hart]: opсode + Fns: 16483
+[DEBUG]:[Hart]: Runed Instruction: BLT
+[DEBUG]:[Hart]: Decode imm: 16
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 66076
+[DEBUG]:[Hart]: Execute PC: 66076
+[DEBUG]:[Hart]: Get Register: 2 val: 0
+[DEBUG]:[Hart]: Set Register: 2 with val: -20
+[DEBUG]:[Hart]: Get PC: 66076
+[DEBUG]:[Hart]: Set PC with: 66080
+[DEBUG]:[Hart]: Get PC: 66080
+[DEBUG]:[Hart]: Execute PC: 66080
+[DEBUG]:[Hart]: Get Register: 2 val: -20
+[DEBUG]:[Hart]: Get Register: 8 val: 0
+Simulation ended with: Page fault.
+Num of runed instructions: 8

@@ -9,7 +9,9 @@ Instr::Instr(Word instrCode) {
     auto decodeArr = decodeInfo.first;
     auto decodeImmFunc = decodeInfo.second;
     opcodeFns = decodeArr[0] & instrCode;
-    Log(LogLevel::DEBUG, std::string("opode + Fns: ") + std::to_string(opcodeFns));
+    auto instr_name = logMap[opcodeFns];
+    Log(LogLevel::DEBUG, std::string("opсode + Fns: ") + std::to_string(opcodeFns));
+    Log(LogLevel::DEBUG, std::string("Runed Instruction: ") + (instr_name));
     handler = instructionMap[opcodeFns];
     imm = decodeImmFunc(instrCode);
     Log(LogLevel::DEBUG, std::string("Decode imm: ") + std::to_string(imm));
