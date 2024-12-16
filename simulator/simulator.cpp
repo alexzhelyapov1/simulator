@@ -48,14 +48,14 @@ void Simulator::AllocVirtualMemToStartProcess(std::shared_ptr<Machine::Hart> &ha
     Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "SATP: 0x"
         << (mmu_mode | asid | (root_page_table_paddr >> 12))).str());
 
-    // Allocate 0x500 pages for new process
-    RegValue mem_for_program_paddr = machine->mem->AllocPages(0x500);
-    RegValue access = static_cast<RegValue>(Machine::AccessType::READ) |
-                      static_cast<RegValue>(Machine::AccessType::WRITE) |
-                      static_cast<RegValue>(Machine::AccessType::EXECUTE);
-    for (RegValue i = 0; i < 0x500; ++i) {
-        RegValue vaddr = i << 12;
-        RegValue paddr = mem_for_program_paddr + 0x1000 * i;
+    // Allocate 0x900 pages for new process
+    Machine::RegValue mem_for_program_paddr = machine->mem->AllocPages(0x900);
+    Machine::RegValue access = static_cast<Machine::RegValue>(Machine::AccessType::READ) |
+                      static_cast<Machine::RegValue>(Machine::AccessType::WRITE) |
+                      static_cast<Machine::RegValue>(Machine::AccessType::EXECUTE);
+    for (Machine::RegValue i = 0; i < 0x900; ++i) {
+        Machine::RegValue vaddr = i << 12;
+        Machine::RegValue paddr = mem_for_program_paddr + 0x1000 * i;
         createPTE(vaddr, paddr, access, hart);
         // Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "vaddr: 0x" << vaddr << ", paddr: 0x" << paddr).str());
     }

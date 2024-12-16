@@ -17,6 +17,3 @@ _start:
     remu x1, x5, x3 
     div x2, x1, x3
     mret
-
-
-   

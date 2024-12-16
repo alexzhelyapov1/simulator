@@ -1,0 +1,124 @@
+[DEBUG]:[Simulator]: Base paddr: 7efd66f34000
+[DEBUG]:[Simulator]: Root page table vaddr: 0
+[DEBUG]:[Simulator]: SATP: 0x3000000000000000
+[DEBUG]:[Loader]: Buffer size: 160
+[DEBUG]:[Hart]: MMU vaddr: 0x10000 => paddr: 0x11000
+[DEBUG]:[Loader]: Loaded segment:vaddr: 0x10000, paddr: 0x11000, size: 0xa0
+[DEBUG]:[Loader]: Entry point (va): 0x10078
+[DEBUG]:[Hart]: Set PC with: 65656
+[DEBUG]:[Hart]: Execute PC: 65656
+[DEBUG]:[Hart]: MMU vaddr: 0x10078 => paddr: 0x11078
+[DEBUG]:[Hart]: Get Inst Code: 68158099
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 65
+[DEBUG]:[Hart]: TLB vaddr: 0x1007c => paddr: 0x1107c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1048576531
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 1000
+[DEBUG]:[Hart]: TLB vaddr: 0x10080 => paddr: 0x11080, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 37913267
+[DEBUG]:[Hart]: opсode + Fns: 33554483
+[DEBUG]:[Hart]: Runed Instruction: MUL
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10084 => paddr: 0x11084, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 688030355
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 656
+[DEBUG]:[Hart]: TLB vaddr: 0x10088 => paddr: 0x11088, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1048740499
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 1000
+[DEBUG]:[Hart]: TLB vaddr: 0x1008c => paddr: 0x1108c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 44040595
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 42
+[DEBUG]:[Hart]: TLB vaddr: 0x10090 => paddr: 0x11090, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 37847475
+[DEBUG]:[Hart]: opсode + Fns: 33554483
+[DEBUG]:[Hart]: Runed Instruction: MUL
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10094 => paddr: 0x11094, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 3317795
+[DEBUG]:[Hart]: opсode + Fns: 8227
+[DEBUG]:[Hart]: Runed Instruction: SW
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10098 => paddr: 0x11098, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 173315
+[DEBUG]:[Hart]: opсode + Fns: 8195
+[DEBUG]:[Hart]: Runed Instruction: LW
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x1009c => paddr: 0x1109c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 270532723
+[DEBUG]:[Hart]: opсode + Fns: 270532723
+[DEBUG]:[Hart]: Runed Instruction: SRET
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 65656
+[DEBUG]:[Hart]: Execute PC: 65656
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 5 with val: 65
+[DEBUG]:[Hart]: Get PC: 65656
+[DEBUG]:[Hart]: Set PC with: 65660
+[DEBUG]:[Hart]: Get PC: 65660
+[DEBUG]:[Hart]: Execute PC: 65660
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 4 with val: 1000
+[DEBUG]:[Hart]: Get PC: 65660
+[DEBUG]:[Hart]: Set PC with: 65664
+[DEBUG]:[Hart]: Get PC: 65664
+[DEBUG]:[Hart]: Execute PC: 65664
+[DEBUG]:[Hart]: Get Register: 5 val: 65
+[DEBUG]:[Hart]: Get Register: 4 val: 1000
+[DEBUG]:[Hart]: Set Register: 5 with val: 65000
+[DEBUG]:[Hart]: Get PC: 65664
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Execute PC: 65668
+[DEBUG]:[Hart]: Get Register: 5 val: 65000
+[DEBUG]:[Hart]: Set Register: 5 with val: 65656
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Get Register: 5 val: 65656
+[DEBUG]:[Hart]: Set Register: 5 with val: 66656
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 3 with val: 42
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Get Register: 3 val: 42
+[DEBUG]:[Hart]: Get Register: 4 val: 1000
+[DEBUG]:[Hart]: Set Register: 3 with val: 42000
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65684
+[DEBUG]:[Hart]: Get PC: 65684
+[DEBUG]:[Hart]: Execute PC: 65684
+[DEBUG]:[Hart]: Get Register: 5 val: 66656
+[DEBUG]:[Hart]: Get Register: 3 val: 42000
+[DEBUG]:[Hart]: TLB vaddr: 0x10460 => paddr: 0x11460, access: 0x2
+[DEBUG]:[Hart]: Get PC: 65684
+[DEBUG]:[Hart]: Set PC with: 65688
+[DEBUG]:[Hart]: Get PC: 65688
+[DEBUG]:[Hart]: Execute PC: 65688
+[DEBUG]:[Hart]: Get Register: 5 val: 66656
+[DEBUG]:[Hart]: MMU vaddr: 0x10460 => paddr: 0x11460
+[DEBUG]:[Hart]: Set Register: 10 with val: 42000
+[DEBUG]:[Hart]: Get PC: 65688
+[DEBUG]:[Hart]: Set PC with: 65692
+[DEBUG]:[Hart]: Get PC: 65692
+[DEBUG]:[Hart]: Execute PC: 65692
+[DEBUG]:[Hart]: EXCEPTION RETURN
+Simulation ended with: EXCEPTION RETURN FROM HART
+Num of runed instructions: 0

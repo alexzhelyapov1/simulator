@@ -16,6 +16,12 @@ Example:
 compile-elf.sh ./test/2.s ./build myelf
 ```
 
+We have integration testing. You can run code below to check if all tests work:
+```
+./test_runner.sh
+```
+
+
 #### Suggestions:
 1) Create your own brunch to develop your own module.
 2) Master only for releases but there are no lock to push in master.

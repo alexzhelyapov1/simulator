@@ -1,0 +1,2195 @@
+[DEBUG]:[Simulator]: Base paddr: 7fcba6f89000
+[DEBUG]:[Simulator]: Root page table vaddr: 0
+[DEBUG]:[Simulator]: SATP: 0x3000000000000000
+[DEBUG]:[Loader]: Buffer size: 1348
+[DEBUG]:[Hart]: MMU vaddr: 0x10000 => paddr: 0x11000
+[DEBUG]:[Loader]: Loaded segment:vaddr: 0x10000, paddr: 0x11000, size: 0x544
+[DEBUG]:[Hart]: MMU vaddr: 0x11544 => paddr: 0x12544
+[DEBUG]:[Loader]: Loaded segment:vaddr: 0x11544, paddr: 0x12544, size: 0x0
+[DEBUG]:[Loader]: Entry point (va): 0x100e8
+[DEBUG]:[Hart]: Set PC with: 65768
+[DEBUG]:[Hart]: Execute PC: 65768
+[DEBUG]:[Hart]: MMU vaddr: 0x100e8 => paddr: 0x110e8
+[DEBUG]:[Hart]: Get Inst Code: 151
+[DEBUG]:[Hart]: opсode + Fns: 23
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x100ec => paddr: 0x110ec, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 872448231
+[DEBUG]:[Hart]: opсode + Fns: 103
+[DEBUG]:[Hart]: Decode imm: 33600
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 65768
+[DEBUG]:[Hart]: Execute PC: 65768
+[DEBUG]:[Hart]: Get PC: 65768
+[DEBUG]:[Hart]: Set Register: 1 with val: 65768
+[DEBUG]:[Hart]: Get PC: 65768
+[DEBUG]:[Hart]: Set PC with: 65772
+[DEBUG]:[Hart]: Get PC: 65772
+[DEBUG]:[Hart]: Execute PC: 65772
+[DEBUG]:[Hart]: Get PC: 65772
+[DEBUG]:[Hart]: Set Register: 1 with val: 65776
+[DEBUG]:[Hart]: Get Register: 1 val: 65776
+[DEBUG]:[Hart]: Set PC with: 99372
+[DEBUG]:[Hart]: Get PC: 99372
+[DEBUG]:[Hart]: Set PC with: 99376
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 99376
+[DEBUG]:[Hart]: MMU vaddr: 0x18430 => paddr: 0x19430
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 99376
+[DEBUG]:[Hart]: Execute PC: 99376
+[DEBUG]:[Hart]: Get PC: 99376
+[DEBUG]:[Hart]: Set Register: 1 with val: 99380
+[DEBUG]:[Hart]: Get Register: 1 val: 99380
+[DEBUG]:[Hart]: Set PC with: 132976
+[DEBUG]:[Hart]: Get PC: 132976
+[DEBUG]:[Hart]: Set PC with: 132980
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 132980
+[DEBUG]:[Hart]: MMU vaddr: 0x20774 => paddr: 0x21774
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 132980
+[DEBUG]:[Hart]: Execute PC: 132980
+[DEBUG]:[Hart]: Get PC: 132980
+[DEBUG]:[Hart]: Set Register: 1 with val: 132984
+[DEBUG]:[Hart]: Get Register: 1 val: 132984
+[DEBUG]:[Hart]: Set PC with: 166580
+[DEBUG]:[Hart]: Get PC: 166580
+[DEBUG]:[Hart]: Set PC with: 166584
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 166584
+[DEBUG]:[Hart]: MMU vaddr: 0x28ab8 => paddr: 0x29ab8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 166584
+[DEBUG]:[Hart]: Execute PC: 166584
+[DEBUG]:[Hart]: Get PC: 166584
+[DEBUG]:[Hart]: Set Register: 1 with val: 166588
+[DEBUG]:[Hart]: Get Register: 1 val: 166588
+[DEBUG]:[Hart]: Set PC with: 200184
+[DEBUG]:[Hart]: Get PC: 200184
+[DEBUG]:[Hart]: Set PC with: 200188
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 200188
+[DEBUG]:[Hart]: MMU vaddr: 0x30dfc => paddr: 0x31dfc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 200188
+[DEBUG]:[Hart]: Execute PC: 200188
+[DEBUG]:[Hart]: Get PC: 200188
+[DEBUG]:[Hart]: Set Register: 1 with val: 200192
+[DEBUG]:[Hart]: Get Register: 1 val: 200192
+[DEBUG]:[Hart]: Set PC with: 233788
+[DEBUG]:[Hart]: Get PC: 233788
+[DEBUG]:[Hart]: Set PC with: 233792
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 233792
+[DEBUG]:[Hart]: MMU vaddr: 0x39140 => paddr: 0x3a140
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 233792
+[DEBUG]:[Hart]: Execute PC: 233792
+[DEBUG]:[Hart]: Get PC: 233792
+[DEBUG]:[Hart]: Set Register: 1 with val: 233796
+[DEBUG]:[Hart]: Get Register: 1 val: 233796
+[DEBUG]:[Hart]: Set PC with: 267392
+[DEBUG]:[Hart]: Get PC: 267392
+[DEBUG]:[Hart]: Set PC with: 267396
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 267396
+[DEBUG]:[Hart]: MMU vaddr: 0x41484 => paddr: 0x42484
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 267396
+[DEBUG]:[Hart]: Execute PC: 267396
+[DEBUG]:[Hart]: Get PC: 267396
+[DEBUG]:[Hart]: Set Register: 1 with val: 267400
+[DEBUG]:[Hart]: Get Register: 1 val: 267400
+[DEBUG]:[Hart]: Set PC with: 300996
+[DEBUG]:[Hart]: Get PC: 300996
+[DEBUG]:[Hart]: Set PC with: 301000
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 301000
+[DEBUG]:[Hart]: MMU vaddr: 0x497c8 => paddr: 0x4a7c8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 301000
+[DEBUG]:[Hart]: Execute PC: 301000
+[DEBUG]:[Hart]: Get PC: 301000
+[DEBUG]:[Hart]: Set Register: 1 with val: 301004
+[DEBUG]:[Hart]: Get Register: 1 val: 301004
+[DEBUG]:[Hart]: Set PC with: 334600
+[DEBUG]:[Hart]: Get PC: 334600
+[DEBUG]:[Hart]: Set PC with: 334604
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 334604
+[DEBUG]:[Hart]: MMU vaddr: 0x51b0c => paddr: 0x52b0c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 334604
+[DEBUG]:[Hart]: Execute PC: 334604
+[DEBUG]:[Hart]: Get PC: 334604
+[DEBUG]:[Hart]: Set Register: 1 with val: 334608
+[DEBUG]:[Hart]: Get Register: 1 val: 334608
+[DEBUG]:[Hart]: Set PC with: 368204
+[DEBUG]:[Hart]: Get PC: 368204
+[DEBUG]:[Hart]: Set PC with: 368208
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 368208
+[DEBUG]:[Hart]: MMU vaddr: 0x59e50 => paddr: 0x5ae50
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 368208
+[DEBUG]:[Hart]: Execute PC: 368208
+[DEBUG]:[Hart]: Get PC: 368208
+[DEBUG]:[Hart]: Set Register: 1 with val: 368212
+[DEBUG]:[Hart]: Get Register: 1 val: 368212
+[DEBUG]:[Hart]: Set PC with: 401808
+[DEBUG]:[Hart]: Get PC: 401808
+[DEBUG]:[Hart]: Set PC with: 401812
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 401812
+[DEBUG]:[Hart]: MMU vaddr: 0x62194 => paddr: 0x63194
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 401812
+[DEBUG]:[Hart]: Execute PC: 401812
+[DEBUG]:[Hart]: Get PC: 401812
+[DEBUG]:[Hart]: Set Register: 1 with val: 401816
+[DEBUG]:[Hart]: Get Register: 1 val: 401816
+[DEBUG]:[Hart]: Set PC with: 435412
+[DEBUG]:[Hart]: Get PC: 435412
+[DEBUG]:[Hart]: Set PC with: 435416
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 435416
+[DEBUG]:[Hart]: MMU vaddr: 0x6a4d8 => paddr: 0x6b4d8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 435416
+[DEBUG]:[Hart]: Execute PC: 435416
+[DEBUG]:[Hart]: Get PC: 435416
+[DEBUG]:[Hart]: Set Register: 1 with val: 435420
+[DEBUG]:[Hart]: Get Register: 1 val: 435420
+[DEBUG]:[Hart]: Set PC with: 469016
+[DEBUG]:[Hart]: Get PC: 469016
+[DEBUG]:[Hart]: Set PC with: 469020
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 469020
+[DEBUG]:[Hart]: MMU vaddr: 0x7281c => paddr: 0x7381c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 469020
+[DEBUG]:[Hart]: Execute PC: 469020
+[DEBUG]:[Hart]: Get PC: 469020
+[DEBUG]:[Hart]: Set Register: 1 with val: 469024
+[DEBUG]:[Hart]: Get Register: 1 val: 469024
+[DEBUG]:[Hart]: Set PC with: 502620
+[DEBUG]:[Hart]: Get PC: 502620
+[DEBUG]:[Hart]: Set PC with: 502624
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 502624
+[DEBUG]:[Hart]: MMU vaddr: 0x7ab60 => paddr: 0x7bb60
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 502624
+[DEBUG]:[Hart]: Execute PC: 502624
+[DEBUG]:[Hart]: Get PC: 502624
+[DEBUG]:[Hart]: Set Register: 1 with val: 502628
+[DEBUG]:[Hart]: Get Register: 1 val: 502628
+[DEBUG]:[Hart]: Set PC with: 536224
+[DEBUG]:[Hart]: Get PC: 536224
+[DEBUG]:[Hart]: Set PC with: 536228
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 536228
+[DEBUG]:[Hart]: MMU vaddr: 0x82ea4 => paddr: 0x83ea4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 536228
+[DEBUG]:[Hart]: Execute PC: 536228
+[DEBUG]:[Hart]: Get PC: 536228
+[DEBUG]:[Hart]: Set Register: 1 with val: 536232
+[DEBUG]:[Hart]: Get Register: 1 val: 536232
+[DEBUG]:[Hart]: Set PC with: 569828
+[DEBUG]:[Hart]: Get PC: 569828
+[DEBUG]:[Hart]: Set PC with: 569832
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 569832
+[DEBUG]:[Hart]: MMU vaddr: 0x8b1e8 => paddr: 0x8c1e8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 569832
+[DEBUG]:[Hart]: Execute PC: 569832
+[DEBUG]:[Hart]: Get PC: 569832
+[DEBUG]:[Hart]: Set Register: 1 with val: 569836
+[DEBUG]:[Hart]: Get Register: 1 val: 569836
+[DEBUG]:[Hart]: Set PC with: 603432
+[DEBUG]:[Hart]: Get PC: 603432
+[DEBUG]:[Hart]: Set PC with: 603436
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 603436
+[DEBUG]:[Hart]: MMU vaddr: 0x9352c => paddr: 0x9452c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 603436
+[DEBUG]:[Hart]: Execute PC: 603436
+[DEBUG]:[Hart]: Get PC: 603436
+[DEBUG]:[Hart]: Set Register: 1 with val: 603440
+[DEBUG]:[Hart]: Get Register: 1 val: 603440
+[DEBUG]:[Hart]: Set PC with: 637036
+[DEBUG]:[Hart]: Get PC: 637036
+[DEBUG]:[Hart]: Set PC with: 637040
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 637040
+[DEBUG]:[Hart]: MMU vaddr: 0x9b870 => paddr: 0x9c870
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 637040
+[DEBUG]:[Hart]: Execute PC: 637040
+[DEBUG]:[Hart]: Get PC: 637040
+[DEBUG]:[Hart]: Set Register: 1 with val: 637044
+[DEBUG]:[Hart]: Get Register: 1 val: 637044
+[DEBUG]:[Hart]: Set PC with: 670640
+[DEBUG]:[Hart]: Get PC: 670640
+[DEBUG]:[Hart]: Set PC with: 670644
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 670644
+[DEBUG]:[Hart]: MMU vaddr: 0xa3bb4 => paddr: 0xa4bb4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 670644
+[DEBUG]:[Hart]: Execute PC: 670644
+[DEBUG]:[Hart]: Get PC: 670644
+[DEBUG]:[Hart]: Set Register: 1 with val: 670648
+[DEBUG]:[Hart]: Get Register: 1 val: 670648
+[DEBUG]:[Hart]: Set PC with: 704244
+[DEBUG]:[Hart]: Get PC: 704244
+[DEBUG]:[Hart]: Set PC with: 704248
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 704248
+[DEBUG]:[Hart]: MMU vaddr: 0xabef8 => paddr: 0xacef8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 704248
+[DEBUG]:[Hart]: Execute PC: 704248
+[DEBUG]:[Hart]: Get PC: 704248
+[DEBUG]:[Hart]: Set Register: 1 with val: 704252
+[DEBUG]:[Hart]: Get Register: 1 val: 704252
+[DEBUG]:[Hart]: Set PC with: 737848
+[DEBUG]:[Hart]: Get PC: 737848
+[DEBUG]:[Hart]: Set PC with: 737852
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 737852
+[DEBUG]:[Hart]: MMU vaddr: 0xb423c => paddr: 0xb523c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 737852
+[DEBUG]:[Hart]: Execute PC: 737852
+[DEBUG]:[Hart]: Get PC: 737852
+[DEBUG]:[Hart]: Set Register: 1 with val: 737856
+[DEBUG]:[Hart]: Get Register: 1 val: 737856
+[DEBUG]:[Hart]: Set PC with: 771452
+[DEBUG]:[Hart]: Get PC: 771452
+[DEBUG]:[Hart]: Set PC with: 771456
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 771456
+[DEBUG]:[Hart]: MMU vaddr: 0xbc580 => paddr: 0xbd580
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 771456
+[DEBUG]:[Hart]: Execute PC: 771456
+[DEBUG]:[Hart]: Get PC: 771456
+[DEBUG]:[Hart]: Set Register: 1 with val: 771460
+[DEBUG]:[Hart]: Get Register: 1 val: 771460
+[DEBUG]:[Hart]: Set PC with: 805056
+[DEBUG]:[Hart]: Get PC: 805056
+[DEBUG]:[Hart]: Set PC with: 805060
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 805060
+[DEBUG]:[Hart]: MMU vaddr: 0xc48c4 => paddr: 0xc58c4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 805060
+[DEBUG]:[Hart]: Execute PC: 805060
+[DEBUG]:[Hart]: Get PC: 805060
+[DEBUG]:[Hart]: Set Register: 1 with val: 805064
+[DEBUG]:[Hart]: Get Register: 1 val: 805064
+[DEBUG]:[Hart]: Set PC with: 838660
+[DEBUG]:[Hart]: Get PC: 838660
+[DEBUG]:[Hart]: Set PC with: 838664
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 838664
+[DEBUG]:[Hart]: MMU vaddr: 0xccc08 => paddr: 0xcdc08
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 838664
+[DEBUG]:[Hart]: Execute PC: 838664
+[DEBUG]:[Hart]: Get PC: 838664
+[DEBUG]:[Hart]: Set Register: 1 with val: 838668
+[DEBUG]:[Hart]: Get Register: 1 val: 838668
+[DEBUG]:[Hart]: Set PC with: 872264
+[DEBUG]:[Hart]: Get PC: 872264
+[DEBUG]:[Hart]: Set PC with: 872268
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 872268
+[DEBUG]:[Hart]: MMU vaddr: 0xd4f4c => paddr: 0xd5f4c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 872268
+[DEBUG]:[Hart]: Execute PC: 872268
+[DEBUG]:[Hart]: Get PC: 872268
+[DEBUG]:[Hart]: Set Register: 1 with val: 872272
+[DEBUG]:[Hart]: Get Register: 1 val: 872272
+[DEBUG]:[Hart]: Set PC with: 905868
+[DEBUG]:[Hart]: Get PC: 905868
+[DEBUG]:[Hart]: Set PC with: 905872
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 905872
+[DEBUG]:[Hart]: MMU vaddr: 0xdd290 => paddr: 0xde290
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 905872
+[DEBUG]:[Hart]: Execute PC: 905872
+[DEBUG]:[Hart]: Get PC: 905872
+[DEBUG]:[Hart]: Set Register: 1 with val: 905876
+[DEBUG]:[Hart]: Get Register: 1 val: 905876
+[DEBUG]:[Hart]: Set PC with: 939472
+[DEBUG]:[Hart]: Get PC: 939472
+[DEBUG]:[Hart]: Set PC with: 939476
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 939476
+[DEBUG]:[Hart]: MMU vaddr: 0xe55d4 => paddr: 0xe65d4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 939476
+[DEBUG]:[Hart]: Execute PC: 939476
+[DEBUG]:[Hart]: Get PC: 939476
+[DEBUG]:[Hart]: Set Register: 1 with val: 939480
+[DEBUG]:[Hart]: Get Register: 1 val: 939480
+[DEBUG]:[Hart]: Set PC with: 973076
+[DEBUG]:[Hart]: Get PC: 973076
+[DEBUG]:[Hart]: Set PC with: 973080
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 973080
+[DEBUG]:[Hart]: MMU vaddr: 0xed918 => paddr: 0xee918
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 973080
+[DEBUG]:[Hart]: Execute PC: 973080
+[DEBUG]:[Hart]: Get PC: 973080
+[DEBUG]:[Hart]: Set Register: 1 with val: 973084
+[DEBUG]:[Hart]: Get Register: 1 val: 973084
+[DEBUG]:[Hart]: Set PC with: 1006680
+[DEBUG]:[Hart]: Get PC: 1006680
+[DEBUG]:[Hart]: Set PC with: 1006684
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1006684
+[DEBUG]:[Hart]: MMU vaddr: 0xf5c5c => paddr: 0xf6c5c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1006684
+[DEBUG]:[Hart]: Execute PC: 1006684
+[DEBUG]:[Hart]: Get PC: 1006684
+[DEBUG]:[Hart]: Set Register: 1 with val: 1006688
+[DEBUG]:[Hart]: Get Register: 1 val: 1006688
+[DEBUG]:[Hart]: Set PC with: 1040284
+[DEBUG]:[Hart]: Get PC: 1040284
+[DEBUG]:[Hart]: Set PC with: 1040288
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1040288
+[DEBUG]:[Hart]: MMU vaddr: 0xfdfa0 => paddr: 0xfefa0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1040288
+[DEBUG]:[Hart]: Execute PC: 1040288
+[DEBUG]:[Hart]: Get PC: 1040288
+[DEBUG]:[Hart]: Set Register: 1 with val: 1040292
+[DEBUG]:[Hart]: Get Register: 1 val: 1040292
+[DEBUG]:[Hart]: Set PC with: 1073888
+[DEBUG]:[Hart]: Get PC: 1073888
+[DEBUG]:[Hart]: Set PC with: 1073892
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1073892
+[DEBUG]:[Hart]: MMU vaddr: 0x1062e4 => paddr: 0x1072e4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1073892
+[DEBUG]:[Hart]: Execute PC: 1073892
+[DEBUG]:[Hart]: Get PC: 1073892
+[DEBUG]:[Hart]: Set Register: 1 with val: 1073896
+[DEBUG]:[Hart]: Get Register: 1 val: 1073896
+[DEBUG]:[Hart]: Set PC with: 1107492
+[DEBUG]:[Hart]: Get PC: 1107492
+[DEBUG]:[Hart]: Set PC with: 1107496
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1107496
+[DEBUG]:[Hart]: MMU vaddr: 0x10e628 => paddr: 0x10f628
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1107496
+[DEBUG]:[Hart]: Execute PC: 1107496
+[DEBUG]:[Hart]: Get PC: 1107496
+[DEBUG]:[Hart]: Set Register: 1 with val: 1107500
+[DEBUG]:[Hart]: Get Register: 1 val: 1107500
+[DEBUG]:[Hart]: Set PC with: 1141096
+[DEBUG]:[Hart]: Get PC: 1141096
+[DEBUG]:[Hart]: Set PC with: 1141100
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1141100
+[DEBUG]:[Hart]: MMU vaddr: 0x11696c => paddr: 0x11796c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1141100
+[DEBUG]:[Hart]: Execute PC: 1141100
+[DEBUG]:[Hart]: Get PC: 1141100
+[DEBUG]:[Hart]: Set Register: 1 with val: 1141104
+[DEBUG]:[Hart]: Get Register: 1 val: 1141104
+[DEBUG]:[Hart]: Set PC with: 1174700
+[DEBUG]:[Hart]: Get PC: 1174700
+[DEBUG]:[Hart]: Set PC with: 1174704
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1174704
+[DEBUG]:[Hart]: MMU vaddr: 0x11ecb0 => paddr: 0x11fcb0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1174704
+[DEBUG]:[Hart]: Execute PC: 1174704
+[DEBUG]:[Hart]: Get PC: 1174704
+[DEBUG]:[Hart]: Set Register: 1 with val: 1174708
+[DEBUG]:[Hart]: Get Register: 1 val: 1174708
+[DEBUG]:[Hart]: Set PC with: 1208304
+[DEBUG]:[Hart]: Get PC: 1208304
+[DEBUG]:[Hart]: Set PC with: 1208308
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1208308
+[DEBUG]:[Hart]: MMU vaddr: 0x126ff4 => paddr: 0x127ff4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1208308
+[DEBUG]:[Hart]: Execute PC: 1208308
+[DEBUG]:[Hart]: Get PC: 1208308
+[DEBUG]:[Hart]: Set Register: 1 with val: 1208312
+[DEBUG]:[Hart]: Get Register: 1 val: 1208312
+[DEBUG]:[Hart]: Set PC with: 1241908
+[DEBUG]:[Hart]: Get PC: 1241908
+[DEBUG]:[Hart]: Set PC with: 1241912
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1241912
+[DEBUG]:[Hart]: MMU vaddr: 0x12f338 => paddr: 0x130338
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1241912
+[DEBUG]:[Hart]: Execute PC: 1241912
+[DEBUG]:[Hart]: Get PC: 1241912
+[DEBUG]:[Hart]: Set Register: 1 with val: 1241916
+[DEBUG]:[Hart]: Get Register: 1 val: 1241916
+[DEBUG]:[Hart]: Set PC with: 1275512
+[DEBUG]:[Hart]: Get PC: 1275512
+[DEBUG]:[Hart]: Set PC with: 1275516
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1275516
+[DEBUG]:[Hart]: MMU vaddr: 0x13767c => paddr: 0x13867c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1275516
+[DEBUG]:[Hart]: Execute PC: 1275516
+[DEBUG]:[Hart]: Get PC: 1275516
+[DEBUG]:[Hart]: Set Register: 1 with val: 1275520
+[DEBUG]:[Hart]: Get Register: 1 val: 1275520
+[DEBUG]:[Hart]: Set PC with: 1309116
+[DEBUG]:[Hart]: Get PC: 1309116
+[DEBUG]:[Hart]: Set PC with: 1309120
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1309120
+[DEBUG]:[Hart]: MMU vaddr: 0x13f9c0 => paddr: 0x1409c0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1309120
+[DEBUG]:[Hart]: Execute PC: 1309120
+[DEBUG]:[Hart]: Get PC: 1309120
+[DEBUG]:[Hart]: Set Register: 1 with val: 1309124
+[DEBUG]:[Hart]: Get Register: 1 val: 1309124
+[DEBUG]:[Hart]: Set PC with: 1342720
+[DEBUG]:[Hart]: Get PC: 1342720
+[DEBUG]:[Hart]: Set PC with: 1342724
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1342724
+[DEBUG]:[Hart]: MMU vaddr: 0x147d04 => paddr: 0x148d04
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1342724
+[DEBUG]:[Hart]: Execute PC: 1342724
+[DEBUG]:[Hart]: Get PC: 1342724
+[DEBUG]:[Hart]: Set Register: 1 with val: 1342728
+[DEBUG]:[Hart]: Get Register: 1 val: 1342728
+[DEBUG]:[Hart]: Set PC with: 1376324
+[DEBUG]:[Hart]: Get PC: 1376324
+[DEBUG]:[Hart]: Set PC with: 1376328
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1376328
+[DEBUG]:[Hart]: MMU vaddr: 0x150048 => paddr: 0x151048
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1376328
+[DEBUG]:[Hart]: Execute PC: 1376328
+[DEBUG]:[Hart]: Get PC: 1376328
+[DEBUG]:[Hart]: Set Register: 1 with val: 1376332
+[DEBUG]:[Hart]: Get Register: 1 val: 1376332
+[DEBUG]:[Hart]: Set PC with: 1409928
+[DEBUG]:[Hart]: Get PC: 1409928
+[DEBUG]:[Hart]: Set PC with: 1409932
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1409932
+[DEBUG]:[Hart]: MMU vaddr: 0x15838c => paddr: 0x15938c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1409932
+[DEBUG]:[Hart]: Execute PC: 1409932
+[DEBUG]:[Hart]: Get PC: 1409932
+[DEBUG]:[Hart]: Set Register: 1 with val: 1409936
+[DEBUG]:[Hart]: Get Register: 1 val: 1409936
+[DEBUG]:[Hart]: Set PC with: 1443532
+[DEBUG]:[Hart]: Get PC: 1443532
+[DEBUG]:[Hart]: Set PC with: 1443536
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1443536
+[DEBUG]:[Hart]: MMU vaddr: 0x1606d0 => paddr: 0x1616d0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1443536
+[DEBUG]:[Hart]: Execute PC: 1443536
+[DEBUG]:[Hart]: Get PC: 1443536
+[DEBUG]:[Hart]: Set Register: 1 with val: 1443540
+[DEBUG]:[Hart]: Get Register: 1 val: 1443540
+[DEBUG]:[Hart]: Set PC with: 1477136
+[DEBUG]:[Hart]: Get PC: 1477136
+[DEBUG]:[Hart]: Set PC with: 1477140
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1477140
+[DEBUG]:[Hart]: MMU vaddr: 0x168a14 => paddr: 0x169a14
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1477140
+[DEBUG]:[Hart]: Execute PC: 1477140
+[DEBUG]:[Hart]: Get PC: 1477140
+[DEBUG]:[Hart]: Set Register: 1 with val: 1477144
+[DEBUG]:[Hart]: Get Register: 1 val: 1477144
+[DEBUG]:[Hart]: Set PC with: 1510740
+[DEBUG]:[Hart]: Get PC: 1510740
+[DEBUG]:[Hart]: Set PC with: 1510744
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1510744
+[DEBUG]:[Hart]: MMU vaddr: 0x170d58 => paddr: 0x171d58
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1510744
+[DEBUG]:[Hart]: Execute PC: 1510744
+[DEBUG]:[Hart]: Get PC: 1510744
+[DEBUG]:[Hart]: Set Register: 1 with val: 1510748
+[DEBUG]:[Hart]: Get Register: 1 val: 1510748
+[DEBUG]:[Hart]: Set PC with: 1544344
+[DEBUG]:[Hart]: Get PC: 1544344
+[DEBUG]:[Hart]: Set PC with: 1544348
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1544348
+[DEBUG]:[Hart]: MMU vaddr: 0x17909c => paddr: 0x17a09c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1544348
+[DEBUG]:[Hart]: Execute PC: 1544348
+[DEBUG]:[Hart]: Get PC: 1544348
+[DEBUG]:[Hart]: Set Register: 1 with val: 1544352
+[DEBUG]:[Hart]: Get Register: 1 val: 1544352
+[DEBUG]:[Hart]: Set PC with: 1577948
+[DEBUG]:[Hart]: Get PC: 1577948
+[DEBUG]:[Hart]: Set PC with: 1577952
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1577952
+[DEBUG]:[Hart]: MMU vaddr: 0x1813e0 => paddr: 0x1823e0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1577952
+[DEBUG]:[Hart]: Execute PC: 1577952
+[DEBUG]:[Hart]: Get PC: 1577952
+[DEBUG]:[Hart]: Set Register: 1 with val: 1577956
+[DEBUG]:[Hart]: Get Register: 1 val: 1577956
+[DEBUG]:[Hart]: Set PC with: 1611552
+[DEBUG]:[Hart]: Get PC: 1611552
+[DEBUG]:[Hart]: Set PC with: 1611556
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1611556
+[DEBUG]:[Hart]: MMU vaddr: 0x189724 => paddr: 0x18a724
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1611556
+[DEBUG]:[Hart]: Execute PC: 1611556
+[DEBUG]:[Hart]: Get PC: 1611556
+[DEBUG]:[Hart]: Set Register: 1 with val: 1611560
+[DEBUG]:[Hart]: Get Register: 1 val: 1611560
+[DEBUG]:[Hart]: Set PC with: 1645156
+[DEBUG]:[Hart]: Get PC: 1645156
+[DEBUG]:[Hart]: Set PC with: 1645160
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1645160
+[DEBUG]:[Hart]: MMU vaddr: 0x191a68 => paddr: 0x192a68
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1645160
+[DEBUG]:[Hart]: Execute PC: 1645160
+[DEBUG]:[Hart]: Get PC: 1645160
+[DEBUG]:[Hart]: Set Register: 1 with val: 1645164
+[DEBUG]:[Hart]: Get Register: 1 val: 1645164
+[DEBUG]:[Hart]: Set PC with: 1678760
+[DEBUG]:[Hart]: Get PC: 1678760
+[DEBUG]:[Hart]: Set PC with: 1678764
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1678764
+[DEBUG]:[Hart]: MMU vaddr: 0x199dac => paddr: 0x19adac
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1678764
+[DEBUG]:[Hart]: Execute PC: 1678764
+[DEBUG]:[Hart]: Get PC: 1678764
+[DEBUG]:[Hart]: Set Register: 1 with val: 1678768
+[DEBUG]:[Hart]: Get Register: 1 val: 1678768
+[DEBUG]:[Hart]: Set PC with: 1712364
+[DEBUG]:[Hart]: Get PC: 1712364
+[DEBUG]:[Hart]: Set PC with: 1712368
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1712368
+[DEBUG]:[Hart]: MMU vaddr: 0x1a20f0 => paddr: 0x1a30f0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1712368
+[DEBUG]:[Hart]: Execute PC: 1712368
+[DEBUG]:[Hart]: Get PC: 1712368
+[DEBUG]:[Hart]: Set Register: 1 with val: 1712372
+[DEBUG]:[Hart]: Get Register: 1 val: 1712372
+[DEBUG]:[Hart]: Set PC with: 1745968
+[DEBUG]:[Hart]: Get PC: 1745968
+[DEBUG]:[Hart]: Set PC with: 1745972
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1745972
+[DEBUG]:[Hart]: MMU vaddr: 0x1aa434 => paddr: 0x1ab434
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1745972
+[DEBUG]:[Hart]: Execute PC: 1745972
+[DEBUG]:[Hart]: Get PC: 1745972
+[DEBUG]:[Hart]: Set Register: 1 with val: 1745976
+[DEBUG]:[Hart]: Get Register: 1 val: 1745976
+[DEBUG]:[Hart]: Set PC with: 1779572
+[DEBUG]:[Hart]: Get PC: 1779572
+[DEBUG]:[Hart]: Set PC with: 1779576
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1779576
+[DEBUG]:[Hart]: MMU vaddr: 0x1b2778 => paddr: 0x1b3778
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1779576
+[DEBUG]:[Hart]: Execute PC: 1779576
+[DEBUG]:[Hart]: Get PC: 1779576
+[DEBUG]:[Hart]: Set Register: 1 with val: 1779580
+[DEBUG]:[Hart]: Get Register: 1 val: 1779580
+[DEBUG]:[Hart]: Set PC with: 1813176
+[DEBUG]:[Hart]: Get PC: 1813176
+[DEBUG]:[Hart]: Set PC with: 1813180
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1813180
+[DEBUG]:[Hart]: MMU vaddr: 0x1baabc => paddr: 0x1bbabc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1813180
+[DEBUG]:[Hart]: Execute PC: 1813180
+[DEBUG]:[Hart]: Get PC: 1813180
+[DEBUG]:[Hart]: Set Register: 1 with val: 1813184
+[DEBUG]:[Hart]: Get Register: 1 val: 1813184
+[DEBUG]:[Hart]: Set PC with: 1846780
+[DEBUG]:[Hart]: Get PC: 1846780
+[DEBUG]:[Hart]: Set PC with: 1846784
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1846784
+[DEBUG]:[Hart]: MMU vaddr: 0x1c2e00 => paddr: 0x1c3e00
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1846784
+[DEBUG]:[Hart]: Execute PC: 1846784
+[DEBUG]:[Hart]: Get PC: 1846784
+[DEBUG]:[Hart]: Set Register: 1 with val: 1846788
+[DEBUG]:[Hart]: Get Register: 1 val: 1846788
+[DEBUG]:[Hart]: Set PC with: 1880384
+[DEBUG]:[Hart]: Get PC: 1880384
+[DEBUG]:[Hart]: Set PC with: 1880388
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1880388
+[DEBUG]:[Hart]: MMU vaddr: 0x1cb144 => paddr: 0x1cc144
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1880388
+[DEBUG]:[Hart]: Execute PC: 1880388
+[DEBUG]:[Hart]: Get PC: 1880388
+[DEBUG]:[Hart]: Set Register: 1 with val: 1880392
+[DEBUG]:[Hart]: Get Register: 1 val: 1880392
+[DEBUG]:[Hart]: Set PC with: 1913988
+[DEBUG]:[Hart]: Get PC: 1913988
+[DEBUG]:[Hart]: Set PC with: 1913992
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1913992
+[DEBUG]:[Hart]: MMU vaddr: 0x1d3488 => paddr: 0x1d4488
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1913992
+[DEBUG]:[Hart]: Execute PC: 1913992
+[DEBUG]:[Hart]: Get PC: 1913992
+[DEBUG]:[Hart]: Set Register: 1 with val: 1913996
+[DEBUG]:[Hart]: Get Register: 1 val: 1913996
+[DEBUG]:[Hart]: Set PC with: 1947592
+[DEBUG]:[Hart]: Get PC: 1947592
+[DEBUG]:[Hart]: Set PC with: 1947596
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1947596
+[DEBUG]:[Hart]: MMU vaddr: 0x1db7cc => paddr: 0x1dc7cc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1947596
+[DEBUG]:[Hart]: Execute PC: 1947596
+[DEBUG]:[Hart]: Get PC: 1947596
+[DEBUG]:[Hart]: Set Register: 1 with val: 1947600
+[DEBUG]:[Hart]: Get Register: 1 val: 1947600
+[DEBUG]:[Hart]: Set PC with: 1981196
+[DEBUG]:[Hart]: Get PC: 1981196
+[DEBUG]:[Hart]: Set PC with: 1981200
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 1981200
+[DEBUG]:[Hart]: MMU vaddr: 0x1e3b10 => paddr: 0x1e4b10
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 1981200
+[DEBUG]:[Hart]: Execute PC: 1981200
+[DEBUG]:[Hart]: Get PC: 1981200
+[DEBUG]:[Hart]: Set Register: 1 with val: 1981204
+[DEBUG]:[Hart]: Get Register: 1 val: 1981204
+[DEBUG]:[Hart]: Set PC with: 2014800
+[DEBUG]:[Hart]: Get PC: 2014800
+[DEBUG]:[Hart]: Set PC with: 2014804
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2014804
+[DEBUG]:[Hart]: MMU vaddr: 0x1ebe54 => paddr: 0x1ece54
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2014804
+[DEBUG]:[Hart]: Execute PC: 2014804
+[DEBUG]:[Hart]: Get PC: 2014804
+[DEBUG]:[Hart]: Set Register: 1 with val: 2014808
+[DEBUG]:[Hart]: Get Register: 1 val: 2014808
+[DEBUG]:[Hart]: Set PC with: 2048404
+[DEBUG]:[Hart]: Get PC: 2048404
+[DEBUG]:[Hart]: Set PC with: 2048408
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2048408
+[DEBUG]:[Hart]: MMU vaddr: 0x1f4198 => paddr: 0x1f5198
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2048408
+[DEBUG]:[Hart]: Execute PC: 2048408
+[DEBUG]:[Hart]: Get PC: 2048408
+[DEBUG]:[Hart]: Set Register: 1 with val: 2048412
+[DEBUG]:[Hart]: Get Register: 1 val: 2048412
+[DEBUG]:[Hart]: Set PC with: 2082008
+[DEBUG]:[Hart]: Get PC: 2082008
+[DEBUG]:[Hart]: Set PC with: 2082012
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2082012
+[DEBUG]:[Hart]: MMU vaddr: 0x1fc4dc => paddr: 0x1fd4dc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2082012
+[DEBUG]:[Hart]: Execute PC: 2082012
+[DEBUG]:[Hart]: Get PC: 2082012
+[DEBUG]:[Hart]: Set Register: 1 with val: 2082016
+[DEBUG]:[Hart]: Get Register: 1 val: 2082016
+[DEBUG]:[Hart]: Set PC with: 2115612
+[DEBUG]:[Hart]: Get PC: 2115612
+[DEBUG]:[Hart]: Set PC with: 2115616
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2115616
+[DEBUG]:[Hart]: MMU vaddr: 0x204820 => paddr: 0x205820
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2115616
+[DEBUG]:[Hart]: Execute PC: 2115616
+[DEBUG]:[Hart]: Get PC: 2115616
+[DEBUG]:[Hart]: Set Register: 1 with val: 2115620
+[DEBUG]:[Hart]: Get Register: 1 val: 2115620
+[DEBUG]:[Hart]: Set PC with: 2149216
+[DEBUG]:[Hart]: Get PC: 2149216
+[DEBUG]:[Hart]: Set PC with: 2149220
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2149220
+[DEBUG]:[Hart]: MMU vaddr: 0x20cb64 => paddr: 0x20db64
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2149220
+[DEBUG]:[Hart]: Execute PC: 2149220
+[DEBUG]:[Hart]: Get PC: 2149220
+[DEBUG]:[Hart]: Set Register: 1 with val: 2149224
+[DEBUG]:[Hart]: Get Register: 1 val: 2149224
+[DEBUG]:[Hart]: Set PC with: 2182820
+[DEBUG]:[Hart]: Get PC: 2182820
+[DEBUG]:[Hart]: Set PC with: 2182824
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2182824
+[DEBUG]:[Hart]: MMU vaddr: 0x214ea8 => paddr: 0x215ea8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2182824
+[DEBUG]:[Hart]: Execute PC: 2182824
+[DEBUG]:[Hart]: Get PC: 2182824
+[DEBUG]:[Hart]: Set Register: 1 with val: 2182828
+[DEBUG]:[Hart]: Get Register: 1 val: 2182828
+[DEBUG]:[Hart]: Set PC with: 2216424
+[DEBUG]:[Hart]: Get PC: 2216424
+[DEBUG]:[Hart]: Set PC with: 2216428
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2216428
+[DEBUG]:[Hart]: MMU vaddr: 0x21d1ec => paddr: 0x21e1ec
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2216428
+[DEBUG]:[Hart]: Execute PC: 2216428
+[DEBUG]:[Hart]: Get PC: 2216428
+[DEBUG]:[Hart]: Set Register: 1 with val: 2216432
+[DEBUG]:[Hart]: Get Register: 1 val: 2216432
+[DEBUG]:[Hart]: Set PC with: 2250028
+[DEBUG]:[Hart]: Get PC: 2250028
+[DEBUG]:[Hart]: Set PC with: 2250032
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2250032
+[DEBUG]:[Hart]: MMU vaddr: 0x225530 => paddr: 0x226530
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2250032
+[DEBUG]:[Hart]: Execute PC: 2250032
+[DEBUG]:[Hart]: Get PC: 2250032
+[DEBUG]:[Hart]: Set Register: 1 with val: 2250036
+[DEBUG]:[Hart]: Get Register: 1 val: 2250036
+[DEBUG]:[Hart]: Set PC with: 2283632
+[DEBUG]:[Hart]: Get PC: 2283632
+[DEBUG]:[Hart]: Set PC with: 2283636
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2283636
+[DEBUG]:[Hart]: MMU vaddr: 0x22d874 => paddr: 0x22e874
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2283636
+[DEBUG]:[Hart]: Execute PC: 2283636
+[DEBUG]:[Hart]: Get PC: 2283636
+[DEBUG]:[Hart]: Set Register: 1 with val: 2283640
+[DEBUG]:[Hart]: Get Register: 1 val: 2283640
+[DEBUG]:[Hart]: Set PC with: 2317236
+[DEBUG]:[Hart]: Get PC: 2317236
+[DEBUG]:[Hart]: Set PC with: 2317240
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2317240
+[DEBUG]:[Hart]: MMU vaddr: 0x235bb8 => paddr: 0x236bb8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2317240
+[DEBUG]:[Hart]: Execute PC: 2317240
+[DEBUG]:[Hart]: Get PC: 2317240
+[DEBUG]:[Hart]: Set Register: 1 with val: 2317244
+[DEBUG]:[Hart]: Get Register: 1 val: 2317244
+[DEBUG]:[Hart]: Set PC with: 2350840
+[DEBUG]:[Hart]: Get PC: 2350840
+[DEBUG]:[Hart]: Set PC with: 2350844
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2350844
+[DEBUG]:[Hart]: MMU vaddr: 0x23defc => paddr: 0x23eefc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2350844
+[DEBUG]:[Hart]: Execute PC: 2350844
+[DEBUG]:[Hart]: Get PC: 2350844
+[DEBUG]:[Hart]: Set Register: 1 with val: 2350848
+[DEBUG]:[Hart]: Get Register: 1 val: 2350848
+[DEBUG]:[Hart]: Set PC with: 2384444
+[DEBUG]:[Hart]: Get PC: 2384444
+[DEBUG]:[Hart]: Set PC with: 2384448
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2384448
+[DEBUG]:[Hart]: MMU vaddr: 0x246240 => paddr: 0x247240
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2384448
+[DEBUG]:[Hart]: Execute PC: 2384448
+[DEBUG]:[Hart]: Get PC: 2384448
+[DEBUG]:[Hart]: Set Register: 1 with val: 2384452
+[DEBUG]:[Hart]: Get Register: 1 val: 2384452
+[DEBUG]:[Hart]: Set PC with: 2418048
+[DEBUG]:[Hart]: Get PC: 2418048
+[DEBUG]:[Hart]: Set PC with: 2418052
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2418052
+[DEBUG]:[Hart]: MMU vaddr: 0x24e584 => paddr: 0x24f584
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2418052
+[DEBUG]:[Hart]: Execute PC: 2418052
+[DEBUG]:[Hart]: Get PC: 2418052
+[DEBUG]:[Hart]: Set Register: 1 with val: 2418056
+[DEBUG]:[Hart]: Get Register: 1 val: 2418056
+[DEBUG]:[Hart]: Set PC with: 2451652
+[DEBUG]:[Hart]: Get PC: 2451652
+[DEBUG]:[Hart]: Set PC with: 2451656
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2451656
+[DEBUG]:[Hart]: MMU vaddr: 0x2568c8 => paddr: 0x2578c8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2451656
+[DEBUG]:[Hart]: Execute PC: 2451656
+[DEBUG]:[Hart]: Get PC: 2451656
+[DEBUG]:[Hart]: Set Register: 1 with val: 2451660
+[DEBUG]:[Hart]: Get Register: 1 val: 2451660
+[DEBUG]:[Hart]: Set PC with: 2485256
+[DEBUG]:[Hart]: Get PC: 2485256
+[DEBUG]:[Hart]: Set PC with: 2485260
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2485260
+[DEBUG]:[Hart]: MMU vaddr: 0x25ec0c => paddr: 0x25fc0c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2485260
+[DEBUG]:[Hart]: Execute PC: 2485260
+[DEBUG]:[Hart]: Get PC: 2485260
+[DEBUG]:[Hart]: Set Register: 1 with val: 2485264
+[DEBUG]:[Hart]: Get Register: 1 val: 2485264
+[DEBUG]:[Hart]: Set PC with: 2518860
+[DEBUG]:[Hart]: Get PC: 2518860
+[DEBUG]:[Hart]: Set PC with: 2518864
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2518864
+[DEBUG]:[Hart]: MMU vaddr: 0x266f50 => paddr: 0x267f50
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2518864
+[DEBUG]:[Hart]: Execute PC: 2518864
+[DEBUG]:[Hart]: Get PC: 2518864
+[DEBUG]:[Hart]: Set Register: 1 with val: 2518868
+[DEBUG]:[Hart]: Get Register: 1 val: 2518868
+[DEBUG]:[Hart]: Set PC with: 2552464
+[DEBUG]:[Hart]: Get PC: 2552464
+[DEBUG]:[Hart]: Set PC with: 2552468
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2552468
+[DEBUG]:[Hart]: MMU vaddr: 0x26f294 => paddr: 0x270294
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2552468
+[DEBUG]:[Hart]: Execute PC: 2552468
+[DEBUG]:[Hart]: Get PC: 2552468
+[DEBUG]:[Hart]: Set Register: 1 with val: 2552472
+[DEBUG]:[Hart]: Get Register: 1 val: 2552472
+[DEBUG]:[Hart]: Set PC with: 2586068
+[DEBUG]:[Hart]: Get PC: 2586068
+[DEBUG]:[Hart]: Set PC with: 2586072
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2586072
+[DEBUG]:[Hart]: MMU vaddr: 0x2775d8 => paddr: 0x2785d8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2586072
+[DEBUG]:[Hart]: Execute PC: 2586072
+[DEBUG]:[Hart]: Get PC: 2586072
+[DEBUG]:[Hart]: Set Register: 1 with val: 2586076
+[DEBUG]:[Hart]: Get Register: 1 val: 2586076
+[DEBUG]:[Hart]: Set PC with: 2619672
+[DEBUG]:[Hart]: Get PC: 2619672
+[DEBUG]:[Hart]: Set PC with: 2619676
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2619676
+[DEBUG]:[Hart]: MMU vaddr: 0x27f91c => paddr: 0x28091c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2619676
+[DEBUG]:[Hart]: Execute PC: 2619676
+[DEBUG]:[Hart]: Get PC: 2619676
+[DEBUG]:[Hart]: Set Register: 1 with val: 2619680
+[DEBUG]:[Hart]: Get Register: 1 val: 2619680
+[DEBUG]:[Hart]: Set PC with: 2653276
+[DEBUG]:[Hart]: Get PC: 2653276
+[DEBUG]:[Hart]: Set PC with: 2653280
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2653280
+[DEBUG]:[Hart]: MMU vaddr: 0x287c60 => paddr: 0x288c60
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2653280
+[DEBUG]:[Hart]: Execute PC: 2653280
+[DEBUG]:[Hart]: Get PC: 2653280
+[DEBUG]:[Hart]: Set Register: 1 with val: 2653284
+[DEBUG]:[Hart]: Get Register: 1 val: 2653284
+[DEBUG]:[Hart]: Set PC with: 2686880
+[DEBUG]:[Hart]: Get PC: 2686880
+[DEBUG]:[Hart]: Set PC with: 2686884
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2686884
+[DEBUG]:[Hart]: MMU vaddr: 0x28ffa4 => paddr: 0x290fa4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2686884
+[DEBUG]:[Hart]: Execute PC: 2686884
+[DEBUG]:[Hart]: Get PC: 2686884
+[DEBUG]:[Hart]: Set Register: 1 with val: 2686888
+[DEBUG]:[Hart]: Get Register: 1 val: 2686888
+[DEBUG]:[Hart]: Set PC with: 2720484
+[DEBUG]:[Hart]: Get PC: 2720484
+[DEBUG]:[Hart]: Set PC with: 2720488
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2720488
+[DEBUG]:[Hart]: MMU vaddr: 0x2982e8 => paddr: 0x2992e8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2720488
+[DEBUG]:[Hart]: Execute PC: 2720488
+[DEBUG]:[Hart]: Get PC: 2720488
+[DEBUG]:[Hart]: Set Register: 1 with val: 2720492
+[DEBUG]:[Hart]: Get Register: 1 val: 2720492
+[DEBUG]:[Hart]: Set PC with: 2754088
+[DEBUG]:[Hart]: Get PC: 2754088
+[DEBUG]:[Hart]: Set PC with: 2754092
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2754092
+[DEBUG]:[Hart]: MMU vaddr: 0x2a062c => paddr: 0x2a162c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2754092
+[DEBUG]:[Hart]: Execute PC: 2754092
+[DEBUG]:[Hart]: Get PC: 2754092
+[DEBUG]:[Hart]: Set Register: 1 with val: 2754096
+[DEBUG]:[Hart]: Get Register: 1 val: 2754096
+[DEBUG]:[Hart]: Set PC with: 2787692
+[DEBUG]:[Hart]: Get PC: 2787692
+[DEBUG]:[Hart]: Set PC with: 2787696
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2787696
+[DEBUG]:[Hart]: MMU vaddr: 0x2a8970 => paddr: 0x2a9970
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2787696
+[DEBUG]:[Hart]: Execute PC: 2787696
+[DEBUG]:[Hart]: Get PC: 2787696
+[DEBUG]:[Hart]: Set Register: 1 with val: 2787700
+[DEBUG]:[Hart]: Get Register: 1 val: 2787700
+[DEBUG]:[Hart]: Set PC with: 2821296
+[DEBUG]:[Hart]: Get PC: 2821296
+[DEBUG]:[Hart]: Set PC with: 2821300
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2821300
+[DEBUG]:[Hart]: MMU vaddr: 0x2b0cb4 => paddr: 0x2b1cb4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2821300
+[DEBUG]:[Hart]: Execute PC: 2821300
+[DEBUG]:[Hart]: Get PC: 2821300
+[DEBUG]:[Hart]: Set Register: 1 with val: 2821304
+[DEBUG]:[Hart]: Get Register: 1 val: 2821304
+[DEBUG]:[Hart]: Set PC with: 2854900
+[DEBUG]:[Hart]: Get PC: 2854900
+[DEBUG]:[Hart]: Set PC with: 2854904
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2854904
+[DEBUG]:[Hart]: MMU vaddr: 0x2b8ff8 => paddr: 0x2b9ff8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2854904
+[DEBUG]:[Hart]: Execute PC: 2854904
+[DEBUG]:[Hart]: Get PC: 2854904
+[DEBUG]:[Hart]: Set Register: 1 with val: 2854908
+[DEBUG]:[Hart]: Get Register: 1 val: 2854908
+[DEBUG]:[Hart]: Set PC with: 2888504
+[DEBUG]:[Hart]: Get PC: 2888504
+[DEBUG]:[Hart]: Set PC with: 2888508
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2888508
+[DEBUG]:[Hart]: MMU vaddr: 0x2c133c => paddr: 0x2c233c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2888508
+[DEBUG]:[Hart]: Execute PC: 2888508
+[DEBUG]:[Hart]: Get PC: 2888508
+[DEBUG]:[Hart]: Set Register: 1 with val: 2888512
+[DEBUG]:[Hart]: Get Register: 1 val: 2888512
+[DEBUG]:[Hart]: Set PC with: 2922108
+[DEBUG]:[Hart]: Get PC: 2922108
+[DEBUG]:[Hart]: Set PC with: 2922112
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2922112
+[DEBUG]:[Hart]: MMU vaddr: 0x2c9680 => paddr: 0x2ca680
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2922112
+[DEBUG]:[Hart]: Execute PC: 2922112
+[DEBUG]:[Hart]: Get PC: 2922112
+[DEBUG]:[Hart]: Set Register: 1 with val: 2922116
+[DEBUG]:[Hart]: Get Register: 1 val: 2922116
+[DEBUG]:[Hart]: Set PC with: 2955712
+[DEBUG]:[Hart]: Get PC: 2955712
+[DEBUG]:[Hart]: Set PC with: 2955716
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2955716
+[DEBUG]:[Hart]: MMU vaddr: 0x2d19c4 => paddr: 0x2d29c4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2955716
+[DEBUG]:[Hart]: Execute PC: 2955716
+[DEBUG]:[Hart]: Get PC: 2955716
+[DEBUG]:[Hart]: Set Register: 1 with val: 2955720
+[DEBUG]:[Hart]: Get Register: 1 val: 2955720
+[DEBUG]:[Hart]: Set PC with: 2989316
+[DEBUG]:[Hart]: Get PC: 2989316
+[DEBUG]:[Hart]: Set PC with: 2989320
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 2989320
+[DEBUG]:[Hart]: MMU vaddr: 0x2d9d08 => paddr: 0x2dad08
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 2989320
+[DEBUG]:[Hart]: Execute PC: 2989320
+[DEBUG]:[Hart]: Get PC: 2989320
+[DEBUG]:[Hart]: Set Register: 1 with val: 2989324
+[DEBUG]:[Hart]: Get Register: 1 val: 2989324
+[DEBUG]:[Hart]: Set PC with: 3022920
+[DEBUG]:[Hart]: Get PC: 3022920
+[DEBUG]:[Hart]: Set PC with: 3022924
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3022924
+[DEBUG]:[Hart]: MMU vaddr: 0x2e204c => paddr: 0x2e304c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3022924
+[DEBUG]:[Hart]: Execute PC: 3022924
+[DEBUG]:[Hart]: Get PC: 3022924
+[DEBUG]:[Hart]: Set Register: 1 with val: 3022928
+[DEBUG]:[Hart]: Get Register: 1 val: 3022928
+[DEBUG]:[Hart]: Set PC with: 3056524
+[DEBUG]:[Hart]: Get PC: 3056524
+[DEBUG]:[Hart]: Set PC with: 3056528
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3056528
+[DEBUG]:[Hart]: MMU vaddr: 0x2ea390 => paddr: 0x2eb390
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3056528
+[DEBUG]:[Hart]: Execute PC: 3056528
+[DEBUG]:[Hart]: Get PC: 3056528
+[DEBUG]:[Hart]: Set Register: 1 with val: 3056532
+[DEBUG]:[Hart]: Get Register: 1 val: 3056532
+[DEBUG]:[Hart]: Set PC with: 3090128
+[DEBUG]:[Hart]: Get PC: 3090128
+[DEBUG]:[Hart]: Set PC with: 3090132
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3090132
+[DEBUG]:[Hart]: MMU vaddr: 0x2f26d4 => paddr: 0x2f36d4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3090132
+[DEBUG]:[Hart]: Execute PC: 3090132
+[DEBUG]:[Hart]: Get PC: 3090132
+[DEBUG]:[Hart]: Set Register: 1 with val: 3090136
+[DEBUG]:[Hart]: Get Register: 1 val: 3090136
+[DEBUG]:[Hart]: Set PC with: 3123732
+[DEBUG]:[Hart]: Get PC: 3123732
+[DEBUG]:[Hart]: Set PC with: 3123736
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3123736
+[DEBUG]:[Hart]: MMU vaddr: 0x2faa18 => paddr: 0x2fba18
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3123736
+[DEBUG]:[Hart]: Execute PC: 3123736
+[DEBUG]:[Hart]: Get PC: 3123736
+[DEBUG]:[Hart]: Set Register: 1 with val: 3123740
+[DEBUG]:[Hart]: Get Register: 1 val: 3123740
+[DEBUG]:[Hart]: Set PC with: 3157336
+[DEBUG]:[Hart]: Get PC: 3157336
+[DEBUG]:[Hart]: Set PC with: 3157340
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3157340
+[DEBUG]:[Hart]: MMU vaddr: 0x302d5c => paddr: 0x303d5c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3157340
+[DEBUG]:[Hart]: Execute PC: 3157340
+[DEBUG]:[Hart]: Get PC: 3157340
+[DEBUG]:[Hart]: Set Register: 1 with val: 3157344
+[DEBUG]:[Hart]: Get Register: 1 val: 3157344
+[DEBUG]:[Hart]: Set PC with: 3190940
+[DEBUG]:[Hart]: Get PC: 3190940
+[DEBUG]:[Hart]: Set PC with: 3190944
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3190944
+[DEBUG]:[Hart]: MMU vaddr: 0x30b0a0 => paddr: 0x30c0a0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3190944
+[DEBUG]:[Hart]: Execute PC: 3190944
+[DEBUG]:[Hart]: Get PC: 3190944
+[DEBUG]:[Hart]: Set Register: 1 with val: 3190948
+[DEBUG]:[Hart]: Get Register: 1 val: 3190948
+[DEBUG]:[Hart]: Set PC with: 3224544
+[DEBUG]:[Hart]: Get PC: 3224544
+[DEBUG]:[Hart]: Set PC with: 3224548
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3224548
+[DEBUG]:[Hart]: MMU vaddr: 0x3133e4 => paddr: 0x3143e4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3224548
+[DEBUG]:[Hart]: Execute PC: 3224548
+[DEBUG]:[Hart]: Get PC: 3224548
+[DEBUG]:[Hart]: Set Register: 1 with val: 3224552
+[DEBUG]:[Hart]: Get Register: 1 val: 3224552
+[DEBUG]:[Hart]: Set PC with: 3258148
+[DEBUG]:[Hart]: Get PC: 3258148
+[DEBUG]:[Hart]: Set PC with: 3258152
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3258152
+[DEBUG]:[Hart]: MMU vaddr: 0x31b728 => paddr: 0x31c728
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3258152
+[DEBUG]:[Hart]: Execute PC: 3258152
+[DEBUG]:[Hart]: Get PC: 3258152
+[DEBUG]:[Hart]: Set Register: 1 with val: 3258156
+[DEBUG]:[Hart]: Get Register: 1 val: 3258156
+[DEBUG]:[Hart]: Set PC with: 3291752
+[DEBUG]:[Hart]: Get PC: 3291752
+[DEBUG]:[Hart]: Set PC with: 3291756
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3291756
+[DEBUG]:[Hart]: MMU vaddr: 0x323a6c => paddr: 0x324a6c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3291756
+[DEBUG]:[Hart]: Execute PC: 3291756
+[DEBUG]:[Hart]: Get PC: 3291756
+[DEBUG]:[Hart]: Set Register: 1 with val: 3291760
+[DEBUG]:[Hart]: Get Register: 1 val: 3291760
+[DEBUG]:[Hart]: Set PC with: 3325356
+[DEBUG]:[Hart]: Get PC: 3325356
+[DEBUG]:[Hart]: Set PC with: 3325360
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3325360
+[DEBUG]:[Hart]: MMU vaddr: 0x32bdb0 => paddr: 0x32cdb0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3325360
+[DEBUG]:[Hart]: Execute PC: 3325360
+[DEBUG]:[Hart]: Get PC: 3325360
+[DEBUG]:[Hart]: Set Register: 1 with val: 3325364
+[DEBUG]:[Hart]: Get Register: 1 val: 3325364
+[DEBUG]:[Hart]: Set PC with: 3358960
+[DEBUG]:[Hart]: Get PC: 3358960
+[DEBUG]:[Hart]: Set PC with: 3358964
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3358964
+[DEBUG]:[Hart]: MMU vaddr: 0x3340f4 => paddr: 0x3350f4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3358964
+[DEBUG]:[Hart]: Execute PC: 3358964
+[DEBUG]:[Hart]: Get PC: 3358964
+[DEBUG]:[Hart]: Set Register: 1 with val: 3358968
+[DEBUG]:[Hart]: Get Register: 1 val: 3358968
+[DEBUG]:[Hart]: Set PC with: 3392564
+[DEBUG]:[Hart]: Get PC: 3392564
+[DEBUG]:[Hart]: Set PC with: 3392568
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3392568
+[DEBUG]:[Hart]: MMU vaddr: 0x33c438 => paddr: 0x33d438
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3392568
+[DEBUG]:[Hart]: Execute PC: 3392568
+[DEBUG]:[Hart]: Get PC: 3392568
+[DEBUG]:[Hart]: Set Register: 1 with val: 3392572
+[DEBUG]:[Hart]: Get Register: 1 val: 3392572
+[DEBUG]:[Hart]: Set PC with: 3426168
+[DEBUG]:[Hart]: Get PC: 3426168
+[DEBUG]:[Hart]: Set PC with: 3426172
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3426172
+[DEBUG]:[Hart]: MMU vaddr: 0x34477c => paddr: 0x34577c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3426172
+[DEBUG]:[Hart]: Execute PC: 3426172
+[DEBUG]:[Hart]: Get PC: 3426172
+[DEBUG]:[Hart]: Set Register: 1 with val: 3426176
+[DEBUG]:[Hart]: Get Register: 1 val: 3426176
+[DEBUG]:[Hart]: Set PC with: 3459772
+[DEBUG]:[Hart]: Get PC: 3459772
+[DEBUG]:[Hart]: Set PC with: 3459776
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3459776
+[DEBUG]:[Hart]: MMU vaddr: 0x34cac0 => paddr: 0x34dac0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3459776
+[DEBUG]:[Hart]: Execute PC: 3459776
+[DEBUG]:[Hart]: Get PC: 3459776
+[DEBUG]:[Hart]: Set Register: 1 with val: 3459780
+[DEBUG]:[Hart]: Get Register: 1 val: 3459780
+[DEBUG]:[Hart]: Set PC with: 3493376
+[DEBUG]:[Hart]: Get PC: 3493376
+[DEBUG]:[Hart]: Set PC with: 3493380
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3493380
+[DEBUG]:[Hart]: MMU vaddr: 0x354e04 => paddr: 0x355e04
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3493380
+[DEBUG]:[Hart]: Execute PC: 3493380
+[DEBUG]:[Hart]: Get PC: 3493380
+[DEBUG]:[Hart]: Set Register: 1 with val: 3493384
+[DEBUG]:[Hart]: Get Register: 1 val: 3493384
+[DEBUG]:[Hart]: Set PC with: 3526980
+[DEBUG]:[Hart]: Get PC: 3526980
+[DEBUG]:[Hart]: Set PC with: 3526984
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3526984
+[DEBUG]:[Hart]: MMU vaddr: 0x35d148 => paddr: 0x35e148
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3526984
+[DEBUG]:[Hart]: Execute PC: 3526984
+[DEBUG]:[Hart]: Get PC: 3526984
+[DEBUG]:[Hart]: Set Register: 1 with val: 3526988
+[DEBUG]:[Hart]: Get Register: 1 val: 3526988
+[DEBUG]:[Hart]: Set PC with: 3560584
+[DEBUG]:[Hart]: Get PC: 3560584
+[DEBUG]:[Hart]: Set PC with: 3560588
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3560588
+[DEBUG]:[Hart]: MMU vaddr: 0x36548c => paddr: 0x36648c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3560588
+[DEBUG]:[Hart]: Execute PC: 3560588
+[DEBUG]:[Hart]: Get PC: 3560588
+[DEBUG]:[Hart]: Set Register: 1 with val: 3560592
+[DEBUG]:[Hart]: Get Register: 1 val: 3560592
+[DEBUG]:[Hart]: Set PC with: 3594188
+[DEBUG]:[Hart]: Get PC: 3594188
+[DEBUG]:[Hart]: Set PC with: 3594192
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3594192
+[DEBUG]:[Hart]: MMU vaddr: 0x36d7d0 => paddr: 0x36e7d0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3594192
+[DEBUG]:[Hart]: Execute PC: 3594192
+[DEBUG]:[Hart]: Get PC: 3594192
+[DEBUG]:[Hart]: Set Register: 1 with val: 3594196
+[DEBUG]:[Hart]: Get Register: 1 val: 3594196
+[DEBUG]:[Hart]: Set PC with: 3627792
+[DEBUG]:[Hart]: Get PC: 3627792
+[DEBUG]:[Hart]: Set PC with: 3627796
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3627796
+[DEBUG]:[Hart]: MMU vaddr: 0x375b14 => paddr: 0x376b14
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3627796
+[DEBUG]:[Hart]: Execute PC: 3627796
+[DEBUG]:[Hart]: Get PC: 3627796
+[DEBUG]:[Hart]: Set Register: 1 with val: 3627800
+[DEBUG]:[Hart]: Get Register: 1 val: 3627800
+[DEBUG]:[Hart]: Set PC with: 3661396
+[DEBUG]:[Hart]: Get PC: 3661396
+[DEBUG]:[Hart]: Set PC with: 3661400
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3661400
+[DEBUG]:[Hart]: MMU vaddr: 0x37de58 => paddr: 0x37ee58
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3661400
+[DEBUG]:[Hart]: Execute PC: 3661400
+[DEBUG]:[Hart]: Get PC: 3661400
+[DEBUG]:[Hart]: Set Register: 1 with val: 3661404
+[DEBUG]:[Hart]: Get Register: 1 val: 3661404
+[DEBUG]:[Hart]: Set PC with: 3695000
+[DEBUG]:[Hart]: Get PC: 3695000
+[DEBUG]:[Hart]: Set PC with: 3695004
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3695004
+[DEBUG]:[Hart]: MMU vaddr: 0x38619c => paddr: 0x38719c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3695004
+[DEBUG]:[Hart]: Execute PC: 3695004
+[DEBUG]:[Hart]: Get PC: 3695004
+[DEBUG]:[Hart]: Set Register: 1 with val: 3695008
+[DEBUG]:[Hart]: Get Register: 1 val: 3695008
+[DEBUG]:[Hart]: Set PC with: 3728604
+[DEBUG]:[Hart]: Get PC: 3728604
+[DEBUG]:[Hart]: Set PC with: 3728608
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3728608
+[DEBUG]:[Hart]: MMU vaddr: 0x38e4e0 => paddr: 0x38f4e0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3728608
+[DEBUG]:[Hart]: Execute PC: 3728608
+[DEBUG]:[Hart]: Get PC: 3728608
+[DEBUG]:[Hart]: Set Register: 1 with val: 3728612
+[DEBUG]:[Hart]: Get Register: 1 val: 3728612
+[DEBUG]:[Hart]: Set PC with: 3762208
+[DEBUG]:[Hart]: Get PC: 3762208
+[DEBUG]:[Hart]: Set PC with: 3762212
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3762212
+[DEBUG]:[Hart]: MMU vaddr: 0x396824 => paddr: 0x397824
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3762212
+[DEBUG]:[Hart]: Execute PC: 3762212
+[DEBUG]:[Hart]: Get PC: 3762212
+[DEBUG]:[Hart]: Set Register: 1 with val: 3762216
+[DEBUG]:[Hart]: Get Register: 1 val: 3762216
+[DEBUG]:[Hart]: Set PC with: 3795812
+[DEBUG]:[Hart]: Get PC: 3795812
+[DEBUG]:[Hart]: Set PC with: 3795816
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3795816
+[DEBUG]:[Hart]: MMU vaddr: 0x39eb68 => paddr: 0x39fb68
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3795816
+[DEBUG]:[Hart]: Execute PC: 3795816
+[DEBUG]:[Hart]: Get PC: 3795816
+[DEBUG]:[Hart]: Set Register: 1 with val: 3795820
+[DEBUG]:[Hart]: Get Register: 1 val: 3795820
+[DEBUG]:[Hart]: Set PC with: 3829416
+[DEBUG]:[Hart]: Get PC: 3829416
+[DEBUG]:[Hart]: Set PC with: 3829420
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3829420
+[DEBUG]:[Hart]: MMU vaddr: 0x3a6eac => paddr: 0x3a7eac
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3829420
+[DEBUG]:[Hart]: Execute PC: 3829420
+[DEBUG]:[Hart]: Get PC: 3829420
+[DEBUG]:[Hart]: Set Register: 1 with val: 3829424
+[DEBUG]:[Hart]: Get Register: 1 val: 3829424
+[DEBUG]:[Hart]: Set PC with: 3863020
+[DEBUG]:[Hart]: Get PC: 3863020
+[DEBUG]:[Hart]: Set PC with: 3863024
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3863024
+[DEBUG]:[Hart]: MMU vaddr: 0x3af1f0 => paddr: 0x3b01f0
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3863024
+[DEBUG]:[Hart]: Execute PC: 3863024
+[DEBUG]:[Hart]: Get PC: 3863024
+[DEBUG]:[Hart]: Set Register: 1 with val: 3863028
+[DEBUG]:[Hart]: Get Register: 1 val: 3863028
+[DEBUG]:[Hart]: Set PC with: 3896624
+[DEBUG]:[Hart]: Get PC: 3896624
+[DEBUG]:[Hart]: Set PC with: 3896628
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3896628
+[DEBUG]:[Hart]: MMU vaddr: 0x3b7534 => paddr: 0x3b8534
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3896628
+[DEBUG]:[Hart]: Execute PC: 3896628
+[DEBUG]:[Hart]: Get PC: 3896628
+[DEBUG]:[Hart]: Set Register: 1 with val: 3896632
+[DEBUG]:[Hart]: Get Register: 1 val: 3896632
+[DEBUG]:[Hart]: Set PC with: 3930228
+[DEBUG]:[Hart]: Get PC: 3930228
+[DEBUG]:[Hart]: Set PC with: 3930232
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3930232
+[DEBUG]:[Hart]: MMU vaddr: 0x3bf878 => paddr: 0x3c0878
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3930232
+[DEBUG]:[Hart]: Execute PC: 3930232
+[DEBUG]:[Hart]: Get PC: 3930232
+[DEBUG]:[Hart]: Set Register: 1 with val: 3930236
+[DEBUG]:[Hart]: Get Register: 1 val: 3930236
+[DEBUG]:[Hart]: Set PC with: 3963832
+[DEBUG]:[Hart]: Get PC: 3963832
+[DEBUG]:[Hart]: Set PC with: 3963836
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3963836
+[DEBUG]:[Hart]: MMU vaddr: 0x3c7bbc => paddr: 0x3c8bbc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3963836
+[DEBUG]:[Hart]: Execute PC: 3963836
+[DEBUG]:[Hart]: Get PC: 3963836
+[DEBUG]:[Hart]: Set Register: 1 with val: 3963840
+[DEBUG]:[Hart]: Get Register: 1 val: 3963840
+[DEBUG]:[Hart]: Set PC with: 3997436
+[DEBUG]:[Hart]: Get PC: 3997436
+[DEBUG]:[Hart]: Set PC with: 3997440
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 3997440
+[DEBUG]:[Hart]: MMU vaddr: 0x3cff00 => paddr: 0x3d0f00
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 3997440
+[DEBUG]:[Hart]: Execute PC: 3997440
+[DEBUG]:[Hart]: Get PC: 3997440
+[DEBUG]:[Hart]: Set Register: 1 with val: 3997444
+[DEBUG]:[Hart]: Get Register: 1 val: 3997444
+[DEBUG]:[Hart]: Set PC with: 4031040
+[DEBUG]:[Hart]: Get PC: 4031040
+[DEBUG]:[Hart]: Set PC with: 4031044
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4031044
+[DEBUG]:[Hart]: MMU vaddr: 0x3d8244 => paddr: 0x3d9244
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4031044
+[DEBUG]:[Hart]: Execute PC: 4031044
+[DEBUG]:[Hart]: Get PC: 4031044
+[DEBUG]:[Hart]: Set Register: 1 with val: 4031048
+[DEBUG]:[Hart]: Get Register: 1 val: 4031048
+[DEBUG]:[Hart]: Set PC with: 4064644
+[DEBUG]:[Hart]: Get PC: 4064644
+[DEBUG]:[Hart]: Set PC with: 4064648
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4064648
+[DEBUG]:[Hart]: MMU vaddr: 0x3e0588 => paddr: 0x3e1588
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4064648
+[DEBUG]:[Hart]: Execute PC: 4064648
+[DEBUG]:[Hart]: Get PC: 4064648
+[DEBUG]:[Hart]: Set Register: 1 with val: 4064652
+[DEBUG]:[Hart]: Get Register: 1 val: 4064652
+[DEBUG]:[Hart]: Set PC with: 4098248
+[DEBUG]:[Hart]: Get PC: 4098248
+[DEBUG]:[Hart]: Set PC with: 4098252
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4098252
+[DEBUG]:[Hart]: MMU vaddr: 0x3e88cc => paddr: 0x3e98cc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4098252
+[DEBUG]:[Hart]: Execute PC: 4098252
+[DEBUG]:[Hart]: Get PC: 4098252
+[DEBUG]:[Hart]: Set Register: 1 with val: 4098256
+[DEBUG]:[Hart]: Get Register: 1 val: 4098256
+[DEBUG]:[Hart]: Set PC with: 4131852
+[DEBUG]:[Hart]: Get PC: 4131852
+[DEBUG]:[Hart]: Set PC with: 4131856
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4131856
+[DEBUG]:[Hart]: MMU vaddr: 0x3f0c10 => paddr: 0x3f1c10
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4131856
+[DEBUG]:[Hart]: Execute PC: 4131856
+[DEBUG]:[Hart]: Get PC: 4131856
+[DEBUG]:[Hart]: Set Register: 1 with val: 4131860
+[DEBUG]:[Hart]: Get Register: 1 val: 4131860
+[DEBUG]:[Hart]: Set PC with: 4165456
+[DEBUG]:[Hart]: Get PC: 4165456
+[DEBUG]:[Hart]: Set PC with: 4165460
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4165460
+[DEBUG]:[Hart]: MMU vaddr: 0x3f8f54 => paddr: 0x3f9f54
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4165460
+[DEBUG]:[Hart]: Execute PC: 4165460
+[DEBUG]:[Hart]: Get PC: 4165460
+[DEBUG]:[Hart]: Set Register: 1 with val: 4165464
+[DEBUG]:[Hart]: Get Register: 1 val: 4165464
+[DEBUG]:[Hart]: Set PC with: 4199060
+[DEBUG]:[Hart]: Get PC: 4199060
+[DEBUG]:[Hart]: Set PC with: 4199064
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4199064
+[DEBUG]:[Hart]: MMU vaddr: 0x401298 => paddr: 0x402298
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4199064
+[DEBUG]:[Hart]: Execute PC: 4199064
+[DEBUG]:[Hart]: Get PC: 4199064
+[DEBUG]:[Hart]: Set Register: 1 with val: 4199068
+[DEBUG]:[Hart]: Get Register: 1 val: 4199068
+[DEBUG]:[Hart]: Set PC with: 4232664
+[DEBUG]:[Hart]: Get PC: 4232664
+[DEBUG]:[Hart]: Set PC with: 4232668
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4232668
+[DEBUG]:[Hart]: MMU vaddr: 0x4095dc => paddr: 0x40a5dc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4232668
+[DEBUG]:[Hart]: Execute PC: 4232668
+[DEBUG]:[Hart]: Get PC: 4232668
+[DEBUG]:[Hart]: Set Register: 1 with val: 4232672
+[DEBUG]:[Hart]: Get Register: 1 val: 4232672
+[DEBUG]:[Hart]: Set PC with: 4266268
+[DEBUG]:[Hart]: Get PC: 4266268
+[DEBUG]:[Hart]: Set PC with: 4266272
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4266272
+[DEBUG]:[Hart]: MMU vaddr: 0x411920 => paddr: 0x412920
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4266272
+[DEBUG]:[Hart]: Execute PC: 4266272
+[DEBUG]:[Hart]: Get PC: 4266272
+[DEBUG]:[Hart]: Set Register: 1 with val: 4266276
+[DEBUG]:[Hart]: Get Register: 1 val: 4266276
+[DEBUG]:[Hart]: Set PC with: 4299872
+[DEBUG]:[Hart]: Get PC: 4299872
+[DEBUG]:[Hart]: Set PC with: 4299876
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4299876
+[DEBUG]:[Hart]: MMU vaddr: 0x419c64 => paddr: 0x41ac64
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4299876
+[DEBUG]:[Hart]: Execute PC: 4299876
+[DEBUG]:[Hart]: Get PC: 4299876
+[DEBUG]:[Hart]: Set Register: 1 with val: 4299880
+[DEBUG]:[Hart]: Get Register: 1 val: 4299880
+[DEBUG]:[Hart]: Set PC with: 4333476
+[DEBUG]:[Hart]: Get PC: 4333476
+[DEBUG]:[Hart]: Set PC with: 4333480
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4333480
+[DEBUG]:[Hart]: MMU vaddr: 0x421fa8 => paddr: 0x422fa8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4333480
+[DEBUG]:[Hart]: Execute PC: 4333480
+[DEBUG]:[Hart]: Get PC: 4333480
+[DEBUG]:[Hart]: Set Register: 1 with val: 4333484
+[DEBUG]:[Hart]: Get Register: 1 val: 4333484
+[DEBUG]:[Hart]: Set PC with: 4367080
+[DEBUG]:[Hart]: Get PC: 4367080
+[DEBUG]:[Hart]: Set PC with: 4367084
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4367084
+[DEBUG]:[Hart]: MMU vaddr: 0x42a2ec => paddr: 0x42b2ec
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4367084
+[DEBUG]:[Hart]: Execute PC: 4367084
+[DEBUG]:[Hart]: Get PC: 4367084
+[DEBUG]:[Hart]: Set Register: 1 with val: 4367088
+[DEBUG]:[Hart]: Get Register: 1 val: 4367088
+[DEBUG]:[Hart]: Set PC with: 4400684
+[DEBUG]:[Hart]: Get PC: 4400684
+[DEBUG]:[Hart]: Set PC with: 4400688
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4400688
+[DEBUG]:[Hart]: MMU vaddr: 0x432630 => paddr: 0x433630
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4400688
+[DEBUG]:[Hart]: Execute PC: 4400688
+[DEBUG]:[Hart]: Get PC: 4400688
+[DEBUG]:[Hart]: Set Register: 1 with val: 4400692
+[DEBUG]:[Hart]: Get Register: 1 val: 4400692
+[DEBUG]:[Hart]: Set PC with: 4434288
+[DEBUG]:[Hart]: Get PC: 4434288
+[DEBUG]:[Hart]: Set PC with: 4434292
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4434292
+[DEBUG]:[Hart]: MMU vaddr: 0x43a974 => paddr: 0x43b974
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4434292
+[DEBUG]:[Hart]: Execute PC: 4434292
+[DEBUG]:[Hart]: Get PC: 4434292
+[DEBUG]:[Hart]: Set Register: 1 with val: 4434296
+[DEBUG]:[Hart]: Get Register: 1 val: 4434296
+[DEBUG]:[Hart]: Set PC with: 4467892
+[DEBUG]:[Hart]: Get PC: 4467892
+[DEBUG]:[Hart]: Set PC with: 4467896
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4467896
+[DEBUG]:[Hart]: MMU vaddr: 0x442cb8 => paddr: 0x443cb8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4467896
+[DEBUG]:[Hart]: Execute PC: 4467896
+[DEBUG]:[Hart]: Get PC: 4467896
+[DEBUG]:[Hart]: Set Register: 1 with val: 4467900
+[DEBUG]:[Hart]: Get Register: 1 val: 4467900
+[DEBUG]:[Hart]: Set PC with: 4501496
+[DEBUG]:[Hart]: Get PC: 4501496
+[DEBUG]:[Hart]: Set PC with: 4501500
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4501500
+[DEBUG]:[Hart]: MMU vaddr: 0x44affc => paddr: 0x44bffc
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4501500
+[DEBUG]:[Hart]: Execute PC: 4501500
+[DEBUG]:[Hart]: Get PC: 4501500
+[DEBUG]:[Hart]: Set Register: 1 with val: 4501504
+[DEBUG]:[Hart]: Get Register: 1 val: 4501504
+[DEBUG]:[Hart]: Set PC with: 4535100
+[DEBUG]:[Hart]: Get PC: 4535100
+[DEBUG]:[Hart]: Set PC with: 4535104
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4535104
+[DEBUG]:[Hart]: MMU vaddr: 0x453340 => paddr: 0x454340
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4535104
+[DEBUG]:[Hart]: Execute PC: 4535104
+[DEBUG]:[Hart]: Get PC: 4535104
+[DEBUG]:[Hart]: Set Register: 1 with val: 4535108
+[DEBUG]:[Hart]: Get Register: 1 val: 4535108
+[DEBUG]:[Hart]: Set PC with: 4568704
+[DEBUG]:[Hart]: Get PC: 4568704
+[DEBUG]:[Hart]: Set PC with: 4568708
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4568708
+[DEBUG]:[Hart]: MMU vaddr: 0x45b684 => paddr: 0x45c684
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4568708
+[DEBUG]:[Hart]: Execute PC: 4568708
+[DEBUG]:[Hart]: Get PC: 4568708
+[DEBUG]:[Hart]: Set Register: 1 with val: 4568712
+[DEBUG]:[Hart]: Get Register: 1 val: 4568712
+[DEBUG]:[Hart]: Set PC with: 4602308
+[DEBUG]:[Hart]: Get PC: 4602308
+[DEBUG]:[Hart]: Set PC with: 4602312
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4602312
+[DEBUG]:[Hart]: MMU vaddr: 0x4639c8 => paddr: 0x4649c8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4602312
+[DEBUG]:[Hart]: Execute PC: 4602312
+[DEBUG]:[Hart]: Get PC: 4602312
+[DEBUG]:[Hart]: Set Register: 1 with val: 4602316
+[DEBUG]:[Hart]: Get Register: 1 val: 4602316
+[DEBUG]:[Hart]: Set PC with: 4635912
+[DEBUG]:[Hart]: Get PC: 4635912
+[DEBUG]:[Hart]: Set PC with: 4635916
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4635916
+[DEBUG]:[Hart]: MMU vaddr: 0x46bd0c => paddr: 0x46cd0c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4635916
+[DEBUG]:[Hart]: Execute PC: 4635916
+[DEBUG]:[Hart]: Get PC: 4635916
+[DEBUG]:[Hart]: Set Register: 1 with val: 4635920
+[DEBUG]:[Hart]: Get Register: 1 val: 4635920
+[DEBUG]:[Hart]: Set PC with: 4669516
+[DEBUG]:[Hart]: Get PC: 4669516
+[DEBUG]:[Hart]: Set PC with: 4669520
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4669520
+[DEBUG]:[Hart]: MMU vaddr: 0x474050 => paddr: 0x475050
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4669520
+[DEBUG]:[Hart]: Execute PC: 4669520
+[DEBUG]:[Hart]: Get PC: 4669520
+[DEBUG]:[Hart]: Set Register: 1 with val: 4669524
+[DEBUG]:[Hart]: Get Register: 1 val: 4669524
+[DEBUG]:[Hart]: Set PC with: 4703120
+[DEBUG]:[Hart]: Get PC: 4703120
+[DEBUG]:[Hart]: Set PC with: 4703124
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4703124
+[DEBUG]:[Hart]: MMU vaddr: 0x47c394 => paddr: 0x47d394
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4703124
+[DEBUG]:[Hart]: Execute PC: 4703124
+[DEBUG]:[Hart]: Get PC: 4703124
+[DEBUG]:[Hart]: Set Register: 1 with val: 4703128
+[DEBUG]:[Hart]: Get Register: 1 val: 4703128
+[DEBUG]:[Hart]: Set PC with: 4736724
+[DEBUG]:[Hart]: Get PC: 4736724
+[DEBUG]:[Hart]: Set PC with: 4736728
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4736728
+[DEBUG]:[Hart]: MMU vaddr: 0x4846d8 => paddr: 0x4856d8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4736728
+[DEBUG]:[Hart]: Execute PC: 4736728
+[DEBUG]:[Hart]: Get PC: 4736728
+[DEBUG]:[Hart]: Set Register: 1 with val: 4736732
+[DEBUG]:[Hart]: Get Register: 1 val: 4736732
+[DEBUG]:[Hart]: Set PC with: 4770328
+[DEBUG]:[Hart]: Get PC: 4770328
+[DEBUG]:[Hart]: Set PC with: 4770332
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4770332
+[DEBUG]:[Hart]: MMU vaddr: 0x48ca1c => paddr: 0x48da1c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4770332
+[DEBUG]:[Hart]: Execute PC: 4770332
+[DEBUG]:[Hart]: Get PC: 4770332
+[DEBUG]:[Hart]: Set Register: 1 with val: 4770336
+[DEBUG]:[Hart]: Get Register: 1 val: 4770336
+[DEBUG]:[Hart]: Set PC with: 4803932
+[DEBUG]:[Hart]: Get PC: 4803932
+[DEBUG]:[Hart]: Set PC with: 4803936
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4803936
+[DEBUG]:[Hart]: MMU vaddr: 0x494d60 => paddr: 0x495d60
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4803936
+[DEBUG]:[Hart]: Execute PC: 4803936
+[DEBUG]:[Hart]: Get PC: 4803936
+[DEBUG]:[Hart]: Set Register: 1 with val: 4803940
+[DEBUG]:[Hart]: Get Register: 1 val: 4803940
+[DEBUG]:[Hart]: Set PC with: 4837536
+[DEBUG]:[Hart]: Get PC: 4837536
+[DEBUG]:[Hart]: Set PC with: 4837540
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4837540
+[DEBUG]:[Hart]: MMU vaddr: 0x49d0a4 => paddr: 0x49e0a4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4837540
+[DEBUG]:[Hart]: Execute PC: 4837540
+[DEBUG]:[Hart]: Get PC: 4837540
+[DEBUG]:[Hart]: Set Register: 1 with val: 4837544
+[DEBUG]:[Hart]: Get Register: 1 val: 4837544
+[DEBUG]:[Hart]: Set PC with: 4871140
+[DEBUG]:[Hart]: Get PC: 4871140
+[DEBUG]:[Hart]: Set PC with: 4871144
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4871144
+[DEBUG]:[Hart]: MMU vaddr: 0x4a53e8 => paddr: 0x4a63e8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4871144
+[DEBUG]:[Hart]: Execute PC: 4871144
+[DEBUG]:[Hart]: Get PC: 4871144
+[DEBUG]:[Hart]: Set Register: 1 with val: 4871148
+[DEBUG]:[Hart]: Get Register: 1 val: 4871148
+[DEBUG]:[Hart]: Set PC with: 4904744
+[DEBUG]:[Hart]: Get PC: 4904744
+[DEBUG]:[Hart]: Set PC with: 4904748
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4904748
+[DEBUG]:[Hart]: MMU vaddr: 0x4ad72c => paddr: 0x4ae72c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4904748
+[DEBUG]:[Hart]: Execute PC: 4904748
+[DEBUG]:[Hart]: Get PC: 4904748
+[DEBUG]:[Hart]: Set Register: 1 with val: 4904752
+[DEBUG]:[Hart]: Get Register: 1 val: 4904752
+[DEBUG]:[Hart]: Set PC with: 4938348
+[DEBUG]:[Hart]: Get PC: 4938348
+[DEBUG]:[Hart]: Set PC with: 4938352
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4938352
+[DEBUG]:[Hart]: MMU vaddr: 0x4b5a70 => paddr: 0x4b6a70
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4938352
+[DEBUG]:[Hart]: Execute PC: 4938352
+[DEBUG]:[Hart]: Get PC: 4938352
+[DEBUG]:[Hart]: Set Register: 1 with val: 4938356
+[DEBUG]:[Hart]: Get Register: 1 val: 4938356
+[DEBUG]:[Hart]: Set PC with: 4971952
+[DEBUG]:[Hart]: Get PC: 4971952
+[DEBUG]:[Hart]: Set PC with: 4971956
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 4971956
+[DEBUG]:[Hart]: MMU vaddr: 0x4bddb4 => paddr: 0x4bedb4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 4971956
+[DEBUG]:[Hart]: Execute PC: 4971956
+[DEBUG]:[Hart]: Get PC: 4971956
+[DEBUG]:[Hart]: Set Register: 1 with val: 4971960
+[DEBUG]:[Hart]: Get Register: 1 val: 4971960
+[DEBUG]:[Hart]: Set PC with: 5005556
+[DEBUG]:[Hart]: Get PC: 5005556
+[DEBUG]:[Hart]: Set PC with: 5005560
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5005560
+[DEBUG]:[Hart]: MMU vaddr: 0x4c60f8 => paddr: 0x4c70f8
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 5005560
+[DEBUG]:[Hart]: Execute PC: 5005560
+[DEBUG]:[Hart]: Get PC: 5005560
+[DEBUG]:[Hart]: Set Register: 1 with val: 5005564
+[DEBUG]:[Hart]: Get Register: 1 val: 5005564
+[DEBUG]:[Hart]: Set PC with: 5039160
+[DEBUG]:[Hart]: Get PC: 5039160
+[DEBUG]:[Hart]: Set PC with: 5039164
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5039164
+[DEBUG]:[Hart]: MMU vaddr: 0x4ce43c => paddr: 0x4cf43c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 5039164
+[DEBUG]:[Hart]: Execute PC: 5039164
+[DEBUG]:[Hart]: Get PC: 5039164
+[DEBUG]:[Hart]: Set Register: 1 with val: 5039168
+[DEBUG]:[Hart]: Get Register: 1 val: 5039168
+[DEBUG]:[Hart]: Set PC with: 5072764
+[DEBUG]:[Hart]: Get PC: 5072764
+[DEBUG]:[Hart]: Set PC with: 5072768
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5072768
+[DEBUG]:[Hart]: MMU vaddr: 0x4d6780 => paddr: 0x4d7780
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 5072768
+[DEBUG]:[Hart]: Execute PC: 5072768
+[DEBUG]:[Hart]: Get PC: 5072768
+[DEBUG]:[Hart]: Set Register: 1 with val: 5072772
+[DEBUG]:[Hart]: Get Register: 1 val: 5072772
+[DEBUG]:[Hart]: Set PC with: 5106368
+[DEBUG]:[Hart]: Get PC: 5106368
+[DEBUG]:[Hart]: Set PC with: 5106372
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5106372
+[DEBUG]:[Hart]: MMU vaddr: 0x4deac4 => paddr: 0x4dfac4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 5106372
+[DEBUG]:[Hart]: Execute PC: 5106372
+[DEBUG]:[Hart]: Get PC: 5106372
+[DEBUG]:[Hart]: Set Register: 1 with val: 5106376
+[DEBUG]:[Hart]: Get Register: 1 val: 5106376
+[DEBUG]:[Hart]: Set PC with: 5139972
+[DEBUG]:[Hart]: Get PC: 5139972
+[DEBUG]:[Hart]: Set PC with: 5139976
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5139976
+[DEBUG]:[Hart]: MMU vaddr: 0x4e6e08 => paddr: 0x4e7e08
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 5139976
+[DEBUG]:[Hart]: Execute PC: 5139976
+[DEBUG]:[Hart]: Get PC: 5139976
+[DEBUG]:[Hart]: Set Register: 1 with val: 5139980
+[DEBUG]:[Hart]: Get Register: 1 val: 5139980
+[DEBUG]:[Hart]: Set PC with: 5173576
+[DEBUG]:[Hart]: Get PC: 5173576
+[DEBUG]:[Hart]: Set PC with: 5173580
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5173580
+[DEBUG]:[Hart]: MMU vaddr: 0x4ef14c => paddr: 0x4f014c
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 5173580
+[DEBUG]:[Hart]: Execute PC: 5173580
+[DEBUG]:[Hart]: Get PC: 5173580
+[DEBUG]:[Hart]: Set Register: 1 with val: 5173584
+[DEBUG]:[Hart]: Get Register: 1 val: 5173584
+[DEBUG]:[Hart]: Set PC with: 5207180
+[DEBUG]:[Hart]: Get PC: 5207180
+[DEBUG]:[Hart]: Set PC with: 5207184
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5207184
+[DEBUG]:[Hart]: MMU vaddr: 0x4f7490 => paddr: 0x4f8490
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 5207184
+[DEBUG]:[Hart]: Execute PC: 5207184
+[DEBUG]:[Hart]: Get PC: 5207184
+[DEBUG]:[Hart]: Set Register: 1 with val: 5207188
+[DEBUG]:[Hart]: Get Register: 1 val: 5207188
+[DEBUG]:[Hart]: Set PC with: 5240784
+[DEBUG]:[Hart]: Get PC: 5240784
+[DEBUG]:[Hart]: Set PC with: 5240788
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5240788
+[DEBUG]:[Hart]: MMU vaddr: 0x4ff7d4 => paddr: 0x5007d4
+[DEBUG]:[Hart]: Get Inst Code: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 5240788
+[DEBUG]:[Hart]: Execute PC: 5240788
+[DEBUG]:[Hart]: Get PC: 5240788
+[DEBUG]:[Hart]: Set Register: 1 with val: 5240792
+[DEBUG]:[Hart]: Get Register: 1 val: 5240792
+[DEBUG]:[Hart]: Set PC with: 5274388
+[DEBUG]:[Hart]: Get PC: 5274388
+[DEBUG]:[Hart]: Set PC with: 5274392
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Execute PC: 5274392
+Simulation ended with: Page fault (bad access rights).
+Num of runed instructions: 156
