@@ -15,15 +15,15 @@
 
 namespace Machine
 {
-<% 
+<%
   instruction_set = InstructionSet.new(InstructionSet::YAML_PATH)
   print "yaml path in rb: #{InstructionSet::YAML_PATH}", "\n"
-  instruction_set.instruction_definitions.each do |format, instructions| 
-  format_args = instruction_set.get_args(format) 
-  instructions.each do |instruction_name, details| 
+  instruction_set.instruction_definitions.each do |format, instructions|
+  format_args = instruction_set.get_args(format)
+  instructions.each do |instruction_name, details|
 %>
 
-<% 
+<%
     code = instruction_set.get_code(format, instruction_name, details)
 %>
 
@@ -52,8 +52,9 @@ void ExecuteLinearBlock(Hart &hart, const std::shared_ptr<LinearBlock> &instBloc
   <% instructions.each do |instruction_name, details| %>
     <%= instruction_name %>:
     Log(LogLevel::DEBUG, std::string("Execute PC: ") + std::to_string(hart.getPC()));
+    Log(LogLevel::DEBUG, std::string("Execute Instr: ") + "<%= instruction_name %>");
     {
-    <% 
+    <%
         code = instruction_set.get_code(format, instruction_name, details)
     %>
     <%= code %>
@@ -106,7 +107,7 @@ std::map<uWord, InstructionHandler> instructionMap = {
 };
 
 int32_t getImmInvalid (int32_t instCode) {
-  return 0;  
+  return 0;
 }
 
 constexpr uWord maskI = 0b111111111111 << 20;
@@ -131,14 +132,14 @@ constexpr uWord maskB4 = 1 << 31;
 constexpr uWord signExt12 = 0b11111111111111111111 << 12;
 
 int32_t getImmB (int32_t instCode) {
-  return signExt12 + (((((instCode & maskB1) << 4) + ((instCode & maskB2) >> 7) + 
+  return signExt12 + (((((instCode & maskB1) << 4) + ((instCode & maskB2) >> 7) +
   ((instCode & maskB3) >> 20) + ((instCode & maskB4) >> 19)) + (1 << 12)) & static_cast<int32_t>(0b0001111111111111U));
 }
 
-constexpr uWord maskU = 0b11111111111111111111 << 12;
+constexpr uWord maskU = 0b11111111111111111111 << 12U;
 
 int32_t getImmU (int32_t instCode) {
-  return instCode & maskU;
+  return (instCode & maskU) >> 12U;
 }
 
 constexpr uWord maskJ1 = 0b11111111 << 12;
@@ -148,7 +149,7 @@ constexpr uWord maskJ4 = 1 << 31;
 constexpr uWord signExt20 = 0b011111111111 << 20;
 
 int32_t getImmJ (int32_t instCode) {
-  return signExt20 + (((instCode & maskJ1) + ((instCode & maskJ2) >> 9) + 
+  return signExt20 + (((instCode & maskJ1) + ((instCode & maskJ2) >> 9) +
   ((instCode & maskJ3) >> 20) + ((instCode & maskJ4) >> 11)) + (1 << 20)) & static_cast<int32_t>(0b000111111111111111111111U);
 }
 

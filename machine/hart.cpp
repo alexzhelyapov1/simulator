@@ -43,13 +43,8 @@ Instr::Instr() {
 }
 
 std::shared_ptr<Instr> Hart::decode(const Word &instrCode) {
-    auto inst = instCache->get(instrCode);
     Log(LogLevel::DEBUG, std::string("Get Inst Code: ") + std::to_string(instrCode));
-    if (inst != nullptr) {
-        return inst;
-    }
-    inst = std::make_shared<Instr>(instrCode);
-    instCache->put(inst);
+    auto inst = std::make_shared<Instr>(instrCode);
     return inst;
 }
 
@@ -69,7 +64,7 @@ void Hart::RunSimpleInterpreterWithInstCache() {
 void Hart::RunInterpreterWithBBCache() {
     free = false;
     while (true) {
-        Log(LogLevel::DEBUG, std::string("Execute PC: ") + std::to_string(PC));
+        Log(LogLevel::DEBUG, std::string("Decode BB PC: ") + std::to_string(PC));
         auto bb = BBMemCache->get(PC);
         if(bb == nullptr)
         {
@@ -95,7 +90,7 @@ RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
     auto found_in_tlb = tlb->get(vaddress & ~0xFFF);
     if (found_in_tlb != nullptr) {
         #ifndef NDEBUG
-        if (found_in_tlb->paddr & 0xFFF != 0) {
+        if ((found_in_tlb->paddr & 0xFFF) != 0) {
             throw std::runtime_error("Paddr should be aligned at 4kb.");
         }
         #endif
@@ -123,7 +118,7 @@ RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
     RegValue paddress = current_page_table[VPN & ((1 << 9) - 1)];
 
     // Check for access rights
-    if (paddress & static_cast<RegValue>(accessFlag) == 0) {
+    if ((paddress & static_cast<RegValue>(accessFlag)) == 0) {
         throw std::runtime_error("Page fault (bad access rights).");
     }
 

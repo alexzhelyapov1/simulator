@@ -1,4 +1,4 @@
-/*	
+/*
  *		8-queens.c
  *			Solve the eight queens problem using backtracking
  *
@@ -7,7 +7,7 @@
  *					*/
 
 /*
- * Copyright 2003 by Steven S. Skiena; all rights reserved. 
+ * Copyright 2003 by Steven S. Skiena; all rights reserved.
  *
  * Permission is granted for use in non-commerical applications
  * provided this copyright notice remains intact and unchanged.
@@ -26,7 +26,7 @@
  * */
 
 // #include <stdio.h>
-#include <stdlib.h>
+// #include <stdlib.h>
 
 typedef int bool;
 
@@ -40,6 +40,15 @@ typedef char* data;			/* type to pass data to backtrack */
 int solution_count;			/* how many solutions are there? */
 
 bool finished = FALSE;                  /* found all solutions yet? */
+
+int abs(int x)
+{
+	if(x >= 0)
+	{
+		return x;
+	}
+	return -x;
+}
 
 void
 backtrack(int a[], int k, data input)
@@ -113,7 +122,7 @@ int main()
 		backtrack(a,0,i);
 		// printf("n=%d  solution_count=%d\n",i,solution_count);
 		if (compare[i - 1] != solution_count)
-			abort();
+			return -1;
 
 	}
 	return 0;

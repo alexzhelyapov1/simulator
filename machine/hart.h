@@ -6,8 +6,6 @@
 #include "machine.h"
 #include "csr.h"
 #include "entry.h"
-#include <functional>
-#include <iostream>
 #include <memory>
 #ifndef HART_H
 #define HART_H
@@ -79,7 +77,6 @@ class Hart {
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
     std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> executeTLB;
 
-    std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> instCache;
     std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> BBMemCache;
     bool free{true};
     RegValue numOfRunnedInstr{0};
@@ -99,8 +96,6 @@ class Hart {
         writeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
         executeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
 
-        instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
-            new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         BBMemCache = std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
@@ -110,8 +105,6 @@ class Hart {
         writeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
         executeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
 
-        instCache = std::shared_ptr<IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
-            new IntBitCache<Instr, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         BBMemCache = std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
             new IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
         Regfile[0] = 0;
@@ -172,7 +165,7 @@ class Hart {
     }
 
     inline SATP_MMU_MODE getSatpMmuMode() {
-        return static_cast<SATP_MMU_MODE>(special_regs[0] & (int64_t(0xFFFF) << 60));
+        return static_cast<SATP_MMU_MODE>(special_regs[0] & (uint64_t(0xFFFF) << 60));
     }
 
     inline RegValue getRootPageTablePaddr() {
