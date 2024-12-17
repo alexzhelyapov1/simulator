@@ -58,6 +58,10 @@ void Simulator::AllocVirtualMemToStartProcess(std::shared_ptr<Machine::Hart> &ha
         Machine::RegValue paddr = mem_for_program_paddr + 0x1000 * i;
         createPTE(vaddr, paddr, access, hart);
         // Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "vaddr: 0x" << vaddr << ", paddr: 0x" << paddr).str());
+        if(i == 0x8FF)
+        {
+            hart->setReg(2, vaddr - 4);
+        }
     }
 }
 

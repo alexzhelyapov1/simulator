@@ -77,9 +77,9 @@ void Hart::RunInterpreterWithBBCache() {
     }
 }
 
-inline void Hart::exceptionReturn() {
-    Log(LogLevel::DEBUG, std::string("EXCEPTION RETURN"));
-    throw std::runtime_error("EXCEPTION RETURN FROM HART");
+inline void Hart::exceptionReturn(const std::string str) {
+    Log(LogLevel::DEBUG, std::string("EXCEPTION RETURN") + str);
+    throw std::runtime_error(std::string("EXCEPTION RETURN FROM HART") + str);
 }
 
 RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {

@@ -35,7 +35,7 @@ class InstructionSet
     end
     format_info
   end
-  
+
   def calculate_mask(start_bit, end_bit)
     ((1 << (end_bit - start_bit + 1)) - 1) << start_bit
   end
@@ -113,11 +113,11 @@ class InstructionSet
     end
     mask
   end
-  
+
   # Get mask for field
   def create_specific_mask(format, field_name)
     format_details = get_format_info(format)
-    return { mask: 0, shift: 0 } unless format_details.key?(field_name) 
+    return { mask: 0, shift: 0 } unless format_details.key?(field_name)
     start_bit, end_bit = *format_details[field_name]
     mask = calculate_mask(start_bit, end_bit)
     {mask: mask, shift: start_bit }
@@ -138,7 +138,7 @@ class InstructionSet
     instruction_details = @yaml_data['instructions'].detect { |name, details| details['opcode'] == opcode }&.last
     instruction_details&.[]('format')
   end
-  
+
   # 2. по формату инструкции поняли какую ф-ю getImm брать
   def how_get_imm(format)
     case format
@@ -164,11 +164,11 @@ class InstructionSet
     mask_info_array = []
     mask_info_array << create_mask_format_identifier(opcode, format, 'general')
     ['rd', 'rs1', 'rs2'].each do |field|
-      if format_details.key?(field) 
+      if format_details.key?(field)
         mask_data = create_specific_mask(format, field)
         mask_info_array << mask_data[:mask]
         mask_info_array << mask_data[:shift]
-      else  
+      else
         mask_info_array << 0 << 0
       end
     end
@@ -180,12 +180,12 @@ class InstructionSet
     decode_map = []
     (0...127).each do |opcode|
       format = get_format_from_opcode(opcode)
-      if format.nil?  
-        decode_map << [[0, 0, 0, 0, 0, 0, 0], 'getImmInvalid'] 
+      if format.nil?
+        decode_map << [[0, 0, 0, 0, 0, 0, 0], 'getImmInvalid']
       else
         mask_shift_array = generate_mask_shift_arr(opcode)
         get_imm_func = how_get_imm(format)
-        
+
         mask_array = Array.new(7,0)
         mask_shift_array.each_with_index{|item,i| mask_array[i] = item}
         decode_map << [mask_array, get_imm_func]
@@ -193,7 +193,7 @@ class InstructionSet
     end
     decode_map
   end
-  
+
   def create_instruction_key(details)
     format_details = @yaml_data['formats'][details['format']]
     key = 0
@@ -214,15 +214,22 @@ class InstructionSet
       type_cast = details.key?('type') ? '(int64_t)' : ''
       uint_cast = details.key?('type') ? '(uint64_t)' : ''
       shamt_expr = details.key?('shamt') ? '((uint32_t)inst->imm & 63U)' : 'inst->imm'
-      
+
       load_operation = details.key?('load') ? "hart.setReg(inst->rd, (int64_t)(hart.loadMem<int#{details['load']}_t>((hart.getReg(inst->rs1) + inst->imm))));" : ""
 
       arithmetic_operation = details.key?('operator') ? "hart.setReg(inst->rd, #{type_cast}(#{uint_cast}(hart.getReg(inst->rs1)) #{details['operator']} #{shamt_expr} #{details['afterop']})#{mask});" : ""
-      
-      if details.key?('load') 
-        code = load_operation 
+
+      if details.key?('load')
+        code = load_operation
       else
         code = arithmetic_operation
+      end
+
+      if instruction_name == 'JALR'
+        code = "hart.setReg(inst->rd, hart.getPC() + 4);\n  "
+        code += "Word newPC = ((hart.getReg(inst->rs1) + inst->imm) & ~(1U));"
+        code += "\n\tif(newPC == 0){\n\t\t[[unlikely]] hart.exceptionReturn(\": RET FROM MAIN\");\n\t}\n\t"
+        code += "hart.setPC(newPC - 4);"
       end
 
       if instruction_name == 'SRLI'
@@ -233,7 +240,7 @@ class InstructionSet
           "\t\thart.setReg(inst->rd, (int64_t)((uint64_t)(hart.getReg(inst->rs1)) >> ((uint32_t)inst->imm & 63U) ));\n",
           "\t}"
         ]
-        code =  parts.join('') 
+        code =  parts.join('')
       end
       if instruction_name == 'SRLIW'
         parts = [
@@ -243,7 +250,7 @@ class InstructionSet
           "\t\thart.setReg(inst->rd, (int64_t)((uint64_t)(hart.getReg(inst->rs1)#{mask}) >> ((uint32_t)inst->imm & 63U) ));\n",
           "\t}"
         ]
-        code =  parts.join('') 
+        code =  parts.join('')
       end
     when 'R'
       mask = details.key?('mask') ? details['mask'] : ''
@@ -252,9 +259,9 @@ class InstructionSet
       op = details['operator']
       afterop = details['afterop']
       code = "hart.setReg(inst->rd, #{int_cast}(#{uint_cast}(hart.getReg(inst->rs1)#{mask}) #{op} #{uint_cast}(hart.getReg(inst->rs2)#{mask})#{afterop})#{mask});"
-    
+
     when 'U'
-      code = "hart.setReg(inst->rd, #{details['operator']} inst->imm);"
+      code = "hart.setReg(inst->rd, #{details['operator']} (inst->imm << 12) );"
 
     when 'S'
       code = "hart.storeMem<int#{details['store']}_t>(hart.getReg(inst->rs1) + inst->imm, hart.getReg(inst->rs2));"
@@ -266,14 +273,14 @@ class InstructionSet
     when 'B'
       uint_cast = details.key?('type') ? '(uint64_t)' : ''
       op = details['operator']
-      code = "if(#{uint_cast}hart.getReg(inst->rs1) #{op} #{uint_cast}hart.getReg(inst->rs2)) hart.setPC(hart.getPC() + inst->imm);"
-    
+      code = "if(#{uint_cast}hart.getReg(inst->rs1) #{op} #{uint_cast}hart.getReg(inst->rs2)) hart.setPC(hart.getPC() + inst->imm - 4);"
+
     when 'M'
       type_rs1 = details&.key?('rs1') ? 'uint64_t' : 'int64_t'
       type_rs2 = details&.key?('rs2') ? 'uint64_t' : 'int64_t'
       size_rs1 = details&.key?('size1') ? '& 0xFFFFFFFF' : ''
       size_rs2 = details&.key?('size2') ? '& 0xFFFFFFFF' : ''
-      
+
       code = "auto result = (#{type_rs1})(hart.getReg(inst->rs1) #{size_rs1}) #{details['operator']} (#{type_rs2})(hart.getReg(inst->rs2) #{size_rs2});\n  "
       num_bits = details.key?('lower') ? details['lower'] : details['upper']
       if details&.key?('lower')

@@ -4,7 +4,7 @@ formats:
     rs1: [15, 19]
     rs2: [20, 24]
     opcode: [0, 6]
-    f3: [12, 14] 
+    f3: [12, 14]
     f7: [25, 31]
 
   I:
@@ -15,7 +15,7 @@ formats:
     f3: [12, 14]
     shamt: [26, 31]
 
-  S: 
+  S:
     imm_1: [7, 11]
     imm_2: [25, 31]
     rs1: [15, 19]
@@ -28,7 +28,7 @@ formats:
     imm: [12, 31]
     opcode: [0, 6]
 
-  B: 
+  B:
     rs1: [15, 19]
     rs2: [20, 24]
     opcode: [0, 6]
@@ -49,7 +49,7 @@ formats:
     rs1: [15, 19]
     rs2: [20, 24]
     f7: [25, 31]
-  
+
   SYSTEM:
     opcode: [0, 6]
     rd: [7, 11]
@@ -104,13 +104,13 @@ instructions:
     opcode: 19
     f3: 6
     operator: '|'
-  
+
   ANDI:
     format: I
     opcode: 19
     f3: 7
     operator: '&'
- 
+
   SLLI:
     format: I
     opcode: 19
@@ -126,9 +126,9 @@ instructions:
     type:
     shamt: 0
 
-  # SRAI: 
+  # SRAI:
     # format: I
-    # opcode: 19 
+    # opcode: 19
     # f3: 5
     # operator: '>>'
     # shamt: 16
@@ -187,7 +187,7 @@ instructions:
     opcode: 51
     f3: 1
     f7: 0
-    operator: '<<' 
+    operator: '<<'
     type: uint64_t
 
   SLT:
@@ -268,11 +268,11 @@ instructions:
     BBend: "true"
 
   JALR:
-    format: J
+    format: I
     opcode: 103
     f3: 0
     BBend: "true"
-  
+
   BEQ:
     format: B
     opcode: 99
@@ -387,7 +387,7 @@ instructions:
     operator: '+'
     mask: ' & 0b11111111111111111111111111111111'
 
-  SLLIW: 
+  SLLIW:
     format: I
     opcode: 27
     f3: 1
@@ -395,7 +395,7 @@ instructions:
     shamt: 0
     mask: ' & 0b11111111111111111111111111111111U'
 
-  SRLIW: 
+  SRLIW:
     format: I
     opcode: 27
     operator: '>>'
@@ -405,13 +405,13 @@ instructions:
     mask: ' & 0b11111111111111111111111111111111U'
 
   # SRAIW:
-  #   format: I 
+  #   format: I
   #   opcode: 27
   #   operator: '>>'
   #   f3: 5
   #   shamt: 32
 
-  ADDW: 
+  ADDW:
     format: R
     opcode: 59
     operator: '+'
@@ -427,14 +427,14 @@ instructions:
     f3: 0
     f7: 32
 
-  SLLW: 
+  SLLW:
     format: R
     opcode: 59
     operator: '<<'
     f3: 1
     f7: 0
 
-  SRLW: 
+  SRLW:
     format: R
     opcode: 59
     operator: '>>'
@@ -449,7 +449,7 @@ instructions:
     f3: 5
     f7: 32
 
-  LWU: 
+  LWU:
     format: I
     opcode: 3
     operator: '+'
@@ -477,7 +477,7 @@ instructions:
     lower: 64
     operator: '*'
 
-  MULH: 
+  MULH:
     format: M
     opcode: 51
     f3: 1
@@ -504,7 +504,7 @@ instructions:
     rs2: uint64_t
     operator: '*'
 
-  DIV: 
+  DIV:
     format: M
     opcode: 51
     lower: 32
@@ -522,7 +522,7 @@ instructions:
     lower: 32
     operator: '/'
 
-  REM: 
+  REM:
     format: M
     opcode: 51
     f3: 6
@@ -546,7 +546,7 @@ instructions:
     lower: 32
     operator: '*'
 
-  DIVW: 
+  DIVW:
     format: M
     opcode: 59
     f3: 4
@@ -566,8 +566,8 @@ instructions:
     rs1: uint64_t
     rs2: uint64_t
 
-  REMW: 
-    format: M 
+  REMW:
+    format: M
     opcode: 59
     f3: 6
     f7: 1

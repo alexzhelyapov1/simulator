@@ -10,7 +10,7 @@
  * Copyright 2003 by Steven S. Skiena; all rights reserved.
  *
  * Permission is granted for use in non-commerical applications
- * provided this copyright notice remains intact and unchanged.
+ * provided this copyright notice remains  long long intact and unchanged.
  *
  * This program appears in my book:
  *
@@ -28,7 +28,7 @@
 // #include <stdio.h>
 // #include <stdlib.h>
 
-typedef int bool;
+typedef  long long int bool;
 
 #define TRUE    1
 #define FALSE   0
@@ -37,11 +37,28 @@ typedef int bool;
 
 typedef char* data;			/* type to pass data to backtrack */
 
-int solution_count;			/* how many solutions are there? */
+ long long int solution_count;			/* how many solutions are there? */
 
 bool finished = FALSE;                  /* found all solutions yet? */
 
-int abs(int x)
+ long long int main()
+{
+	 long long int a[NMAX];			/* solution vector */
+	 long long int i;				/* counter */
+	 long long int compare[]={1, 0, 0, 2, 10, 4, 40, 92};
+
+	for (i=1; i<=8; i++) {
+		solution_count = 0;
+		backtrack(a,0,i);
+		// pr long long intf("n=%d  solution_count=%d\n",i,solution_count);
+		if (compare[i - 1] != solution_count)
+			return -1;
+
+	}
+	return 0;
+}
+
+ long long int abs( long long int x)
 {
 	if(x >= 0)
 	{
@@ -51,11 +68,11 @@ int abs(int x)
 }
 
 void
-backtrack(int a[], int k, data input)
+backtrack( long long int a[],  long long int k, data input)
 {
-        int c[MAXCANDIDATES];           /* candidates for next position */
-        int ncandidates;                /* next position candidate count */
-        int i;                          /* counter */
+         long long int c[MAXCANDIDATES];           /* candidates for next position */
+         long long int ncandidates;                /* next position candidate count */
+         long long int i;                          /* counter */
 
         if (is_a_solution(a,k,input))
                 process_solution(a,k);
@@ -71,14 +88,14 @@ backtrack(int a[], int k, data input)
 }
 
 
-process_solution(int a[], int k)
+process_solution( long long int a[],  long long int k)
 {
-	int i;				/* counter */
+	 long long int i;				/* counter */
 
 	solution_count ++;
 }
 
-is_a_solution(int a[], int k, int n)
+is_a_solution( long long int a[],  long long int k,  long long int n)
 {
 	return (k == n);
 }
@@ -88,9 +105,9 @@ is_a_solution(int a[], int k, int n)
  *		problem?
  *		*/
 
-construct_candidates(int a[], int k, int n, int c[], int *ncandidates)
+construct_candidates( long long int a[],  long long int k,  long long int n,  long long int c[],  long long int *ncandidates)
 {
-	int i,j;			/* counters */
+	 long long int i,j;			/* counters */
 	bool legal_move;		/* might the move be legal? */
 
 	*ncandidates = 0;
@@ -111,21 +128,6 @@ construct_candidates(int a[], int k, int n, int c[], int *ncandidates)
 
 
 
-int main()
-{
-	int a[NMAX];			/* solution vector */
-	int i;				/* counter */
-	int compare[]={1, 0, 0, 2, 10, 4, 40, 92};
 
-	for (i=1; i<=8; i++) {
-		solution_count = 0;
-		backtrack(a,0,i);
-		// printf("n=%d  solution_count=%d\n",i,solution_count);
-		if (compare[i - 1] != solution_count)
-			return -1;
-
-	}
-	return 0;
-}
 
 

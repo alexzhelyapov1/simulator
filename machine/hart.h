@@ -140,7 +140,7 @@ class Hart {
         Log(LogLevel::DEBUG, std::string("Set Register: ") + std::to_string(reg) + " with val: " + std::to_string(val));
     }
 
-    inline void exceptionReturn();
+    inline void exceptionReturn(const std::string str = "");
     inline const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
     RegValue MMU(RegValue vaddress, AccessType accessFlag);
