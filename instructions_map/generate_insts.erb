@@ -144,13 +144,13 @@ int32_t getImmU (int32_t instCode) {
 
 constexpr uWord maskJ1 = 0b11111111 << 12;
 constexpr uWord maskJ2 = 1 << 20;
-constexpr uWord maskJ3 = 0b001111111111 << 21;
+constexpr uWord maskJ3 = 0b1111111111 << 21;
 constexpr uWord maskJ4 = 1 << 31;
-constexpr uWord signExt20 = 0b011111111111 << 20;
+constexpr uWord signExt20 = ((1 << 12) - 1) << 20;
 
 int32_t getImmJ (int32_t instCode) {
-  return signExt20 + (((instCode & maskJ1) + ((instCode & maskJ2) >> 9) +
-  ((instCode & maskJ3) >> 20) + ((instCode & maskJ4) >> 11)) + (1 << 20)) & static_cast<int32_t>(0b000111111111111111111111U);
+  return (signExt20 + ((((instCode & maskJ1) + ((instCode & maskJ2) >> 9) +
+  ((instCode & maskJ3) >> 20) + ((instCode & maskJ4) >> 11)) + (1 << 20)) & static_cast<int32_t>(0b111111111111111111111)));
 }
 
 <%decode_map = generate_decode_map%>
