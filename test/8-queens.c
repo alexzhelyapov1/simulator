@@ -52,7 +52,11 @@ bool finished = FALSE;                  /* found all solutions yet? */
 		backtrack(a,0,i);
 		// pr long long intf("n=%d  solution_count=%d\n",i,solution_count);
 		if (compare[i - 1] != solution_count)
-			return -1;
+		{
+			asm volatile (
+				"sret"
+			);
+		}
 
 	}
 	return 0;
