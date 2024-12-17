@@ -24,14 +24,14 @@ static Word opcodeMask = static_cast<Word>(127);
 
 class Instr {
   public:
-    Word instrCode;
+    uWord instrCode;
     RegId rd, rs1, rs2;
     Word imm;
     InstructionHandler handler;
     RegValue mark;
     uWord opcodeFns;
 
-    Instr(Word instrCode);
+    Instr(uWord instrCode);
     Instr();
 
     operator int() const { return instrCode; }
@@ -113,7 +113,7 @@ class Hart {
 
     const bool &GetStatus() { return free; }
 
-    std::shared_ptr<Instr> decode(const Word &instrCode);
+    std::shared_ptr<Instr> decode(const uWord &instrCode);
     void RunSimpleInterpreterWithInstCache();
     void RunInterpreterWithBBCache();
 
