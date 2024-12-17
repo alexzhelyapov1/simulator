@@ -35,12 +35,9 @@ formats:
     f3: [12, 14]
 
   J:
+    opcode: [0, 6]
     rd: [7, 11]
     imm: [12, 31]
-    offset: [20, 31]
-    opcode: [0, 6]
-    f3: [12, 14]
-    rs1: [15, 19]
 
   M:
     opcode: [0, 6]
