@@ -1,4 +1,5 @@
 #include "simulator.h"
+#include "vm_area_struct.h"
 
 namespace Simulator {
 
@@ -11,12 +12,12 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, 
         }
     }
     if (simHart == nullptr) {
-        simHart = machine->CreateHart();
+        simHart = machine->CreateHart(this);
     }
 
-    AllocVirtualMemToStartProcess(simHart);
-
-    auto pc = loader->loadElf(filePath, simHart);
+    AllocVirtualMemToStartProcess(simHart.get());
+    auto pc = loader->loadElf(filePath, simHart.get());
+    simHart->maps.DumpMaps();
     simHart->setPC(pc);
     if (dumpMemPath.size() != 0) {
         machine->DumpMem(dumpMemPath, pc, pc + 0x10000);
@@ -40,7 +41,7 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, 
 }
 
 
-void Simulator::AllocVirtualMemToStartProcess(std::shared_ptr<Machine::Hart> &hart) {
+void Simulator::AllocVirtualMemToStartProcess(Machine::Hart *hart) {
     // Allocate root page table
     RegValue root_page_table_paddr = machine->mem->AllocPages();
     Log(LogLevel::DEBUG, (std::stringstream() << "Root page table vaddr: "
@@ -53,21 +54,22 @@ void Simulator::AllocVirtualMemToStartProcess(std::shared_ptr<Machine::Hart> &ha
     Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "SATP: 0x"
         << (mmu_mode | asid | (root_page_table_paddr >> 12))).str());
 
-    // Allocate 0x900 pages for new process
-    Machine::RegValue mem_for_program_paddr = machine->mem->AllocPages(0x900);
-    Machine::RegValue access = static_cast<Machine::RegValue>(Machine::AccessType::READ) |
-                      static_cast<Machine::RegValue>(Machine::AccessType::WRITE) |
-                      static_cast<Machine::RegValue>(Machine::AccessType::EXECUTE);
-    for (Machine::RegValue i = 0; i < 0x900; ++i) {
-        Machine::RegValue vaddr = i << 12;
-        Machine::RegValue paddr = mem_for_program_paddr + 0x1000 * i;
-        createPTE(vaddr, paddr, access, hart);
-        // Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "vaddr: 0x" << vaddr << ", paddr: 0x" << paddr).str());
-        if(i == 0x8FF)
-        {
-            hart->setReg(2, vaddr - 4);
-        }
+    // Allocate stack mem 0x100000-0x1003FFF
+    hart->maps.MMAP(
+        0x100000,
+        0x10000,
+        MemAccessType::READ | MemAccessType::WRITE,
+        nullptr,
+        0,
+        0);
+    for (int i = 0; i < 10; ++i) {
+        createPTE(
+            0x100000 + i * 0x1000, // vaddr
+            0,
+            MemAccessType::READ | MemAccessType::WRITE | MemAccessType::EXEC | MemAccessType::INVALID,
+            hart);
     }
+    hart->setReg(2, 0x108FFF);
 }
 
 

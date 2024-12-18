@@ -9,17 +9,23 @@
 #ifndef LOADER_H
 #define LOADER_H
 
+namespace Simulator {
+    class Simulator;
+}
+
 namespace Loader {
 
 class Loader {
   private:
     std::weak_ptr<Machine::Machine> machine;
+    const Simulator::Simulator *simulator;
 
   public:
-    Loader(std::shared_ptr<Machine::Machine> machine) : machine(machine) {}
+    Loader(std::shared_ptr<Machine::Machine> machine, const Simulator::Simulator *simulator):
+        machine(machine), simulator(simulator) {}
     ~Loader() {}
 
-    uint64_t loadElf(const std::string &path, std::shared_ptr<Machine::Hart> &hart) const;
+    uint64_t loadElf(const std::string &path, Machine::Hart *hart) const;
 };
 
 } // namespace Loader

@@ -19,7 +19,7 @@ class Mem {
   private:
     MemAddressType memSize;
     uint8_t *mem;
-    RegValue page_allocator_pos;
+    RegValue page_allocator_pos; // in bytes, not pages
 
   public:
     Mem(MemAddressType size) : memSize(size) {

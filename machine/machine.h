@@ -9,7 +9,11 @@
 #define MACHINE_H
 
 namespace Loader {
-class Loader;
+    class Loader;
+}
+
+namespace Simulator {
+    class Simulator;
 }
 
 namespace Machine {
@@ -30,8 +34,8 @@ class Machine {
     std::shared_ptr<Mem> mem;
     Machine(RegValue memSize) { mem = std::make_shared<Mem>(memSize); }
 
-    std::shared_ptr<Hart> CreateHart();
-    std::shared_ptr<Hart> CreateHart(const RegValue &PC);
+    std::shared_ptr<Hart> CreateHart(const Simulator::Simulator *simulator);
+    std::shared_ptr<Hart> CreateHart(const RegValue &PC, const Simulator::Simulator *simulator);
 
     std::vector<std::shared_ptr<Hart>> &GetHarts() { return harts; }
 

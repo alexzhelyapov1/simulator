@@ -1,6 +1,8 @@
 #include "hart.h"
 #include "gen_func.h"
 #include "machine.h"
+#include "vm_area_struct.h"
+#include "simulator.h"
 
 namespace Machine {
 
@@ -67,7 +69,7 @@ void Hart::RunInterpreterWithBBCache() {
     startSimTime = std::chrono::high_resolution_clock::now();
 #endif
     while (true) {
-        Log(LogLevel::DEBUG, std::string("Decode BB PC: ") + std::to_string(PC));
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Decode BB PC: 0x" << PC).str());
         auto bb = BBMemCache.get(PC);
         if(bb == nullptr)
         {
@@ -89,8 +91,10 @@ inline void Hart::exceptionReturn(const std::string str, LinearBlock *bb) {
     throw std::runtime_error(std::string("EXCEPTION RETURN FROM HART") + str);
 }
 
-RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
+RegValue Hart::MMU(RegValue vaddress, MemAccessType accessFlag) {
     const RegValue offset = vaddress & 0xFFF;
+
+    Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "MMU try to get vaddr: 0x" << vaddress).str());
 
     // Try to find in TLB
     auto tlb = getTLB(accessFlag);
@@ -117,24 +121,31 @@ RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
     for (int i = 0; i < nested_transitions; i++) {
         RegValue VPN_i = (VPN >> 9 * (nested_transitions - i)) & ((1 << 9) - 1);
         if (current_page_table[VPN_i] == 0) {
-            throw std::runtime_error("Page fault.");
+            throw std::runtime_error("Page fault. No PTE!");
         }
         current_page_table = reinterpret_cast<RegValue *>(machine.mem->GetHostAddr(current_page_table[VPN_i]));
     }
 
     RegValue paddress = current_page_table[VPN & ((1 << 9) - 1)];
 
+    if (paddress & static_cast<RegValue>(MemAccessType::INVALID)) {
+        paddress = simulator->LoadVirtualPage(vaddress, this);
+    }
+
     // Check for access rights
     if ((paddress & static_cast<RegValue>(accessFlag)) == 0) {
         throw std::runtime_error("Page fault (bad access rights).");
     }
+
+    Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Check for access: 0x"
+        << (paddress & static_cast<RegValue>(accessFlag))).str());
 
     // Update TLB
     std::shared_ptr<TLBEntry> new_tlb_entry(new TLBEntry(vaddress & ~0xFFF, paddress & ~0xFFF));
     tlb->put(new_tlb_entry);
 
     Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "MMU vaddr: 0x" << vaddress << " => paddr: 0x"
-        << (paddress & ~0xFFF) + offset).str());
+        << ((paddress & ~0xFFF) + offset) << ", access: 0x" << static_cast<int64_t>(accessFlag)).str());
 
     // Return paddress
     return (paddress & ~0xFFF) + offset;

@@ -8,6 +8,7 @@
 #include "csr.h"
 #include "entry.h"
 #include <memory>
+#include "vm_area_struct.h"
 #ifndef HART_H
 #define HART_H
 #define INST_CACHE_BIT_SIZE 10
@@ -17,6 +18,11 @@
 #define MAX_BB_SIZE 512
 
 #define SIM_TIME
+
+
+namespace Simulator {
+    class Simulator;
+}
 
 namespace Machine {
 
@@ -38,12 +44,6 @@ class Instr {
     Instr();
 
     operator int() const { return instrCode; }
-};
-
-enum class AccessType {
-    READ = 1,
-    WRITE = 1 << 1,
-    EXECUTE = 1 << 2
 };
 
 // For convenience value = number of page tables in this mode. SATP_MODE_SIZE = 4 allows to do this
@@ -74,6 +74,7 @@ class Hart {
     RegValue Regfile[32];
     Machine &machine;
     ControlStatusRegisters* csr;
+    const Simulator::Simulator *simulator = nullptr;
     RegValue special_regs[1]; // [0] - satp
 #ifdef SIM_TIME
     std::chrono::_V2::system_clock::time_point startSimTime; 
@@ -86,25 +87,20 @@ class Hart {
     bool free{true};
     RegValue numOfRunnedInstr{0};
 
-    IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> *getTLB(AccessType access_type) {
+    IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> *getTLB(MemAccessType access_type) {
         switch (access_type) {
-            case AccessType::READ:  return &readTLB;
-            case AccessType::WRITE: return &writeTLB;
-            case AccessType::EXECUTE: return &executeTLB;
+            case MemAccessType::READ:  return &readTLB;
+            case MemAccessType::WRITE: return &writeTLB;
+            case MemAccessType::EXEC: return &executeTLB;
             default: return nullptr;
         }
     }
 
   public:
-    Hart(Machine &machine, const RegValue &PC) : machine(machine), PC(PC) {
-        readTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
-        writeTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
-        executeTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
-
-        BBMemCache = IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>();
-        Regfile[0] = 0;
+    Hart(Machine &machine, const RegValue &pc, const Simulator::Simulator *simulator): Hart(machine, simulator) {
+        PC = pc;
     }
-    Hart(Machine &machine) : machine(machine) {
+    Hart(Machine &machine, const Simulator::Simulator *simulator) : machine(machine), simulator(simulator) {
         readTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
         writeTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
         executeTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
@@ -122,11 +118,11 @@ class Hart {
 
     void setPC(const RegValue &pc) {
         PC = pc;
-        Log(LogLevel::DEBUG, std::string("Set PC with: ") + std::to_string(PC));
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Set PC with: 0x" << PC).str());
     }
 
     const RegValue &getPC() {
-        Log(LogLevel::DEBUG, std::string("Get PC: ") + std::to_string(PC));
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Get PC: 0x" << PC).str());
         return PC;
     }
 
@@ -146,20 +142,22 @@ class Hart {
     inline void exceptionReturn(const std::string str = "", LinearBlock *bb = nullptr);
     inline const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
-    RegValue MMU(RegValue vaddress, AccessType accessFlag);
+    // Temorary. (Process should own maps)
+    mm_struct maps;
+    RegValue MMU(RegValue vaddress, MemAccessType accessFlag);
 
     template <typename ValType> ValType loadMem(RegValue address) {
-        auto hostAddress = MMU(address, AccessType::READ);
+        auto hostAddress = MMU(address, MemAccessType::READ);
         return machine.loadMem<ValType>(hostAddress);
     }
 
     template <typename ValType> ValType loadtoExec(RegValue address) {
-        auto hostAddress = MMU(address, AccessType::EXECUTE);
+        auto hostAddress = MMU(address, MemAccessType::EXEC);
         return machine.loadMem<ValType>(hostAddress);
     }
 
     template <typename ValType> void storeMem(RegValue address, ValType val) {
-        auto hostAddress = MMU(address, AccessType::WRITE);
+        auto hostAddress = MMU(address, MemAccessType::WRITE);
         machine.storeMem(hostAddress, val);
     }
 
