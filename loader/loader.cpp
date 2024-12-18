@@ -54,7 +54,7 @@ uint64_t Loader::loadElf(const std::string &path, std::shared_ptr<Machine::Hart>
             file.seekg(program_header.p_offset);
             file.read(buffer, program_header.p_filesz);
             // copy p_filesz bytes, other p_memsz - p_filesz bytes are zero
-            RegValue paddr = hart->MMU(program_header.p_vaddr, Machine::AccessType::WRITE);
+            RegValue paddr = hart->MMU<Machine::AccessType::WRITE>(program_header.p_vaddr);
             machine.lock()->storeMemCpy(paddr, buffer, program_header.p_filesz);
 
             Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Loaded segment:" << "vaddr: 0x" 

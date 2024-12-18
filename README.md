@@ -22,9 +22,17 @@ We have integration testing. You can run code below to check if all tests work:
 ```
 
 # How to compile and run 8-queens:
+```
 riscv64-linux-gnu-gcc -march=rv64im -nostdlib -mabi=lp64 -static <test-path> -o <out-path> //compile
+```
+Example: 
+```
+riscv64-linux-gnu-gcc -march=rv64im -nostdlib -mabi=lp64 -static ./test/8-queens.c -o ./build/8-q
+```
+```
 riscv64-linux-gnu-objdump -D -s <elf-path> > <out-path> //objdump
 ./Simulator <elf-path> //run
+```
 
 #### Suggestions:
 1) Create your own brunch to develop your own module.

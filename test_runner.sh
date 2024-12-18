@@ -42,8 +42,8 @@ tmp_file=$(mktemp)
     fi
     
 
-    filtered_answer=$(grep -v "Base paddr" "$answer_file")
-    filtered_tmp=$(grep -v "Base paddr" "$tmp_file")
+    filtered_answer=$(grep -v "Sim duration" "$answer_file")
+    filtered_tmp=$(grep -v "Sim duration" "$tmp_file")
 
 
     echo "Сравниваю с ответом"

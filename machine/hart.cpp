@@ -89,12 +89,13 @@ inline void Hart::exceptionReturn(const std::string str, LinearBlock *bb) {
     throw std::runtime_error(std::string("EXCEPTION RETURN FROM HART") + str);
 }
 
-RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
+template <AccessType accessFlag>
+RegValue Hart::MMU(RegValue vaddress) {
     const RegValue offset = vaddress & 0xFFF;
 
     // Try to find in TLB
-    auto tlb = getTLB(accessFlag);
-    auto found_in_tlb = tlb->get(vaddress & ~0xFFF);
+    auto& tlb = getTLB<accessFlag>();
+    auto found_in_tlb = tlb.get(vaddress & ~0xFFF);
     if (found_in_tlb != nullptr) {
         #ifndef NDEBUG
         if ((found_in_tlb->paddr & 0xFFF) != 0) {
@@ -131,7 +132,7 @@ RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
 
     // Update TLB
     std::shared_ptr<TLBEntry> new_tlb_entry(new TLBEntry(vaddress & ~0xFFF, paddress & ~0xFFF));
-    tlb->put(new_tlb_entry);
+    tlb.put(new_tlb_entry);
 
     Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "MMU vaddr: 0x" << vaddress << " => paddr: 0x"
         << (paddress & ~0xFFF) + offset).str());
