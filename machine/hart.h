@@ -81,7 +81,7 @@ class Hart {
     RegValue Regfile[32];
     Machine &machine;
     ControlStatusRegisters* csr;
-    RegValue special_regs[1]; // [0] - satp
+    RegValue special_regs[4096];
 #ifdef SIM_TIME
     std::chrono::_V2::system_clock::time_point startSimTime; 
 #endif
@@ -135,6 +135,15 @@ class Hart {
         BBMemCache = IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>();
         Regfile[0] = 0;
     }
+
+    inline RegValue getSpecialReg(int64_t idx) {
+        return special_regs[idx];
+    }
+
+    inline void setSpecialReg(int64_t idx, RegValue Value) {
+        special_regs[idx] = Value;
+    }
+
     ~Hart() {}
 
 #ifdef PLUGIN_ENABLED
@@ -229,15 +238,15 @@ class Hart {
     }
 
     inline void setSatp(RegValue value) {
-        special_regs[0] = value;
+        special_regs[0x180] = value;
     }
 
     inline SATP_MMU_MODE getSatpMmuMode() {
-        return static_cast<SATP_MMU_MODE>(special_regs[0] & (uint64_t(0xFFFF) << 60));
+        return static_cast<SATP_MMU_MODE>(special_regs[0x180] & (uint64_t(0xFFFF) << 60));
     }
 
     inline RegValue getRootPageTablePaddr() {
-        return (special_regs[0] & (int64_t(1) << 44) - 1) << 12;
+        return (special_regs[0x180] & (int64_t(1) << 44) - 1) << 12;
     }
 
     void handleInterrupt() {
@@ -248,7 +257,7 @@ class Hart {
         return startSimTime;
     }
 #endif
-    
+
     friend class Machine;
 };
 
