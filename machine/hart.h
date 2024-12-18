@@ -8,6 +8,9 @@
 #include "csr.h"
 #include "entry.h"
 #include <memory>
+#include <functional>
+#include <map>
+#include <dlfcn.h>
 #ifndef HART_H
 #define HART_H
 #define INST_CACHE_BIT_SIZE 10
@@ -68,6 +71,10 @@ class LinearBlock
     operator int() const { return pc; }
 };
 
+#ifdef PLUGIN_ENABLED
+using PluginMethodHandler = void (*)(Hart *, RegValue *reg, Instr *instr);
+#endif
+
 class Hart {
   private:
     RegValue PC{0};
@@ -77,6 +84,9 @@ class Hart {
     RegValue special_regs[1]; // [0] - satp
 #ifdef SIM_TIME
     std::chrono::_V2::system_clock::time_point startSimTime; 
+#endif
+#ifdef PLUGIN_ENABLED
+    std::map<std::string, PluginMethodHandler> handlers;
 #endif
     IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> readTLB;
     IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> writeTLB;
@@ -98,7 +108,16 @@ class Hart {
             return executeTLB;
         }
     }
-    
+
+#ifdef PLUGIN_ENABLED
+    inline void InitHandlers(void *pluginHandler) {
+        handlers["getReg"] = reinterpret_cast<PluginMethodHandler>(FindHandler(pluginHandler, "getReg"));
+        handlers["setReg"] = reinterpret_cast<PluginMethodHandler>(FindHandler(pluginHandler, "setReg"));
+        handlers["getPC"] = reinterpret_cast<PluginMethodHandler>(FindHandler(pluginHandler, "getPC"));
+        handlers["setPC"] = reinterpret_cast<PluginMethodHandler>(FindHandler(pluginHandler, "setPC"));
+    }
+#endif
+
   public:
     Hart(Machine &machine, const RegValue &PC) : machine(machine), PC(PC) {
         readTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
@@ -118,6 +137,19 @@ class Hart {
     }
     ~Hart() {}
 
+#ifdef PLUGIN_ENABLED
+    inline void *FindHandler(void *pluginHandler, std::string handlerName) {
+        return dlsym(pluginHandler, handlerName.data());
+    }
+
+    void InitPluginCalls(void *pluginHandler);
+
+    inline auto &GetHandlers()
+    {
+        return handlers;
+    }
+#endif
+
     const bool &GetStatus() { return free; }
 
     Instr decode(const uWord &instrCode);
@@ -126,16 +158,37 @@ class Hart {
 
     void setPC(const RegValue &pc) {
         PC = pc;
+#ifdef PLUGIN_ENABLED
+        auto handl = handlers["setPC"];
+        if(handl != nullptr)
+        {
+            handl(this, &(const_cast<RegValue &>(pc)), nullptr);
+        }
+#endif
         Log(LogLevel::DEBUG, std::string("Set PC with: ") + std::to_string(PC));
     }
 
     const RegValue &getPC() {
         Log(LogLevel::DEBUG, std::string("Get PC: ") + std::to_string(PC));
+#ifdef PLUGIN_ENABLED
+        auto handl = handlers["getPC"];
+        if(handl != nullptr)
+        {
+            handl(this, &(const_cast<RegValue &>(PC)), nullptr);
+        }
+#endif
         return PC;
     }
 
     RegValue getReg(const RegId &reg) {
         Log(LogLevel::DEBUG, std::string("Get Register: ") + std::to_string(reg) + " val: " + std::to_string(Regfile[reg]));
+#ifdef PLUGIN_ENABLED
+        auto handl = handlers["getReg"];
+        if(handl != nullptr)
+        {
+            handl(this, &((RegValue &)const_cast<RegId &>(reg)), nullptr);
+        }
+#endif
         return Regfile[reg];
     }
 
@@ -144,6 +197,13 @@ class Hart {
             return;
         }
         Regfile[reg] = val;
+#ifdef PLUGIN_ENABLED
+        auto handl = handlers["setReg"];
+        if(handl != nullptr)
+        {
+            handl(this, &((RegValue &)const_cast<RegId &>(reg)), nullptr);
+        }
+#endif
         Log(LogLevel::DEBUG, std::string("Set Register: ") + std::to_string(reg) + " with val: " + std::to_string(val));
     }
 

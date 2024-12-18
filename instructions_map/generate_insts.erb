@@ -29,6 +29,13 @@ namespace Machine
 
 void <%= instruction_name %>(Hart &hart, Instr *inst) {
   <%= code.gsub('|bbPTR|', '') %>
+#ifdef PLUGIN_ENABLED
+  auto handl = hart.GetHandlers()["<%= instruction_name %>"];
+  if(handl != nullptr)
+  {
+      handl(&hart, nullptr, inst);
+  }
+#endif
 }
 <% end %>
 <% end %>
@@ -58,6 +65,13 @@ void ExecuteLinearBlock(Hart &hart, LinearBlock *instBlock) {
         code = instruction_set.get_code(format, instruction_name, details)
     %>
     <%= code.gsub('|bbPTR|', ', instBlock') %>
+#ifdef PLUGIN_ENABLED
+        auto handl = hart.GetHandlers()["<%= instruction_name %>"];
+        if(handl != nullptr)
+        {
+            handl(&hart, nullptr, inst);
+        }
+#endif
     }
     hart.setPC(hart.getPC() + sizeof(Word));
     blockPC++;
@@ -170,6 +184,18 @@ int32_t getImmJ (int32_t instCode) {
   cpp_code << "};"
 %>
 <%= cpp_code %>
+
+#ifdef PLUGIN_ENABLED
+void InitInstrPluginHandlers(Hart &hart, void *pluginHandler)
+{
+  <% instruction_set.instruction_definitions.each do |format, instructions|  %>
+  <% instructions.each do |instruction_name, details| %>
+    hart.GetHandlers()["<%= instruction_name %>"] = reinterpret_cast<PluginMethodHandler>(hart.FindHandler(pluginHandler, "<%= instruction_name %>"));
+  <% end %>
+  <% end %>
+}
+
+#endif
 
 }
 
