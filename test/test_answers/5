@@ -1,0 +1,2705 @@
+[DEBUG]:[Simulator]: Base paddr: 7f54e463e000
+[DEBUG]:[Simulator]: Root page table vaddr: 0
+[DEBUG]:[Simulator]: SATP: 0x3000000000000000
+[DEBUG]:[Hart]: Set Register: 2 with val: 9433084
+[DEBUG]:[Loader]: Buffer size: 152
+[DEBUG]:[Hart]: MMU vaddr: 0x10000 => paddr: 0x11000
+[DEBUG]:[Loader]: Loaded segment:vaddr: 0x10000, paddr: 0x11000, size: 0x98
+[DEBUG]:[Loader]: Entry point (va): 0x10078
+[DEBUG]:[Hart]: Set PC with: 65656
+[DEBUG]:[Hart]: Decode BB PC: 65656
+[DEBUG]:[Hart]: MMU vaddr: 0x10078 => paddr: 0x11078
+[DEBUG]:[Hart]: Get Inst Code: 10486419
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 10
+[DEBUG]:[Hart]: TLB vaddr: 0x1007c => paddr: 0x1107c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1049107
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 1
+[DEBUG]:[Hart]: TLB vaddr: 0x10080 => paddr: 0x11080, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 38961843
+[DEBUG]:[Hart]: opсode + Fns: 33554483
+[DEBUG]:[Hart]: Runed Instruction: MUL
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10084 => paddr: 0x11084, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 37913267
+[DEBUG]:[Hart]: opсode + Fns: 33554483
+[DEBUG]:[Hart]: Runed Instruction: MUL
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10088 => paddr: 0x11088, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1048723
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 1
+[DEBUG]:[Hart]: TLB vaddr: 0x1008c => paddr: 0x1108c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1074954931
+[DEBUG]:[Hart]: opсode + Fns: 1073741875
+[DEBUG]:[Hart]: Runed Instruction: SUB
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10090 => paddr: 0x11090, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 4266663139
+[DEBUG]:[Hart]: opсode + Fns: 4195
+[DEBUG]:[Hart]: Runed Instruction: BNE
+[DEBUG]:[Hart]: Decode imm: -8
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 65656
+[DEBUG]:[Hart]: Execute PC: 65656
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 5 with val: 10
+[DEBUG]:[Hart]: Get PC: 65656
+[DEBUG]:[Hart]: Set PC with: 65660
+[DEBUG]:[Hart]: Get PC: 65660
+[DEBUG]:[Hart]: Execute PC: 65660
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 4 with val: 1
+[DEBUG]:[Hart]: Get PC: 65660
+[DEBUG]:[Hart]: Set PC with: 65664
+[DEBUG]:[Hart]: Get PC: 65664
+[DEBUG]:[Hart]: Execute PC: 65664
+[DEBUG]:[Hart]: Execute Instr: MUL
+[DEBUG]:[Hart]: Get Register: 5 val: 10
+[DEBUG]:[Hart]: Get Register: 5 val: 10
+[DEBUG]:[Hart]: Set Register: 5 with val: 100
+[DEBUG]:[Hart]: Get PC: 65664
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Execute PC: 65668
+[DEBUG]:[Hart]: Execute Instr: MUL
+[DEBUG]:[Hart]: Get Register: 5 val: 100
+[DEBUG]:[Hart]: Get Register: 4 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 100
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 100
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 99
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 99
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: TLB vaddr: 0x10088 => paddr: 0x11088, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1048723
+[DEBUG]:[Hart]: opсode + Fns: 19
+[DEBUG]:[Hart]: Runed Instruction: ADDI
+[DEBUG]:[Hart]: Decode imm: 1
+[DEBUG]:[Hart]: TLB vaddr: 0x1008c => paddr: 0x1108c, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 1074954931
+[DEBUG]:[Hart]: opсode + Fns: 1073741875
+[DEBUG]:[Hart]: Runed Instruction: SUB
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: TLB vaddr: 0x10090 => paddr: 0x11090, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 4266663139
+[DEBUG]:[Hart]: opсode + Fns: 4195
+[DEBUG]:[Hart]: Runed Instruction: BNE
+[DEBUG]:[Hart]: Decode imm: -8
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 99
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 98
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 98
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 98
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 97
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 97
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 97
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 96
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 96
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 96
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 95
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 95
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 95
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 94
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 94
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 94
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 93
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 93
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 93
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 92
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 92
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 92
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 91
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 91
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 91
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 90
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 90
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 90
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 89
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 89
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 89
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 88
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 88
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 88
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 87
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 87
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 87
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 86
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 86
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 86
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 85
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 85
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 85
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 84
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 84
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 84
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 83
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 83
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 83
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 82
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 82
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 82
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 81
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 81
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 81
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 80
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 80
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 80
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 79
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 79
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 79
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 78
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 78
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 78
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 77
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 77
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 77
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 76
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 76
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 76
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 75
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 75
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 75
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 74
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 74
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 74
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 73
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 73
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 73
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 72
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 72
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 72
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 71
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 71
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 71
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 70
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 70
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 70
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 69
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 69
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 69
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 68
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 68
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 68
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 67
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 67
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 67
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 66
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 66
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 66
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 65
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 65
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 65
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 64
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 64
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 64
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 63
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 63
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 63
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 62
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 62
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 62
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 61
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 61
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 61
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 60
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 60
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 60
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 59
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 59
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 59
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 58
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 58
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 58
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 57
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 57
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 57
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 56
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 56
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 56
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 55
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 55
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 55
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 54
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 54
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 54
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 53
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 53
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 53
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 52
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 52
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 52
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 51
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 51
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 51
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 50
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 50
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 50
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 49
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 49
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 49
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 48
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 48
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 48
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 47
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 47
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 47
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 46
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 46
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 46
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 45
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 45
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 45
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 44
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 44
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 44
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 43
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 43
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 43
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 42
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 42
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 42
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 41
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 41
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 41
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 40
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 40
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 40
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 39
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 39
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 39
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 38
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 38
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 38
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 37
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 37
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 37
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 36
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 36
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 36
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 35
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 35
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 35
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 34
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 34
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 34
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 33
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 33
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 33
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 32
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 32
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 32
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 31
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 31
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 31
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 30
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 30
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 30
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 29
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 29
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 29
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 28
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 28
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 28
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 27
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 27
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 27
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 26
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 26
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 26
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 25
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 25
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 25
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 24
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 24
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 24
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 23
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 23
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 23
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 22
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 22
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 22
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 21
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 21
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 21
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 20
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 20
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 20
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 19
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 19
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 19
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 18
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 18
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 18
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 17
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 17
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 17
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 16
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 16
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 16
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 15
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 15
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 15
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 14
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 14
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 14
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 13
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 13
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 13
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 12
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 12
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 12
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 11
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 11
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 11
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 10
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 10
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 10
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 9
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 9
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 9
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 8
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 8
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 8
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 7
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 7
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 7
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 6
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 6
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 6
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 5
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 5
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 5
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 4
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 4
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 4
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 3
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 3
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 3
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 2
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 2
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 2
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 1
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 1
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65668
+[DEBUG]:[Hart]: Get PC: 65668
+[DEBUG]:[Hart]: Set PC with: 65672
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65672
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: ADDI
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Set Register: 1 with val: 1
+[DEBUG]:[Hart]: Get PC: 65672
+[DEBUG]:[Hart]: Set PC with: 65676
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: SUB
+[DEBUG]:[Hart]: Get Register: 5 val: 1
+[DEBUG]:[Hart]: Get Register: 1 val: 1
+[DEBUG]:[Hart]: Set Register: 5 with val: 0
+[DEBUG]:[Hart]: Get PC: 65676
+[DEBUG]:[Hart]: Set PC with: 65680
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: BNE
+[DEBUG]:[Hart]: Get Register: 0 val: 0
+[DEBUG]:[Hart]: Get Register: 5 val: 0
+[DEBUG]:[Hart]: Get PC: 65680
+[DEBUG]:[Hart]: Set PC with: 65684
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Decode BB PC: 65684
+[DEBUG]:[Hart]: TLB vaddr: 0x10094 => paddr: 0x11094, access: 0x4
+[DEBUG]:[Hart]: Get Inst Code: 270532723
+[DEBUG]:[Hart]: opсode + Fns: 270532723
+[DEBUG]:[Hart]: Runed Instruction: SRET
+[DEBUG]:[Hart]: Decode imm: 0
+[DEBUG]:[Hart]: End of decoding BB
+[DEBUG]:[Hart]: 
+[DEBUG]:[Hart]: Get PC: 65684
+[DEBUG]:[Hart]: Execute PC: 65684
+[DEBUG]:[Hart]: Execute Instr: SRET
+[DEBUG]:[Hart]: EXCEPTION RETURN
+Simulation ended with: EXCEPTION RETURN FROM HART
+Num of runed instructions: 305

@@ -1,12 +1,13 @@
-[DEBUG]:[Simulator]: Base paddr: 7f5f5cd1b000
+[DEBUG]:[Simulator]: Base paddr: 7f26ec3cd000
 [DEBUG]:[Simulator]: Root page table vaddr: 0
 [DEBUG]:[Simulator]: SATP: 0x3000000000000000
+[DEBUG]:[Hart]: Set Register: 2 with val: 9433084
 [DEBUG]:[Loader]: Buffer size: 132
 [DEBUG]:[Hart]: MMU vaddr: 0x10000 => paddr: 0x11000
 [DEBUG]:[Loader]: Loaded segment:vaddr: 0x10000, paddr: 0x11000, size: 0x84
 [DEBUG]:[Loader]: Entry point (va): 0x10078
 [DEBUG]:[Hart]: Set PC with: 65656
-[DEBUG]:[Hart]: Execute PC: 65656
+[DEBUG]:[Hart]: Decode BB PC: 65656
 [DEBUG]:[Hart]: MMU vaddr: 0x10078 => paddr: 0x11078
 [DEBUG]:[Hart]: Get Inst Code: 10486419
 [DEBUG]:[Hart]: opсode + Fns: 19
@@ -26,18 +27,21 @@
 [DEBUG]:[Hart]: 
 [DEBUG]:[Hart]: Get PC: 65656
 [DEBUG]:[Hart]: Execute PC: 65656
+[DEBUG]:[Hart]: Execute Instr: ADDI
 [DEBUG]:[Hart]: Get Register: 0 val: 0
 [DEBUG]:[Hart]: Set Register: 5 with val: 10
 [DEBUG]:[Hart]: Get PC: 65656
 [DEBUG]:[Hart]: Set PC with: 65660
 [DEBUG]:[Hart]: Get PC: 65660
 [DEBUG]:[Hart]: Execute PC: 65660
+[DEBUG]:[Hart]: Execute Instr: ADDI
 [DEBUG]:[Hart]: Get Register: 0 val: 0
 [DEBUG]:[Hart]: Set Register: 6 with val: 20
 [DEBUG]:[Hart]: Get PC: 65660
 [DEBUG]:[Hart]: Set PC with: 65664
 [DEBUG]:[Hart]: Get PC: 65664
 [DEBUG]:[Hart]: Execute PC: 65664
+[DEBUG]:[Hart]: Execute Instr: SRET
 [DEBUG]:[Hart]: EXCEPTION RETURN
 Simulation ended with: EXCEPTION RETURN FROM HART
-Num of runed instructions: 0
+Num of runed instructions: 3

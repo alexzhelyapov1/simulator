@@ -28,7 +28,7 @@ namespace Machine
 %>
 
 void <%= instruction_name %>(Hart &hart, Instr *inst) {
-  <%= code %>
+  <%= code.gsub('|bbPTR|', '') %>
 }
 <% end %>
 <% end %>
@@ -57,7 +57,7 @@ void ExecuteLinearBlock(Hart &hart, LinearBlock *instBlock) {
     <%
         code = instruction_set.get_code(format, instruction_name, details)
     %>
-    <%= code %>
+    <%= code.gsub('|bbPTR|', ', instBlock') %>
     }
     hart.setPC(hart.getPC() + sizeof(Word));
     blockPC++;

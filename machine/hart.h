@@ -16,6 +16,8 @@
 #define TLB_BIT_SHIFT 12
 #define MAX_BB_SIZE 512
 
+#define SIM_TIME
+
 namespace Machine {
 
 class Hart;
@@ -73,8 +75,9 @@ class Hart {
     Machine &machine;
     ControlStatusRegisters* csr;
     RegValue special_regs[1]; // [0] - satp
+#ifdef SIM_TIME
     std::chrono::_V2::system_clock::time_point startSimTime; 
-
+#endif
     IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> readTLB;
     IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> writeTLB;
     IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> executeTLB;
@@ -140,7 +143,7 @@ class Hart {
         Log(LogLevel::DEBUG, std::string("Set Register: ") + std::to_string(reg) + " with val: " + std::to_string(val));
     }
 
-    inline void exceptionReturn(const std::string str = "");
+    inline void exceptionReturn(const std::string str = "", LinearBlock *bb = nullptr);
     inline const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
     RegValue MMU(RegValue vaddress, AccessType accessFlag);
@@ -175,10 +178,11 @@ class Hart {
     void handleInterrupt() {
 
     }
-
+#ifdef SIM_TIME
     inline auto getStartSimTime() {
         return startSimTime;
     }
+#endif
     
     friend class Machine;
 };

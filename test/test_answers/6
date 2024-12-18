@@ -1,19 +1,20 @@
-[DEBUG]:[Simulator]: Base paddr: 7fca6b18e000
+[DEBUG]:[Simulator]: Base paddr: 7f5870dac000
 [DEBUG]:[Simulator]: Root page table vaddr: 0
 [DEBUG]:[Simulator]: SATP: 0x3000000000000000
+[DEBUG]:[Hart]: Set Register: 2 with val: 9433084
 [DEBUG]:[Loader]: Buffer size: 172
 [DEBUG]:[Hart]: MMU vaddr: 0x10000 => paddr: 0x11000
 [DEBUG]:[Loader]: Loaded segment:vaddr: 0x10000, paddr: 0x11000, size: 0xac
 [DEBUG]:[Loader]: Entry point (va): 0x10078
 [DEBUG]:[Hart]: Set PC with: 65656
-[DEBUG]:[Hart]: Execute PC: 65656
+[DEBUG]:[Hart]: Decode BB PC: 65656
 [DEBUG]:[Hart]: MMU vaddr: 0x10078 => paddr: 0x11078
 [DEBUG]:[Hart]: Get Inst Code: 10486291
 [DEBUG]:[Hart]: opсode + Fns: 19
 [DEBUG]:[Hart]: Runed Instruction: ADDI
 [DEBUG]:[Hart]: Decode imm: 10
 [DEBUG]:[Hart]: TLB vaddr: 0x1007c => paddr: 0x1107c, access: 0x4
-[DEBUG]:[Hart]: Get Inst Code: -5242213
+[DEBUG]:[Hart]: Get Inst Code: 4289725083
 [DEBUG]:[Hart]: opсode + Fns: 27
 [DEBUG]:[Hart]: Runed Instruction: ADDIW
 [DEBUG]:[Hart]: Decode imm: -5
@@ -76,18 +77,21 @@
 [DEBUG]:[Hart]: 
 [DEBUG]:[Hart]: Get PC: 65656
 [DEBUG]:[Hart]: Execute PC: 65656
+[DEBUG]:[Hart]: Execute Instr: ADDI
 [DEBUG]:[Hart]: Get Register: 0 val: 0
 [DEBUG]:[Hart]: Set Register: 4 with val: 10
 [DEBUG]:[Hart]: Get PC: 65656
 [DEBUG]:[Hart]: Set PC with: 65660
 [DEBUG]:[Hart]: Get PC: 65660
 [DEBUG]:[Hart]: Execute PC: 65660
+[DEBUG]:[Hart]: Execute Instr: ADDIW
 [DEBUG]:[Hart]: Get Register: 0 val: 0
 [DEBUG]:[Hart]: Set Register: 5 with val: 4294967291
 [DEBUG]:[Hart]: Get PC: 65660
 [DEBUG]:[Hart]: Set PC with: 65664
 [DEBUG]:[Hart]: Get PC: 65664
 [DEBUG]:[Hart]: Execute PC: 65664
+[DEBUG]:[Hart]: Execute Instr: MUL
 [DEBUG]:[Hart]: Get Register: 0 val: 0
 [DEBUG]:[Hart]: Get Register: 1 val: 0
 [DEBUG]:[Hart]: Set Register: 1 with val: 0
@@ -95,6 +99,7 @@
 [DEBUG]:[Hart]: Set PC with: 65668
 [DEBUG]:[Hart]: Get PC: 65668
 [DEBUG]:[Hart]: Execute PC: 65668
+[DEBUG]:[Hart]: Execute Instr: MULW
 [DEBUG]:[Hart]: Get Register: 5 val: 4294967291
 [DEBUG]:[Hart]: Get Register: 5 val: 4294967291
 [DEBUG]:[Hart]: Set Register: 2 with val: 25
@@ -102,6 +107,7 @@
 [DEBUG]:[Hart]: Set PC with: 65672
 [DEBUG]:[Hart]: Get PC: 65672
 [DEBUG]:[Hart]: Execute PC: 65672
+[DEBUG]:[Hart]: Execute Instr: MULH
 [DEBUG]:[Hart]: Get Register: 1 val: 0
 [DEBUG]:[Hart]: Get Register: 1 val: 0
 [DEBUG]:[Hart]: Set Register: 3 with val: 0
@@ -109,6 +115,7 @@
 [DEBUG]:[Hart]: Set PC with: 65676
 [DEBUG]:[Hart]: Get PC: 65676
 [DEBUG]:[Hart]: Execute PC: 65676
+[DEBUG]:[Hart]: Execute Instr: MULHU
 [DEBUG]:[Hart]: Get Register: 1 val: 0
 [DEBUG]:[Hart]: Get Register: 1 val: 0
 [DEBUG]:[Hart]: Set Register: 4 with val: 0
@@ -116,6 +123,7 @@
 [DEBUG]:[Hart]: Set PC with: 65680
 [DEBUG]:[Hart]: Get PC: 65680
 [DEBUG]:[Hart]: Execute PC: 65680
+[DEBUG]:[Hart]: Execute Instr: MULHSU
 [DEBUG]:[Hart]: Get Register: 2 val: 25
 [DEBUG]:[Hart]: Get Register: 2 val: 25
 [DEBUG]:[Hart]: Set Register: 5 with val: 625
@@ -123,6 +131,7 @@
 [DEBUG]:[Hart]: Set PC with: 65684
 [DEBUG]:[Hart]: Get PC: 65684
 [DEBUG]:[Hart]: Execute PC: 65684
+[DEBUG]:[Hart]: Execute Instr: DIV
 [DEBUG]:[Hart]: Get Register: 5 val: 625
 [DEBUG]:[Hart]: Get Register: 5 val: 625
 [DEBUG]:[Hart]: Set Register: 2 with val: 1
@@ -130,6 +139,7 @@
 [DEBUG]:[Hart]: Set PC with: 65688
 [DEBUG]:[Hart]: Get PC: 65688
 [DEBUG]:[Hart]: Execute PC: 65688
+[DEBUG]:[Hart]: Execute Instr: DIVU
 [DEBUG]:[Hart]: Get Register: 5 val: 625
 [DEBUG]:[Hart]: Get Register: 2 val: 1
 [DEBUG]:[Hart]: Set Register: 3 with val: 625
@@ -137,6 +147,7 @@
 [DEBUG]:[Hart]: Set PC with: 65692
 [DEBUG]:[Hart]: Get PC: 65692
 [DEBUG]:[Hart]: Execute PC: 65692
+[DEBUG]:[Hart]: Execute Instr: REM
 [DEBUG]:[Hart]: Get Register: 2 val: 1
 [DEBUG]:[Hart]: Get Register: 3 val: 625
 [DEBUG]:[Hart]: Set Register: 5 with val: 1
@@ -144,6 +155,7 @@
 [DEBUG]:[Hart]: Set PC with: 65696
 [DEBUG]:[Hart]: Get PC: 65696
 [DEBUG]:[Hart]: Execute PC: 65696
+[DEBUG]:[Hart]: Execute Instr: REMU
 [DEBUG]:[Hart]: Get Register: 5 val: 1
 [DEBUG]:[Hart]: Get Register: 3 val: 625
 [DEBUG]:[Hart]: Set Register: 1 with val: 1
@@ -151,6 +163,7 @@
 [DEBUG]:[Hart]: Set PC with: 65700
 [DEBUG]:[Hart]: Get PC: 65700
 [DEBUG]:[Hart]: Execute PC: 65700
+[DEBUG]:[Hart]: Execute Instr: DIV
 [DEBUG]:[Hart]: Get Register: 1 val: 1
 [DEBUG]:[Hart]: Get Register: 3 val: 625
 [DEBUG]:[Hart]: Set Register: 2 with val: 0
@@ -158,6 +171,7 @@
 [DEBUG]:[Hart]: Set PC with: 65704
 [DEBUG]:[Hart]: Get PC: 65704
 [DEBUG]:[Hart]: Execute PC: 65704
+[DEBUG]:[Hart]: Execute Instr: MRET
 [DEBUG]:[Hart]: EXCEPTION RETURN
 Simulation ended with: EXCEPTION RETURN FROM HART
-Num of runed instructions: 0
+Num of runed instructions: 13

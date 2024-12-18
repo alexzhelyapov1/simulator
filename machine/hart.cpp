@@ -63,7 +63,9 @@ void Hart::RunSimpleInterpreterWithInstCache() {
 
 void Hart::RunInterpreterWithBBCache() {
     free = false;
+#ifdef SIM_TIME
     startSimTime = std::chrono::high_resolution_clock::now();
+#endif
     while (true) {
         Log(LogLevel::DEBUG, std::string("Decode BB PC: ") + std::to_string(PC));
         auto bb = BBMemCache.get(PC);
@@ -78,7 +80,11 @@ void Hart::RunInterpreterWithBBCache() {
     }
 }
 
-inline void Hart::exceptionReturn(const std::string str) {
+inline void Hart::exceptionReturn(const std::string str, LinearBlock *bb) {
+    if(bb != nullptr)
+    {
+        numOfRunnedInstr += bb->size() - 1;
+    }
     Log(LogLevel::DEBUG, std::string("EXCEPTION RETURN") + str);
     throw std::runtime_error(std::string("EXCEPTION RETURN FROM HART") + str);
 }

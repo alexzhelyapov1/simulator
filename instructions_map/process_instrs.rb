@@ -228,7 +228,7 @@ class InstructionSet
       if instruction_name == 'JALR'
         code = "hart.setReg(inst->rd, hart.getPC() + 4);\n  "
         code += "Word newPC = ((hart.getReg(inst->rs1) + inst->imm) & ~(1U));"
-        code += "\n\tif(newPC == 0){\n\t\t[[unlikely]] hart.exceptionReturn(\": RET FROM MAIN\");\n\t}\n\t"
+        code += "\n\tif(newPC == 0){\n\t\t[[unlikely]] hart.exceptionReturn(\": RET FROM MAIN\" |bbPTR|);\n\t}\n\t"
         code += "hart.setPC(newPC - 4);"
       end
 
@@ -293,7 +293,7 @@ class InstructionSet
       end
 
       when 'SYSTEM'
-        code = "hart.exceptionReturn();"
+        code = "hart.exceptionReturn(\"\" |bbPTR|);"
     end
     code
   end
