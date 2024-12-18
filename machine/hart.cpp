@@ -24,14 +24,14 @@ Instr::Instr(uWord instrCode) {
 LinearBlock::LinearBlock(Hart &hart, const RegValue &PC) : pc(PC) {
     RegValue instCode;
     RegValue shift = 0;
-    std::shared_ptr<Instr> instr;
+    Instr instr;
     do {
         instCode = hart.loadtoExec<uWord>(PC + shift);
         instr = hart.decode(instCode);
         instrs.push_back(instr);
         shift += sizeof(uWord);
-    } while(checkBBEndInstr(instr->opcodeFns) && instrs.size() < MAX_BB_SIZE);
-    instrs.push_back(std::shared_ptr<Instr>(new Instr()));
+    } while(checkBBEndInstr(instr.opcodeFns) && (instrs.size() - 1 < MAX_BB_SIZE));
+    instrs.push_back(Instr());
     Log(LogLevel::DEBUG, std::string("End of decoding BB"));
     Log(LogLevel::DEBUG, std::string(""));
 }
@@ -42,9 +42,9 @@ Instr::Instr() {
     mark = SIZE_OF_INSTRS;
 }
 
-std::shared_ptr<Instr> Hart::decode(const uWord &instrCode) {
+Instr Hart::decode(const uWord &instrCode) {
     Log(LogLevel::DEBUG, std::string("Get Inst Code: ") + std::to_string(instrCode));
-    auto inst = std::make_shared<Instr>(instrCode);
+    auto inst = Instr(instrCode);
     return inst;
 }
 
@@ -54,7 +54,7 @@ void Hart::RunSimpleInterpreterWithInstCache() {
         Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Execute PC: 0x" << PC).str());
         auto instCode = loadtoExec<uWord>(PC);
         auto inst = decode(instCode);
-        inst->handler(*this, inst);
+        inst.handler(*this, &inst);
         PC += sizeof(uWord);
         numOfRunnedInstr++;
         Log(LogLevel::DEBUG, std::string(""));
@@ -63,16 +63,17 @@ void Hart::RunSimpleInterpreterWithInstCache() {
 
 void Hart::RunInterpreterWithBBCache() {
     free = false;
+    startSimTime = std::chrono::high_resolution_clock::now();
     while (true) {
         Log(LogLevel::DEBUG, std::string("Decode BB PC: ") + std::to_string(PC));
-        auto bb = BBMemCache->get(PC);
+        auto bb = BBMemCache.get(PC);
         if(bb == nullptr)
         {
             bb = std::shared_ptr<LinearBlock>(new LinearBlock(*this, PC));
-            BBMemCache->put(bb);
+            BBMemCache.put(bb);
         }
-        ExecuteLinearBlock(*this, bb);
-        numOfRunnedInstr += bb->size();
+        ExecuteLinearBlock(*this, bb.get());
+        numOfRunnedInstr += bb->size() - 1;
         Log(LogLevel::DEBUG, std::string(""));
     }
 }

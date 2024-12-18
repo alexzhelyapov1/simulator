@@ -25,6 +25,9 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, 
     try {
         simHart->RunInterpreterWithBBCache();
     } catch (const std::exception &e) {
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - simHart->getStartSimTime());
+        std::cout << "Sim duration: " << duration.count() << "(us)" << std::endl;
         std::cout << "Simulation ended with: " << e.what() << std::endl;
         std::cout << "Num of runed instructions: " << simHart->GetNumOfRunInstr() << std::endl;
     }

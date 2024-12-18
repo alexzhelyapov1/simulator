@@ -3,6 +3,7 @@
     #include "logging.h"
 #endif
 #include "intBitCache.h"
+#include <chrono>
 #include "machine.h"
 #include "csr.h"
 #include "entry.h"
@@ -19,7 +20,7 @@ namespace Machine {
 
 class Hart;
 class Instr;
-using InstructionHandler = void (*)(Hart &, const std::shared_ptr<Instr>);
+using InstructionHandler = void (*)(Hart &, Instr *);
 static Word opcodeMask = static_cast<Word>(127);
 
 class Instr {
@@ -52,14 +53,14 @@ enum class SATP_MMU_MODE: int64_t {
 
 class LinearBlock
 {
-    std::vector<std::shared_ptr<Instr>> instrs;
+    std::vector<Instr> instrs;
     RegValue pc;
   public:
-    inline std::shared_ptr<Instr> instr(RegValue blockPC) {
-        return instrs[blockPC];
+    inline Instr *instr(RegValue blockPC) {
+        return &(instrs[blockPC]);
     }
     inline RegValue size(){
-        return instrs.size() - 1;
+        return instrs.size();
     }
     LinearBlock(Hart &hart, const RegValue &PC);
     operator int() const { return pc; }
@@ -72,48 +73,47 @@ class Hart {
     Machine &machine;
     ControlStatusRegisters* csr;
     RegValue special_regs[1]; // [0] - satp
+    std::chrono::_V2::system_clock::time_point startSimTime; 
 
-    std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> readTLB;
-    std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> writeTLB;
-    std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> executeTLB;
+    IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> readTLB;
+    IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> writeTLB;
+    IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> executeTLB;
 
-    std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>> BBMemCache;
+    IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT> BBMemCache;
     bool free{true};
     RegValue numOfRunnedInstr{0};
 
-    std::shared_ptr<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>> getTLB(AccessType access_type) {
+    IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> *getTLB(AccessType access_type) {
         switch (access_type) {
-            case AccessType::READ:  return readTLB;
-            case AccessType::WRITE: return writeTLB;
-            case AccessType::EXECUTE: return executeTLB;
+            case AccessType::READ:  return &readTLB;
+            case AccessType::WRITE: return &writeTLB;
+            case AccessType::EXECUTE: return &executeTLB;
             default: return nullptr;
         }
     }
 
   public:
     Hart(Machine &machine, const RegValue &PC) : machine(machine), PC(PC) {
-        readTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        writeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        executeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        readTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
+        writeTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
+        executeTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
 
-        BBMemCache = std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
-            new IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+        BBMemCache = IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>();
         Regfile[0] = 0;
     }
     Hart(Machine &machine) : machine(machine) {
-        readTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        writeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
-        executeTLB = std::make_shared<IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>>();
+        readTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
+        writeTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
+        executeTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
 
-        BBMemCache = std::shared_ptr<IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>>(
-            new IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>());
+        BBMemCache = IntBitCache<LinearBlock, INST_CACHE_BIT_SIZE, INST_CACHE_BIT_SHIFT>();
         Regfile[0] = 0;
     }
     ~Hart() {}
 
     const bool &GetStatus() { return free; }
 
-    std::shared_ptr<Instr> decode(const uWord &instrCode);
+    Instr decode(const uWord &instrCode);
     void RunSimpleInterpreterWithInstCache();
     void RunInterpreterWithBBCache();
 
@@ -175,6 +175,11 @@ class Hart {
     void handleInterrupt() {
 
     }
+
+    inline auto getStartSimTime() {
+        return startSimTime;
+    }
+    
     friend class Machine;
 };
 

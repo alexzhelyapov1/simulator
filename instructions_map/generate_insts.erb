@@ -27,13 +27,13 @@ namespace Machine
     code = instruction_set.get_code(format, instruction_name, details)
 %>
 
-void <%= instruction_name %>(Hart &hart, const std::shared_ptr<Instr> inst) {
+void <%= instruction_name %>(Hart &hart, Instr *inst) {
   <%= code %>
 }
 <% end %>
 <% end %>
 
-void ExecuteLinearBlock(Hart &hart, const std::shared_ptr<LinearBlock> &instBlock) {
+void ExecuteLinearBlock(Hart &hart, LinearBlock *instBlock) {
   static void *instrMarks[] = {
 <% size = 0 %>
 <% instruction_set.instruction_definitions.each do |format, instructions|  %>
@@ -45,7 +45,7 @@ void ExecuteLinearBlock(Hart &hart, const std::shared_ptr<LinearBlock> &instBloc
     &&RETURN
   };
   uWord blockPC = 0;
-  std::shared_ptr<Instr> inst = instBlock->instr(blockPC);
+  auto inst = instBlock->instr(blockPC);
   uint64_t mark = inst->mark;
   goto *instrMarks[mark];
 <% instruction_set.instruction_definitions.each do |format, instructions|  %>
@@ -101,7 +101,7 @@ std::map<int, std::string> logMap = {
 };
 
 // instructionMap: opcode + fn - ключ, значение - указатель на функцию-обработчик инструкции
-using InstructionHandler = void(*)(Hart&, const std::shared_ptr<Instr>);
+using InstructionHandler = void(*)(Hart&, Instr *);
 std::map<uWord, InstructionHandler> instructionMap = {
 <%= instruction_set.generate_map %>
 };
