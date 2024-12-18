@@ -154,6 +154,8 @@ class InstructionSet
       'getImmU'
     when 'J'
       'getImmJ'
+    when 'SYSTEM'
+      'getImmI'
     end
   end
 
@@ -252,27 +254,6 @@ class InstructionSet
         ]
         code =  parts.join('')
       end
-      if details.key?('rd_not_x0')
-        uimm = details.key?('uimm') ? '(uint64_t)(hart.getReg(inst->rs1) & 0b11111)' : 'hart.getReg(inst->rs1)'
-        parts = [
-          "if(inst->rd != 0) {\n",
-          "\t\tauto cur_csr = hart.getSpecialReg(inst->imm);\n",
-          "\t\thart.setReg(inst->rd, cur_csr);\n",
-          "\t}\n",
-          "\thart.setSpecialReg(inst->imm, #{uimm});"
-        ]
-        code =  parts.join('')
-      end
-      if details.key?('rs1_not_x0')
-        uimm = details.key?('uimm') ? '(uint64_t)(hart.getReg(inst->rs1) & 0b11111)' : 'hart.getReg(inst->rs1)'
-        rs1_bits = details.key?('rs1_bits') ? details['rs1_bits'] : ''
-        parts = [
-          "auto old_csr = hart.getSpecialReg(inst->imm); //read csr\n",
-          "\tif (inst->rs1 != 0) hart.setSpecialReg(inst->imm, old_csr #{rs1_bits}#{uimm}); //write csr\n",
-          "\tif (inst->rd != 0) hart.setReg(inst->rd, old_csr); //write to rd"
-        ]
-        code =  parts.join('')
-      end
     when 'R'
       mask = details.key?('mask') ? details['mask'] : ''
       uint_cast = details.key?('type') ? '(uint64_t)' : ''
@@ -314,7 +295,30 @@ class InstructionSet
       end
 
       when 'SYSTEM'
-        code = "hart.exceptionReturn(\"\" |bbPTR|);"
+        if details.key?('imm')
+          code = "hart.exceptionReturn(\"\" |bbPTR|);"
+        end
+        if details.key?('rd_not_x0')
+          uimm = details.key?('uimm') ? '(uint64_t)(hart.getReg(inst->rs1) & 0b11111)' : 'hart.getReg(inst->rs1)'
+          parts = [
+            "if(inst->rd != 0) {\n",
+            "\t\tauto cur_csr = hart.getSpecialReg(inst->imm);\n",
+            "\t\thart.setReg(inst->rd, cur_csr);\n",
+            "\t}\n",
+            "\thart.setSpecialReg(inst->imm, #{uimm});"
+          ]
+          code =  parts.join('')
+        end
+        if details.key?('rs1_not_x0')
+          uimm = details.key?('uimm') ? '(uint64_t)(hart.getReg(inst->rs1) & 0b11111)' : 'hart.getReg(inst->rs1)'
+          rs1_bits = details.key?('rs1_bits') ? details['rs1_bits'] : ''
+          parts = [
+            "auto old_csr = hart.getSpecialReg(inst->imm); //read csr\n",
+            "\tif (inst->rs1 != 0) hart.setSpecialReg(inst->imm, old_csr #{rs1_bits}#{uimm}); //write csr\n",
+            "\tif (inst->rd != 0) hart.setReg(inst->rd, old_csr); //write to rd"
+          ]
+          code =  parts.join('')
+        end
     end
     code
   end

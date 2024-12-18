@@ -52,7 +52,8 @@ formats:
     rd: [7, 11]
     f3: [12, 14]
     rs1: [15, 19]
-    f12: [20, 31]
+    imm: [20, 31]
+    # f12: [20, 31]
 
 instructions:
   LUI:
@@ -321,34 +322,34 @@ instructions:
   #   format:
 
   CSRRW: 
-    format: I
+    format: SYSTEM
     opcode: 115 
     f3: 1
     rd_not_x0: 
 
   CSRRS:
-    format: I
+    format: SYSTEM
     opcode: 115
     f3: 2
     rs1_bits: '| '
     rs1_not_x0: 
 
   CSRRC:
-    format: I
+    format: SYSTEM
     opcode: 115
     f3: 3
     rs1_bits: '& ~'
     rs1_not_x0: 
 
   CSRRWI:
-    format: I
+    format: SYSTEM
     opcode: 115
     f3: 5
     rd_not_x0: 
     uimm:
 
   CSRRSI:
-    format: I
+    format: SYSTEM
     opcode: 115
     f3: 6
     rs1_bits: '| '
@@ -356,7 +357,7 @@ instructions:
     uimm:
 
   CSRRCI:
-    format: I
+    format: SYSTEM
     opcode: 115
     f3: 7
     rs1_bits: '& ~'
@@ -369,32 +370,32 @@ instructions:
   # EBREAK:
   #   format:
 
-  URET:
-    format: SYSTEM
-    opcode: 115
-    rd: 0
-    f3: 0
-    rs1: 0
-    f12: 2
-    BBend: "true"
+  # URET:
+  #   format: SYSTEM
+  #   opcode: 115
+  #   rd: 0
+  #   f3: 0
+  #   rs1: 0
+  #   imm: 2
+  #   BBend: "true"
 
   SRET:
     format: SYSTEM
     opcode: 115
-    rd: 0
+    # rd: 0
     f3: 0
-    rs1: 0
-    f12: 258
+    # rs1: 0
+    imm: 258
     BBend: "true"
 
-  MRET:
-    format: SYSTEM
-    opcode: 115
-    rd: 0
-    f3: 0
-    rs1: 0
-    f12: 770
-    BBend: "true"
+  # MRET:
+  #   format: SYSTEM
+  #   opcode: 115
+  #   rd: 0
+  #   f3: 0
+  #   rs1: 0
+  #   imm: 770
+  #   BBend: "true"
 
   # WFI:
   #   format:
