@@ -86,15 +86,19 @@ class Hart {
     bool free{true};
     RegValue numOfRunnedInstr{0};
 
-    IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT> *getTLB(AccessType access_type) {
-        switch (access_type) {
-            case AccessType::READ:  return &readTLB;
-            case AccessType::WRITE: return &writeTLB;
-            case AccessType::EXECUTE: return &executeTLB;
-            default: return nullptr;
+    template <AccessType accessFlag>
+    IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>& getTLB() {
+        if constexpr (accessFlag == AccessType::READ) {
+            return readTLB;
+        } 
+        else if constexpr (accessFlag == AccessType::WRITE) {
+            return writeTLB;
+        } 
+        else if constexpr (accessFlag == AccessType::EXECUTE) {
+            return executeTLB;
         }
     }
-
+    
   public:
     Hart(Machine &machine, const RegValue &PC) : machine(machine), PC(PC) {
         readTLB = IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>();
@@ -146,20 +150,21 @@ class Hart {
     inline void exceptionReturn(const std::string str = "", LinearBlock *bb = nullptr);
     inline const RegValue &GetNumOfRunInstr() { return numOfRunnedInstr; }
 
-    RegValue MMU(RegValue vaddress, AccessType accessFlag);
+    template<AccessType accessFlag>
+    RegValue MMU(RegValue vaddress);
 
     template <typename ValType> ValType loadMem(RegValue address) {
-        auto hostAddress = MMU(address, AccessType::READ);
+        auto hostAddress = MMU<AccessType::READ>(address);
         return machine.loadMem<ValType>(hostAddress);
     }
 
     template <typename ValType> ValType loadtoExec(RegValue address) {
-        auto hostAddress = MMU(address, AccessType::EXECUTE);
+        auto hostAddress = MMU<AccessType::EXECUTE>(address);
         return machine.loadMem<ValType>(hostAddress);
     }
 
     template <typename ValType> void storeMem(RegValue address, ValType val) {
-        auto hostAddress = MMU(address, AccessType::WRITE);
+        auto hostAddress = MMU<AccessType::WRITE>(address);
         machine.storeMem(hostAddress, val);
     }
 
