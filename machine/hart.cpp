@@ -140,4 +140,12 @@ RegValue Hart::MMU(RegValue vaddress, AccessType accessFlag) {
     return (paddress & ~0xFFF) + offset;
 }
 
+#ifdef PLUGIN_ENABLED
+void Hart::InitPluginCalls(void *pluginHandler)
+{
+    InitHandlers(pluginHandler);
+    InitInstrPluginHandlers(*this, pluginHandler);
+}
+#endif
+
 } // namespace Machine

@@ -5,6 +5,7 @@
 #include "hart.h"
 #include "loader.h"
 #include <memory>
+#include <dlfcn.h>
 
 namespace Machine {
 class Machine;
@@ -28,7 +29,7 @@ class Simulator {
         loader = std::make_shared<Loader::Loader>(machine);
     };
 
-    void StartSimulationOnSimpleInterpreter(const std::string &filePath, const std::string &dumpMemPath = "");
+    void StartSimulationOnSimpleInterpreter(const std::string &filePath, const std::string &PluginPath = "", const std::string &dumpMemPath = "");
 
     void AllocVirtualMemToStartProcess(std::shared_ptr<Machine::Hart> &hart);
     inline void createPTE(const RegValue vaddress, const RegValue paddress, const RegValue access, std::shared_ptr<Machine::Hart> &hart) {

@@ -2,7 +2,7 @@
 
 namespace Simulator {
 
-void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, const std::string &dumpMemPath) {
+void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, const std::string &PluginPath, const std::string &dumpMemPath) {
     std::shared_ptr<Machine::Hart> simHart = nullptr;
     for (auto hart : machine->GetHarts()) {
         if (hart->GetStatus()) {
@@ -13,6 +13,24 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, 
     if (simHart == nullptr) {
         simHart = machine->CreateHart();
     }
+
+#ifdef PLUGIN_ENABLED
+    std::cout << "PLUGINS ENABLED" << std::endl;
+    void *PluginHadler = nullptr;
+    if(PluginPath != "")
+    {
+        std::cout << "plugin path: " << PluginPath << std::endl;
+        PluginHadler = dlopen(PluginPath.data(), RTLD_LAZY);
+    }
+
+    if(PluginHadler != nullptr)
+    {
+        std::cout << "PLUGIN FOUND" << std::endl;
+    }
+
+    simHart->InitPluginCalls(PluginHadler);
+
+#endif
 
     AllocVirtualMemToStartProcess(simHart);
 
