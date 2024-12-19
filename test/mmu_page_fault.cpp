@@ -43,8 +43,8 @@ int main() {
     }
     int *valid_ptr = &sum;
     *valid_ptr += 1;
-    // int *invalid_ptr = (int *)(0x13000);
-    // *invalid_ptr += 1;
+    int *invalid_ptr = (int *)(0x13000);
+    *invalid_ptr += 1;
 }
 
 // riscv64-linux-gnu-gcc -march=rv64im -nostdlib -mabi=lp64 -static ../test/mmu.cpp

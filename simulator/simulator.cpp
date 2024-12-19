@@ -33,6 +33,7 @@ void Simulator::StartSimulationOnSimpleInterpreter(const std::string &filePath, 
 #endif
 
     // AllocVirtualMemToStartProcess(simHart);
+    simHart->setReg(2, 0xFFFFF);
 
     auto pc = loader->loadElf(filePath, simHart);
     simHart->setPC(pc);

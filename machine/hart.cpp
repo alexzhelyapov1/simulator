@@ -1,3 +1,4 @@
+#include <assert.h>
 #include "hart.h"
 #include "gen_func.h"
 #include "machine.h"
@@ -96,6 +97,10 @@ RegValue Hart::MMU(RegValue vaddress) {
             << vaddress).str());
         return vaddress;
     }
+    else {
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "MMU working! Mode: 0x"
+            << static_cast<int64_t>(getSatpMmuMode())).str());
+    }
     const RegValue offset = vaddress & 0xFFF;
 
     // Try to find in TLB
@@ -119,10 +124,20 @@ RegValue Hart::MMU(RegValue vaddress) {
     static int nested_transitions = (static_cast<int64_t>(getSatpMmuMode()) >> 60) - 1;
     RegValue *current_page_table = reinterpret_cast<RegValue *>(machine.mem->GetHostAddr(getRootPageTablePaddr()));
 
+    for (int i = 0; i < (1 << 9); ++i) {
+        if (current_page_table[i] != 0) {
+            Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Non empty PTE in RPT index: 0x" << i).str());
+        }
+    }
+
     const RegValue VPN = vaddress >> 12;
+    assert(nested_transitions == 2 || nested_transitions == 3);
     for (int i = 0; i < nested_transitions; i++) {
         RegValue VPN_i = (VPN >> 9 * (nested_transitions - i)) & ((1 << 9) - 1);
         if (current_page_table[VPN_i] == 0) {
+            Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Unknown vaddr: 0x" << vaddress
+                << ", nested tables: 0x" << nested_transitions
+                << ", current table index: 0x" << i).str());
             throw std::runtime_error("Page fault.");
         }
         current_page_table = reinterpret_cast<RegValue *>(machine.mem->GetHostAddr(current_page_table[VPN_i]));
@@ -132,6 +147,8 @@ RegValue Hart::MMU(RegValue vaddress) {
 
     // Check for access rights
     if ((paddress & static_cast<RegValue>(accessFlag)) == 0) {
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Paddress: 0x" << paddress
+                << ", access: 0x" << static_cast<RegValue>(accessFlag)).str());
         throw std::runtime_error("Page fault (bad access rights).");
     }
 
