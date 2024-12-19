@@ -58,7 +58,7 @@ void ExecuteLinearBlock(Hart &hart, LinearBlock *instBlock) {
 <% instruction_set.instruction_definitions.each do |format, instructions|  %>
   <% instructions.each do |instruction_name, details| %>
     <%= instruction_name %>:
-    Log(LogLevel::DEBUG, std::string("Execute PC: ") + std::to_string(hart.getPC()));
+    Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Execute PC: 0x" << hart.getPC()).str());
     Log(LogLevel::DEBUG, std::string("Execute Instr: ") + "<%= instruction_name %>");
     {
     <%

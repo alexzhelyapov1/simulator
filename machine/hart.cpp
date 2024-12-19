@@ -67,7 +67,7 @@ void Hart::RunInterpreterWithBBCache() {
     startSimTime = std::chrono::high_resolution_clock::now();
 #endif
     while (true) {
-        Log(LogLevel::DEBUG, std::string("Decode BB PC: ") + std::to_string(PC));
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Decode BB PC: 0x" << PC).str());
         auto bb = BBMemCache.get(PC);
         if(bb == nullptr)
         {
@@ -91,6 +91,11 @@ inline void Hart::exceptionReturn(const std::string str, LinearBlock *bb) {
 
 template <AccessType accessFlag>
 RegValue Hart::MMU(RegValue vaddress) {
+    if (getSatpMmuMode() == SATP_MMU_MODE::NO_MMU) {
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "NO MMU vaddr: 0x" << vaddress << " => paddr: 0x"
+            << vaddress).str());
+        return vaddress;
+    }
     const RegValue offset = vaddress & 0xFFF;
 
     // Try to find in TLB

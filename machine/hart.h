@@ -51,6 +51,7 @@ enum class AccessType {
 
 // For convenience value = number of page tables in this mode. SATP_MODE_SIZE = 4 allows to do this
 enum class SATP_MMU_MODE: int64_t {
+    NO_MMU = 0,
     SV39 = int64_t(3) << 60,
     SV48 = int64_t(4) << 60,
 };
@@ -174,11 +175,11 @@ class Hart {
             handl(this, &(const_cast<RegValue &>(pc)), nullptr);
         }
 #endif
-        Log(LogLevel::DEBUG, std::string("Set PC with: ") + std::to_string(PC));
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Set PC with: 0x" << PC).str());
     }
 
     const RegValue &getPC() {
-        Log(LogLevel::DEBUG, std::string("Get PC: ") + std::to_string(PC));
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Get PC: 0x" << PC).str());
 #ifdef PLUGIN_ENABLED
         auto handl = handlers["getPC"];
         if(handl != nullptr)
@@ -242,11 +243,13 @@ class Hart {
     }
 
     inline SATP_MMU_MODE getSatpMmuMode() {
-        return static_cast<SATP_MMU_MODE>(special_regs[0x180] & (uint64_t(0xFFFF) << 60));
+        return static_cast<SATP_MMU_MODE>(special_regs[0x180] & (uint64_t(0xF) << 60));
     }
 
     inline RegValue getRootPageTablePaddr() {
-        return (special_regs[0x180] & (int64_t(1) << 44) - 1) << 12;
+        Log(LogLevel::DEBUG, (std::stringstream() << std::hex << "Root page table paddr: 0x"
+            << ((special_regs[0x180] & ((int64_t(1) << 44) - 1)) << 12)).str());
+        return (special_regs[0x180] & ((int64_t(1) << 44) - 1)) << 12;
     }
 
     void handleInterrupt() {
