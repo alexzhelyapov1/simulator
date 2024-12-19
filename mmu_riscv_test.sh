@@ -31,10 +31,8 @@ else
     exit -1
 fi
 
-if [[ ! -d build ]]; then
-    cmake -GNinja -DCMAKE_BUILD_TYPE=$1 -S "$SCRIPT_DIR" -B "$BUILD"
-    cmake --build "$BUILD" --parallel -j$(nproc)
-fi
+cmake -GNinja -DCMAKE_BUILD_TYPE=$1 -S "$SCRIPT_DIR" -B "$BUILD"
+cmake --build "$BUILD" --parallel --target Simulator
 
 riscv64-linux-gnu-gcc -march=rv64im -nostdlib -mabi=lp64 -static "$SCRIPT_DIR/test/mmu.cpp" -o "$BUILD/mmu.elf"
 riscv64-linux-gnu-gcc -march=rv64im -nostdlib -mabi=lp64 -static "$SCRIPT_DIR/test/mmu_page_fault.cpp" -o "$BUILD/mmu_page_fault.elf"
@@ -42,12 +40,11 @@ riscv64-linux-gnu-gcc -march=rv64im -nostdlib -mabi=lp64 -static "$SCRIPT_DIR/te
 cd $BUILD
 ninja Simulator
 
-
 if [ "$1" == "Release" ]; then
-    echo Running: "$BUILD/Simulator" "$BUILD/mmu.elf"
+    echo -e "\nRunning: $BUILD/Simulator $BUILD/mmu.elf\n"
     "$BUILD/Simulator" "$BUILD/mmu.elf"
 
-    echo Running: "$BUILD/Simulator" "$BUILD/mmu_page_fault.elf"
+    echo -e "\nRunning: $BUILD/Simulator $BUILD/mmu_page_fault.elf\n"
     "$BUILD/Simulator" "$BUILD/mmu_page_fault.elf"
 
 elif [ "$1" == "Debug" ]; then
