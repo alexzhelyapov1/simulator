@@ -83,7 +83,7 @@ class Hart {
     ControlStatusRegisters* csr;
     RegValue special_regs[1]; // [0] - satp
 #ifdef SIM_TIME
-    std::chrono::_V2::system_clock::time_point startSimTime; 
+    std::chrono::_V2::system_clock::time_point startSimTime;
 #endif
 #ifdef PLUGIN_ENABLED
     std::map<std::string, PluginMethodHandler> handlers;
@@ -100,10 +100,10 @@ class Hart {
     IntBitCache<TLBEntry, TLB_BIT_SIZE, TLB_BIT_SHIFT>& getTLB() {
         if constexpr (accessFlag == AccessType::READ) {
             return readTLB;
-        } 
+        }
         else if constexpr (accessFlag == AccessType::WRITE) {
             return writeTLB;
-        } 
+        }
         else if constexpr (accessFlag == AccessType::EXECUTE) {
             return executeTLB;
         }
@@ -193,10 +193,9 @@ class Hart {
     }
 
     void setReg(const RegId &reg, const RegValue &val) {
-        if (reg == 0) {
-            return;
+        if (reg != 0) {
+            Regfile[reg] = val;
         }
-        Regfile[reg] = val;
 #ifdef PLUGIN_ENABLED
         auto handl = handlers["setReg"];
         if(handl != nullptr)
@@ -248,7 +247,7 @@ class Hart {
         return startSimTime;
     }
 #endif
-    
+
     friend class Machine;
 };
 
