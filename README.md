@@ -43,9 +43,9 @@ riscv64-linux-gnu-objdump -D -s <elf-path> > <out-path> //objdump
 
 
 ## TODO (global project):
-- [ ] [MARIA + NIKITA]: Confirm heart API for instructions map generation.  
+- [x] [MARIA + NIKITA]: Confirm heart API for instructions map generation.  
 Basic instructions like GetReg, SysCall and others.  
-- [ ] [ALEKSEY + NIKITA]: Confirm machine API for memory access.
+- [x] [ALEKSEY + NIKITA]: Confirm machine API for memory access.
 - [x] [ALEKSEY]: ninja target `clang-force-format`.
 
 
